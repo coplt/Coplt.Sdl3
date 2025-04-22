@@ -1,0 +1,9 @@
+namespace Coplt.Sdl3;
+
+public enum SDL_GPUStoreOp
+{
+    SDL_GPU_STOREOP_STORE,
+    SDL_GPU_STOREOP_DONT_CARE,
+    SDL_GPU_STOREOP_RESOLVE,
+    SDL_GPU_STOREOP_RESOLVE_AND_STORE,
+}

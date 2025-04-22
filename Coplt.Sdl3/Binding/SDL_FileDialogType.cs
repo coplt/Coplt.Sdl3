@@ -1,0 +1,8 @@
+namespace Coplt.Sdl3;
+
+public enum SDL_FileDialogType
+{
+    SDL_FILEDIALOG_OPENFILE,
+    SDL_FILEDIALOG_SAVEFILE,
+    SDL_FILEDIALOG_OPENFOLDER,
+}

@@ -1,0 +1,9 @@
+namespace Coplt.Sdl3;
+
+public enum SDL_ChromaLocation
+{
+    SDL_CHROMA_LOCATION_NONE = 0,
+    SDL_CHROMA_LOCATION_LEFT = 1,
+    SDL_CHROMA_LOCATION_CENTER = 2,
+    SDL_CHROMA_LOCATION_TOPLEFT = 3,
+}

@@ -1,0 +1,8 @@
+namespace Coplt.Sdl3;
+
+public enum SDL_GPUPresentMode
+{
+    SDL_GPU_PRESENTMODE_VSYNC,
+    SDL_GPU_PRESENTMODE_IMMEDIATE,
+    SDL_GPU_PRESENTMODE_MAILBOX,
+}

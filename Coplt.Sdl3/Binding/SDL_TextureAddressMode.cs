@@ -1,0 +1,9 @@
+namespace Coplt.Sdl3;
+
+public enum SDL_TextureAddressMode
+{
+    SDL_TEXTURE_ADDRESS_INVALID = -1,
+    SDL_TEXTURE_ADDRESS_AUTO,
+    SDL_TEXTURE_ADDRESS_CLAMP,
+    SDL_TEXTURE_ADDRESS_WRAP,
+}

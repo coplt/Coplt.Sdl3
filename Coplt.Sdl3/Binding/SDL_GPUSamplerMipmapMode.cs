@@ -1,0 +1,7 @@
+namespace Coplt.Sdl3;
+
+public enum SDL_GPUSamplerMipmapMode
+{
+    SDL_GPU_SAMPLERMIPMAPMODE_NEAREST,
+    SDL_GPU_SAMPLERMIPMAPMODE_LINEAR,
+}
