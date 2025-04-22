@@ -11,8 +11,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
-      - name: Setup Clang
-        uses: egor-tensin/setup-clang@v1
       - name: Setup Ninja
         uses: ashutoshvarma/setup-ninja@v1.1
       - name: Cmake Setup
@@ -32,8 +30,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
-      - name: Setup Clang
-        uses: egor-tensin/setup-clang@v1
       - name: Setup Ninja
         uses: ashutoshvarma/setup-ninja@v1.1
       - name: Cmake Setup
