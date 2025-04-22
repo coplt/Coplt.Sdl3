@@ -64,8 +64,8 @@
     </ItemGroup>
 
     <!-- Inputs="@(FFI_Headers)" Outputs="@(FFI_Output)" -->
-    <Target Name="FFI" BeforeTargets="PrepareForBuild" Inputs="@(FFI_Headers)" Outputs="@(FFI_Output)" Condition="'$(NoGen)' != 'true'">
-        <Exec Command="ClangSharpPInvokeGenerator --language=c -f %(FFI_Headers.Identity) -o ../Coplt.Sdl3/Binding/%(FFI_Headers.Filename).cs @GenerateBinding.rsp"/>
-    </Target>
+<!--    <Target Name="FFI" BeforeTargets="PrepareForBuild" Inputs="@(FFI_Headers)" Outputs="@(FFI_Output)" Condition="'$(NoGen)' != 'true'">-->
+<!--        <Exec Command="ClangSharpPInvokeGenerator &#45;&#45;language=c -f %(FFI_Headers.Identity) -o ../Coplt.Sdl3/Binding/%(FFI_Headers.Filename).cs @GenerateBinding.rsp"/>-->
+<!--    </Target>-->
 
 </Project>
