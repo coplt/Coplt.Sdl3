@@ -11,8 +11,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
-      - name: Setup Ninja
-        uses: ashutoshvarma/setup-ninja@v1.1
       - name: Cmake Setup
         run: cmake --preset WinArm64
       - name: Cmake Build
