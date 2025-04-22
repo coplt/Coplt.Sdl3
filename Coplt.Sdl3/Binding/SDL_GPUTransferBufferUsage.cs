@@ -1,7 +1,0 @@
-namespace Coplt.Sdl3;
-
-public enum SDL_GPUTransferBufferUsage
-{
-    SDL_GPU_TRANSFERBUFFERUSAGE_UPLOAD,
-    SDL_GPU_TRANSFERBUFFERUSAGE_DOWNLOAD,
-}

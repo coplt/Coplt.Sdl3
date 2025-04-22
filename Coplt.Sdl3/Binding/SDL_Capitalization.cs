@@ -1,9 +1,0 @@
-namespace Coplt.Sdl3;
-
-public enum SDL_Capitalization
-{
-    SDL_CAPITALIZE_NONE,
-    SDL_CAPITALIZE_SENTENCES,
-    SDL_CAPITALIZE_WORDS,
-    SDL_CAPITALIZE_LETTERS,
-}

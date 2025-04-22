@@ -1,7 +1,0 @@
-namespace Coplt.Sdl3;
-
-public enum SDL_GPUFrontFace
-{
-    SDL_GPU_FRONTFACE_COUNTER_CLOCKWISE,
-    SDL_GPU_FRONTFACE_CLOCKWISE,
-}

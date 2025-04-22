@@ -1,9 +1,0 @@
-namespace Coplt.Sdl3;
-
-public enum SDL_ProcessIO
-{
-    SDL_PROCESS_STDIO_INHERITED,
-    SDL_PROCESS_STDIO_NULL,
-    SDL_PROCESS_STDIO_APP,
-    SDL_PROCESS_STDIO_REDIRECT,
-}

@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <FFI_Headers Include="SDL3/SDL_stdinc.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_assert.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_asyncio.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_atomic.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_audio.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_bits.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_blendmode.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_camera.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_clipboard.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_cpuinfo.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_dialog.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_endian.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_error.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_events.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_filesystem.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_gamepad.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_gpu.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_guid.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_haptic.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_hidapi.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_hints.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_init.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_iostream.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_joystick.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_keyboard.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_keycode.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_loadso.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_locale.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_log.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_messagebox.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_metal.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_misc.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_mouse.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_mutex.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_pen.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_pixels.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_platform.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_power.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_process.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_properties.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_rect.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_render.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_scancode.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_sensor.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_storage.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_surface.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_system.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_thread.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_time.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_timer.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_tray.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_touch.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_version.h" Visible="false"/>
+        <FFI_Headers Include="SDL3/SDL_video.h" Visible="false"/>
+        <FFI_Output Include="../Coplt.Sdl3/Binding/%(FFI_Headers.Filename).cs" Visible="false"/>
+    </ItemGroup>
+
+    <!-- Inputs="@(FFI_Headers)" Outputs="@(FFI_Output)" -->
+    <Target Name="FFI" BeforeTargets="PrepareForBuild" Inputs="@(FFI_Headers)" Outputs="@(FFI_Output)" Condition="'$(NoGen)' != 'true'">
+        <Exec Command="ClangSharpPInvokeGenerator --language=c -f %(FFI_Headers.Identity) -o ../Coplt.Sdl3/Binding/%(FFI_Headers.Filename).cs @GenerateBinding.rsp"/>
+    </Target>
+
+</Project>
