@@ -4,7 +4,7 @@
         <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
         <LangVersion>13.0</LangVersion>
         <Nullable>enable</Nullable>
-        <Version>3.2.11-preview.0</Version>
+        <Version>3.2.11-preview.1</Version>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <IsAotCompatible>True</IsAotCompatible>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
