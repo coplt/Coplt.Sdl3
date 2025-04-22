@@ -10,6 +10,15 @@
       "name": "Main",
       "binaryDir": "${sourceDir}/build",
       "generator": "Ninja Multi-Config"
+    },
+    {
+      "name": "WinArm64",
+      "binaryDir": "${sourceDir}/build/arm",
+      "generator": "Visual Studio 17 2022",
+      "architecture": {
+        "value": "ARM64",
+        "strategy": "set"
+      }
     }
   ],
   "buildPresets": [
@@ -26,10 +35,16 @@
       "configuration": "Release"
     },
     {
-      "name": "RelWithDebInfo",
-      "configurePreset": "Main",
-      "displayName": "Build (RelWithDebInfo)",
-      "configuration": "RelWithDebInfo"
+      "name": "Debug (WinArm64)",
+      "configurePreset": "WinArm64",
+      "displayName": "Build (Debug WinArm64)",
+      "configuration": "Debug"
+    },
+    {
+      "name": "Release (WinArm64)",
+      "configurePreset": "WinArm64",
+      "displayName": "Build (Release WinArm64)",
+      "configuration": "Release"
     }
   ]
 }
