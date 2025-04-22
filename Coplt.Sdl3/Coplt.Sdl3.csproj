@@ -4,8 +4,15 @@
         <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
         <LangVersion>13.0</LangVersion>
         <Nullable>enable</Nullable>
+        <Version>3.2.11-preview.0</Version>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <IsAotCompatible>True</IsAotCompatible>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Description>Unsafe C# bindings for SDL3</Description>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RepositoryUrl>https://github.com/coplt/Coplt.Sdl3</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/coplt/Coplt.Sdl3</PackageProjectUrl>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -13,7 +20,17 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\LICENSE.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
     </ItemGroup>
 
     <ItemGroup>

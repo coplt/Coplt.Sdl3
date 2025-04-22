@@ -3972,6 +3972,9 @@ public static unsafe partial class SDL
     [return: NativeTypeName("const char *")]
     public static extern byte* GetRevision();
 
+    [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetNumVideoDrivers", ExactSpelling = true)]
+    public static extern int GetNumVideoDrivers();
+
     [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetVideoDriver", ExactSpelling = true)]
     [return: NativeTypeName("const char *")]
     public static extern byte* GetVideoDriver(int index);
@@ -3995,6 +3998,10 @@ public static unsafe partial class SDL
     [return: NativeTypeName("SDL_PropertiesID")]
     public static extern uint GetDisplayProperties([NativeTypeName("SDL_DisplayID")] uint displayID);
 
+    [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDisplayName", ExactSpelling = true)]
+    [return: NativeTypeName("const char *")]
+    public static extern byte* GetDisplayName([NativeTypeName("SDL_DisplayID")] uint displayID);
+
     [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDisplayBounds", ExactSpelling = true)]
     [return: NativeTypeName("_Bool")]
     public static extern byte GetDisplayBounds([NativeTypeName("SDL_DisplayID")] uint displayID, SDL_Rect* rect);
@@ -4002,6 +4009,9 @@ public static unsafe partial class SDL
     [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDisplayUsableBounds", ExactSpelling = true)]
     [return: NativeTypeName("_Bool")]
     public static extern byte GetDisplayUsableBounds([NativeTypeName("SDL_DisplayID")] uint displayID, SDL_Rect* rect);
+
+    [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetNaturalDisplayOrientation", ExactSpelling = true)]
+    public static extern SDL_DisplayOrientation GetNaturalDisplayOrientation([NativeTypeName("SDL_DisplayID")] uint displayID);
 
     [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetCurrentDisplayOrientation", ExactSpelling = true)]
     public static extern SDL_DisplayOrientation GetCurrentDisplayOrientation([NativeTypeName("SDL_DisplayID")] uint displayID);
