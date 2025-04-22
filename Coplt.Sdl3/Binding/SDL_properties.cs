@@ -24,42 +24,42 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CopyProperties", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte CopyProperties([NativeTypeName("SDL_PropertiesID")] uint src, [NativeTypeName("SDL_PropertiesID")] uint dst);
+        public static extern bool8 CopyProperties([NativeTypeName("SDL_PropertiesID")] uint src, [NativeTypeName("SDL_PropertiesID")] uint dst);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_LockProperties", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte LockProperties([NativeTypeName("SDL_PropertiesID")] uint props);
+        public static extern bool8 LockProperties([NativeTypeName("SDL_PropertiesID")] uint props);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_UnlockProperties", ExactSpelling = true)]
         public static extern void UnlockProperties([NativeTypeName("SDL_PropertiesID")] uint props);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetPointerPropertyWithCleanup", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetPointerPropertyWithCleanup([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name, void* value, [NativeTypeName("SDL_CleanupPropertyCallback")] delegate* unmanaged[Cdecl]<void*, void*, void> cleanup, void* userdata);
+        public static extern bool8 SetPointerPropertyWithCleanup([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name, void* value, [NativeTypeName("SDL_CleanupPropertyCallback")] delegate* unmanaged[Cdecl]<void*, void*, void> cleanup, void* userdata);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetPointerProperty", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetPointerProperty([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name, void* value);
+        public static extern bool8 SetPointerProperty([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name, void* value);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetStringProperty", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetStringProperty([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name, [NativeTypeName("const char *")] byte* value);
+        public static extern bool8 SetStringProperty([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name, [NativeTypeName("const char *")] byte* value);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetNumberProperty", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetNumberProperty([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name, [NativeTypeName("Sint64")] long value);
+        public static extern bool8 SetNumberProperty([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name, [NativeTypeName("Sint64")] long value);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetFloatProperty", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetFloatProperty([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name, float value);
+        public static extern bool8 SetFloatProperty([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name, float value);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetBooleanProperty", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetBooleanProperty([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name, [NativeTypeName("_Bool")] byte value);
+        public static extern bool8 SetBooleanProperty([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name, [NativeTypeName("_Bool")] bool8 value);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_HasProperty", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte HasProperty([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name);
+        public static extern bool8 HasProperty([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetPropertyType", ExactSpelling = true)]
         public static extern SDL_PropertyType GetPropertyType([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name);
@@ -80,15 +80,15 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetBooleanProperty", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte GetBooleanProperty([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name, [NativeTypeName("_Bool")] byte default_value);
+        public static extern bool8 GetBooleanProperty([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name, [NativeTypeName("_Bool")] bool8 default_value);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ClearProperty", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte ClearProperty([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name);
+        public static extern bool8 ClearProperty([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("const char *")] byte* name);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_EnumerateProperties", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte EnumerateProperties([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("SDL_EnumeratePropertiesCallback")] delegate* unmanaged[Cdecl]<void*, uint, byte*, void> callback, void* userdata);
+        public static extern bool8 EnumerateProperties([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("SDL_EnumeratePropertiesCallback")] delegate* unmanaged[Cdecl]<void*, uint, byte*, void> callback, void* userdata);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_DestroyProperties", ExactSpelling = true)]
         public static extern void DestroyProperties([NativeTypeName("SDL_PropertiesID")] uint props);

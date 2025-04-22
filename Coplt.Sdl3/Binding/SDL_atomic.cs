@@ -17,7 +17,7 @@ namespace Coplt.Sdl3
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_TryLockSpinlock", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte TryLockSpinlock([NativeTypeName("SDL_SpinLock *")] int* @lock);
+        public static extern bool8 TryLockSpinlock([NativeTypeName("SDL_SpinLock *")] int* @lock);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_LockSpinlock", ExactSpelling = true)]
         public static extern void LockSpinlock([NativeTypeName("SDL_SpinLock *")] int* @lock);
@@ -33,7 +33,7 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CompareAndSwapAtomicInt", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte CompareAndSwapAtomicInt(SDL_AtomicInt* a, int oldval, int newval);
+        public static extern bool8 CompareAndSwapAtomicInt(SDL_AtomicInt* a, int oldval, int newval);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetAtomicInt", ExactSpelling = true)]
         public static extern int SetAtomicInt(SDL_AtomicInt* a, int v);
@@ -46,7 +46,7 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CompareAndSwapAtomicU32", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte CompareAndSwapAtomicU32(SDL_AtomicU32* a, [NativeTypeName("Uint32")] uint oldval, [NativeTypeName("Uint32")] uint newval);
+        public static extern bool8 CompareAndSwapAtomicU32(SDL_AtomicU32* a, [NativeTypeName("Uint32")] uint oldval, [NativeTypeName("Uint32")] uint newval);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetAtomicU32", ExactSpelling = true)]
         [return: NativeTypeName("Uint32")]
@@ -58,7 +58,7 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CompareAndSwapAtomicPointer", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte CompareAndSwapAtomicPointer(void** a, void* oldval, void* newval);
+        public static extern bool8 CompareAndSwapAtomicPointer(void** a, void* oldval, void* newval);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetAtomicPointer", ExactSpelling = true)]
         public static extern void* SetAtomicPointer(void** a, void* v);

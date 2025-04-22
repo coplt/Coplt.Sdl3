@@ -23,25 +23,25 @@ namespace Coplt.Sdl3
     public static unsafe partial class SDL
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetWindowsMessageHook", ExactSpelling = true)]
-        public static extern void SetWindowsMessageHook([NativeTypeName("SDL_WindowsMessageHook")] delegate* unmanaged[Cdecl]<void*, tagMSG*, byte> callback, void* userdata);
+        public static extern void SetWindowsMessageHook([NativeTypeName("SDL_WindowsMessageHook")] delegate* unmanaged[Cdecl]<void*, tagMSG*, bool8> callback, void* userdata);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDirect3D9AdapterIndex", ExactSpelling = true)]
         public static extern int GetDirect3D9AdapterIndex([NativeTypeName("SDL_DisplayID")] uint displayID);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDXGIOutputInfo", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte GetDXGIOutputInfo([NativeTypeName("SDL_DisplayID")] uint displayID, int* adapterIndex, int* outputIndex);
+        public static extern bool8 GetDXGIOutputInfo([NativeTypeName("SDL_DisplayID")] uint displayID, int* adapterIndex, int* outputIndex);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetX11EventHook", ExactSpelling = true)]
-        public static extern void SetX11EventHook([NativeTypeName("SDL_X11EventHook")] delegate* unmanaged[Cdecl]<void*, _XEvent*, byte> callback, void* userdata);
+        public static extern void SetX11EventHook([NativeTypeName("SDL_X11EventHook")] delegate* unmanaged[Cdecl]<void*, _XEvent*, bool8> callback, void* userdata);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_IsTablet", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte IsTablet();
+        public static extern bool8 IsTablet();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_IsTV", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte IsTV();
+        public static extern bool8 IsTV();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetSandbox", ExactSpelling = true)]
         public static extern SDL_Sandbox GetSandbox();

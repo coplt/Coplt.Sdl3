@@ -13,7 +13,7 @@ namespace Coplt.Sdl3
         }
 
         [return: NativeTypeName("_Bool")]
-        public static bool HasExactlyOneBitSet32([NativeTypeName("Uint32")] uint x)
+        public static bool8 HasExactlyOneBitSet32([NativeTypeName("Uint32")] uint x)
         {
             if ((x != 0) && (x & (x - 1)) == 0)
             {

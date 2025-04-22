@@ -59,7 +59,7 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetAudioDeviceFormat", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte GetAudioDeviceFormat([NativeTypeName("SDL_AudioDeviceID")] uint devid, SDL_AudioSpec* spec, int* sample_frames);
+        public static extern bool8 GetAudioDeviceFormat([NativeTypeName("SDL_AudioDeviceID")] uint devid, SDL_AudioSpec* spec, int* sample_frames);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetAudioDeviceChannelMap", ExactSpelling = true)]
         public static extern int* GetAudioDeviceChannelMap([NativeTypeName("SDL_AudioDeviceID")] uint devid, int* count);
@@ -70,41 +70,41 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_IsAudioDevicePhysical", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte IsAudioDevicePhysical([NativeTypeName("SDL_AudioDeviceID")] uint devid);
+        public static extern bool8 IsAudioDevicePhysical([NativeTypeName("SDL_AudioDeviceID")] uint devid);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_IsAudioDevicePlayback", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte IsAudioDevicePlayback([NativeTypeName("SDL_AudioDeviceID")] uint devid);
+        public static extern bool8 IsAudioDevicePlayback([NativeTypeName("SDL_AudioDeviceID")] uint devid);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_PauseAudioDevice", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte PauseAudioDevice([NativeTypeName("SDL_AudioDeviceID")] uint devid);
+        public static extern bool8 PauseAudioDevice([NativeTypeName("SDL_AudioDeviceID")] uint devid);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ResumeAudioDevice", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte ResumeAudioDevice([NativeTypeName("SDL_AudioDeviceID")] uint devid);
+        public static extern bool8 ResumeAudioDevice([NativeTypeName("SDL_AudioDeviceID")] uint devid);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_AudioDevicePaused", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte AudioDevicePaused([NativeTypeName("SDL_AudioDeviceID")] uint devid);
+        public static extern bool8 AudioDevicePaused([NativeTypeName("SDL_AudioDeviceID")] uint devid);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetAudioDeviceGain", ExactSpelling = true)]
         public static extern float GetAudioDeviceGain([NativeTypeName("SDL_AudioDeviceID")] uint devid);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetAudioDeviceGain", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetAudioDeviceGain([NativeTypeName("SDL_AudioDeviceID")] uint devid, float gain);
+        public static extern bool8 SetAudioDeviceGain([NativeTypeName("SDL_AudioDeviceID")] uint devid, float gain);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CloseAudioDevice", ExactSpelling = true)]
         public static extern void CloseAudioDevice([NativeTypeName("SDL_AudioDeviceID")] uint devid);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_BindAudioStreams", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte BindAudioStreams([NativeTypeName("SDL_AudioDeviceID")] uint devid, [NativeTypeName("SDL_AudioStream *const *")] SDL_AudioStream** streams, int num_streams);
+        public static extern bool8 BindAudioStreams([NativeTypeName("SDL_AudioDeviceID")] uint devid, [NativeTypeName("SDL_AudioStream *const *")] SDL_AudioStream** streams, int num_streams);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_BindAudioStream", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte BindAudioStream([NativeTypeName("SDL_AudioDeviceID")] uint devid, SDL_AudioStream* stream);
+        public static extern bool8 BindAudioStream([NativeTypeName("SDL_AudioDeviceID")] uint devid, SDL_AudioStream* stream);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_UnbindAudioStreams", ExactSpelling = true)]
         public static extern void UnbindAudioStreams([NativeTypeName("SDL_AudioStream *const *")] SDL_AudioStream** streams, int num_streams);
@@ -125,25 +125,25 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetAudioStreamFormat", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte GetAudioStreamFormat(SDL_AudioStream* stream, SDL_AudioSpec* src_spec, SDL_AudioSpec* dst_spec);
+        public static extern bool8 GetAudioStreamFormat(SDL_AudioStream* stream, SDL_AudioSpec* src_spec, SDL_AudioSpec* dst_spec);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetAudioStreamFormat", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetAudioStreamFormat(SDL_AudioStream* stream, [NativeTypeName("const SDL_AudioSpec *")] SDL_AudioSpec* src_spec, [NativeTypeName("const SDL_AudioSpec *")] SDL_AudioSpec* dst_spec);
+        public static extern bool8 SetAudioStreamFormat(SDL_AudioStream* stream, [NativeTypeName("const SDL_AudioSpec *")] SDL_AudioSpec* src_spec, [NativeTypeName("const SDL_AudioSpec *")] SDL_AudioSpec* dst_spec);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetAudioStreamFrequencyRatio", ExactSpelling = true)]
         public static extern float GetAudioStreamFrequencyRatio(SDL_AudioStream* stream);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetAudioStreamFrequencyRatio", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetAudioStreamFrequencyRatio(SDL_AudioStream* stream, float ratio);
+        public static extern bool8 SetAudioStreamFrequencyRatio(SDL_AudioStream* stream, float ratio);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetAudioStreamGain", ExactSpelling = true)]
         public static extern float GetAudioStreamGain(SDL_AudioStream* stream);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetAudioStreamGain", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetAudioStreamGain(SDL_AudioStream* stream, float gain);
+        public static extern bool8 SetAudioStreamGain(SDL_AudioStream* stream, float gain);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetAudioStreamInputChannelMap", ExactSpelling = true)]
         public static extern int* GetAudioStreamInputChannelMap(SDL_AudioStream* stream, int* count);
@@ -153,15 +153,15 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetAudioStreamInputChannelMap", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetAudioStreamInputChannelMap(SDL_AudioStream* stream, [NativeTypeName("const int *")] int* chmap, int count);
+        public static extern bool8 SetAudioStreamInputChannelMap(SDL_AudioStream* stream, [NativeTypeName("const int *")] int* chmap, int count);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetAudioStreamOutputChannelMap", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetAudioStreamOutputChannelMap(SDL_AudioStream* stream, [NativeTypeName("const int *")] int* chmap, int count);
+        public static extern bool8 SetAudioStreamOutputChannelMap(SDL_AudioStream* stream, [NativeTypeName("const int *")] int* chmap, int count);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_PutAudioStreamData", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte PutAudioStreamData(SDL_AudioStream* stream, [NativeTypeName("const void *")] void* buf, int len);
+        public static extern bool8 PutAudioStreamData(SDL_AudioStream* stream, [NativeTypeName("const void *")] void* buf, int len);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetAudioStreamData", ExactSpelling = true)]
         public static extern int GetAudioStreamData(SDL_AudioStream* stream, void* buf, int len);
@@ -174,39 +174,39 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_FlushAudioStream", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte FlushAudioStream(SDL_AudioStream* stream);
+        public static extern bool8 FlushAudioStream(SDL_AudioStream* stream);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ClearAudioStream", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte ClearAudioStream(SDL_AudioStream* stream);
+        public static extern bool8 ClearAudioStream(SDL_AudioStream* stream);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_PauseAudioStreamDevice", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte PauseAudioStreamDevice(SDL_AudioStream* stream);
+        public static extern bool8 PauseAudioStreamDevice(SDL_AudioStream* stream);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ResumeAudioStreamDevice", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte ResumeAudioStreamDevice(SDL_AudioStream* stream);
+        public static extern bool8 ResumeAudioStreamDevice(SDL_AudioStream* stream);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_AudioStreamDevicePaused", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte AudioStreamDevicePaused(SDL_AudioStream* stream);
+        public static extern bool8 AudioStreamDevicePaused(SDL_AudioStream* stream);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_LockAudioStream", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte LockAudioStream(SDL_AudioStream* stream);
+        public static extern bool8 LockAudioStream(SDL_AudioStream* stream);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_UnlockAudioStream", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte UnlockAudioStream(SDL_AudioStream* stream);
+        public static extern bool8 UnlockAudioStream(SDL_AudioStream* stream);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetAudioStreamGetCallback", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetAudioStreamGetCallback(SDL_AudioStream* stream, [NativeTypeName("SDL_AudioStreamCallback")] delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);
+        public static extern bool8 SetAudioStreamGetCallback(SDL_AudioStream* stream, [NativeTypeName("SDL_AudioStreamCallback")] delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetAudioStreamPutCallback", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetAudioStreamPutCallback(SDL_AudioStream* stream, [NativeTypeName("SDL_AudioStreamCallback")] delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);
+        public static extern bool8 SetAudioStreamPutCallback(SDL_AudioStream* stream, [NativeTypeName("SDL_AudioStreamCallback")] delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_DestroyAudioStream", ExactSpelling = true)]
         public static extern void DestroyAudioStream(SDL_AudioStream* stream);
@@ -216,23 +216,23 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetAudioPostmixCallback", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetAudioPostmixCallback([NativeTypeName("SDL_AudioDeviceID")] uint devid, [NativeTypeName("SDL_AudioPostmixCallback")] delegate* unmanaged[Cdecl]<void*, SDL_AudioSpec*, float*, int, void> callback, void* userdata);
+        public static extern bool8 SetAudioPostmixCallback([NativeTypeName("SDL_AudioDeviceID")] uint devid, [NativeTypeName("SDL_AudioPostmixCallback")] delegate* unmanaged[Cdecl]<void*, SDL_AudioSpec*, float*, int, void> callback, void* userdata);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_LoadWAV_IO", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte LoadWAV_IO(SDL_IOStream* src, [NativeTypeName("_Bool")] byte closeio, SDL_AudioSpec* spec, [NativeTypeName("Uint8 **")] byte** audio_buf, [NativeTypeName("Uint32 *")] uint* audio_len);
+        public static extern bool8 LoadWAV_IO(SDL_IOStream* src, [NativeTypeName("_Bool")] bool8 closeio, SDL_AudioSpec* spec, [NativeTypeName("Uint8 **")] byte** audio_buf, [NativeTypeName("Uint32 *")] uint* audio_len);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_LoadWAV", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte LoadWAV([NativeTypeName("const char *")] byte* path, SDL_AudioSpec* spec, [NativeTypeName("Uint8 **")] byte** audio_buf, [NativeTypeName("Uint32 *")] uint* audio_len);
+        public static extern bool8 LoadWAV([NativeTypeName("const char *")] byte* path, SDL_AudioSpec* spec, [NativeTypeName("Uint8 **")] byte** audio_buf, [NativeTypeName("Uint32 *")] uint* audio_len);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_MixAudio", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte MixAudio([NativeTypeName("Uint8 *")] byte* dst, [NativeTypeName("const Uint8 *")] byte* src, SDL_AudioFormat format, [NativeTypeName("Uint32")] uint len, float volume);
+        public static extern bool8 MixAudio([NativeTypeName("Uint8 *")] byte* dst, [NativeTypeName("const Uint8 *")] byte* src, SDL_AudioFormat format, [NativeTypeName("Uint32")] uint len, float volume);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ConvertAudioSamples", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte ConvertAudioSamples([NativeTypeName("const SDL_AudioSpec *")] SDL_AudioSpec* src_spec, [NativeTypeName("const Uint8 *")] byte* src_data, int src_len, [NativeTypeName("const SDL_AudioSpec *")] SDL_AudioSpec* dst_spec, [NativeTypeName("Uint8 **")] byte** dst_data, int* dst_len);
+        public static extern bool8 ConvertAudioSamples([NativeTypeName("const SDL_AudioSpec *")] SDL_AudioSpec* src_spec, [NativeTypeName("const Uint8 *")] byte* src_data, int src_len, [NativeTypeName("const SDL_AudioSpec *")] SDL_AudioSpec* dst_spec, [NativeTypeName("Uint8 **")] byte** dst_data, int* dst_len);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetAudioFormatName", ExactSpelling = true)]
         [return: NativeTypeName("const char *")]

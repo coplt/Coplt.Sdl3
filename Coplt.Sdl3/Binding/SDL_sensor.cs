@@ -60,7 +60,7 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetSensorData", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte GetSensorData(SDL_Sensor* sensor, float* data, int num_values);
+        public static extern bool8 GetSensorData(SDL_Sensor* sensor, float* data, int num_values);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CloseSensor", ExactSpelling = true)]
         public static extern void CloseSensor(SDL_Sensor* sensor);

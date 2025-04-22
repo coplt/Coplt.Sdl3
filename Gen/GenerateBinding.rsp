@@ -12,6 +12,7 @@ strip-enum-member-type-name
 SDL_
 --remap
 char=byte
+bool=bool8
 --define-macro
 COPLT_BINDGEN
 --libraryPath

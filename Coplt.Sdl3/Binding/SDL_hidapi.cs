@@ -125,6 +125,6 @@ namespace Coplt.Sdl3
         public static extern int hid_get_report_descriptor(SDL_hid_device* dev, [NativeTypeName("unsigned char *")] byte* buf, [NativeTypeName("size_t")] nuint buf_size);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_hid_ble_scan", ExactSpelling = true)]
-        public static extern void hid_ble_scan([NativeTypeName("_Bool")] byte active);
+        public static extern void hid_ble_scan([NativeTypeName("_Bool")] bool8 active);
     }
 }

@@ -6,6 +6,6 @@ namespace Coplt.Sdl3
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_OpenURL", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte OpenURL([NativeTypeName("const char *")] byte* url);
+        public static extern bool8 OpenURL([NativeTypeName("const char *")] byte* url);
     }
 }

@@ -71,7 +71,7 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetCameraFormat", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte GetCameraFormat(SDL_Camera* camera, SDL_CameraSpec* spec);
+        public static extern bool8 GetCameraFormat(SDL_Camera* camera, SDL_CameraSpec* spec);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_AcquireCameraFrame", ExactSpelling = true)]
         public static extern SDL_Surface* AcquireCameraFrame(SDL_Camera* camera, [NativeTypeName("Uint64 *")] ulong* timestampNS);

@@ -74,10 +74,10 @@ namespace Coplt.Sdl3
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ShowMessageBox", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte ShowMessageBox([NativeTypeName("const SDL_MessageBoxData *")] SDL_MessageBoxData* messageboxdata, int* buttonid);
+        public static extern bool8 ShowMessageBox([NativeTypeName("const SDL_MessageBoxData *")] SDL_MessageBoxData* messageboxdata, int* buttonid);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ShowSimpleMessageBox", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte ShowSimpleMessageBox([NativeTypeName("SDL_MessageBoxFlags")] uint flags, [NativeTypeName("const char *")] byte* title, [NativeTypeName("const char *")] byte* message, SDL_Window* window);
+        public static extern bool8 ShowSimpleMessageBox([NativeTypeName("SDL_MessageBoxFlags")] uint flags, [NativeTypeName("const char *")] byte* title, [NativeTypeName("const char *")] byte* message, SDL_Window* window);
     }
 }

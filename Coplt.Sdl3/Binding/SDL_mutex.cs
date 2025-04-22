@@ -46,7 +46,7 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_TryLockMutex", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte TryLockMutex(SDL_Mutex* mutex);
+        public static extern bool8 TryLockMutex(SDL_Mutex* mutex);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_UnlockMutex", ExactSpelling = true)]
         public static extern void UnlockMutex(SDL_Mutex* mutex);
@@ -65,11 +65,11 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_TryLockRWLockForReading", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte TryLockRWLockForReading(SDL_RWLock* rwlock);
+        public static extern bool8 TryLockRWLockForReading(SDL_RWLock* rwlock);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_TryLockRWLockForWriting", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte TryLockRWLockForWriting(SDL_RWLock* rwlock);
+        public static extern bool8 TryLockRWLockForWriting(SDL_RWLock* rwlock);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_UnlockRWLock", ExactSpelling = true)]
         public static extern void UnlockRWLock(SDL_RWLock* rwlock);
@@ -88,11 +88,11 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_TryWaitSemaphore", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte TryWaitSemaphore(SDL_Semaphore* sem);
+        public static extern bool8 TryWaitSemaphore(SDL_Semaphore* sem);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_WaitSemaphoreTimeout", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte WaitSemaphoreTimeout(SDL_Semaphore* sem, [NativeTypeName("Sint32")] int timeoutMS);
+        public static extern bool8 WaitSemaphoreTimeout(SDL_Semaphore* sem, [NativeTypeName("Sint32")] int timeoutMS);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SignalSemaphore", ExactSpelling = true)]
         public static extern void SignalSemaphore(SDL_Semaphore* sem);
@@ -118,17 +118,17 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_WaitConditionTimeout", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte WaitConditionTimeout(SDL_Condition* cond, SDL_Mutex* mutex, [NativeTypeName("Sint32")] int timeoutMS);
+        public static extern bool8 WaitConditionTimeout(SDL_Condition* cond, SDL_Mutex* mutex, [NativeTypeName("Sint32")] int timeoutMS);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ShouldInit", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte ShouldInit(SDL_InitState* state);
+        public static extern bool8 ShouldInit(SDL_InitState* state);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ShouldQuit", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte ShouldQuit(SDL_InitState* state);
+        public static extern bool8 ShouldQuit(SDL_InitState* state);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetInitialized", ExactSpelling = true)]
-        public static extern void SetInitialized(SDL_InitState* state, [NativeTypeName("_Bool")] byte initialized);
+        public static extern void SetInitialized(SDL_InitState* state, [NativeTypeName("_Bool")] bool8 initialized);
     }
 }

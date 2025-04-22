@@ -14,7 +14,7 @@ namespace Coplt.Sdl3
     public unsafe partial struct SDL_AssertData
     {
         [NativeTypeName("_Bool")]
-        public byte always_ignore;
+        public bool8 always_ignore;
 
         [NativeTypeName("unsigned int")]
         public uint trigger_count;

@@ -44,7 +44,7 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetCurrentThreadPriority", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetCurrentThreadPriority(SDL_ThreadPriority priority);
+        public static extern bool8 SetCurrentThreadPriority(SDL_ThreadPriority priority);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_WaitThread", ExactSpelling = true)]
         public static extern void WaitThread(SDL_Thread* thread, int* status);
@@ -60,7 +60,7 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetTLS", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte SetTLS([NativeTypeName("SDL_TLSID *")] SDL_AtomicInt* id, [NativeTypeName("const void *")] void* value, [NativeTypeName("SDL_TLSDestructorCallback")] delegate* unmanaged[Cdecl]<void*, void> destructor);
+        public static extern bool8 SetTLS([NativeTypeName("SDL_TLSID *")] SDL_AtomicInt* id, [NativeTypeName("const void *")] void* value, [NativeTypeName("SDL_TLSDestructorCallback")] delegate* unmanaged[Cdecl]<void*, void> destructor);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CleanupTLS", ExactSpelling = true)]
         public static extern void CleanupTLS();

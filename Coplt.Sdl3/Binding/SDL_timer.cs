@@ -39,6 +39,6 @@ namespace Coplt.Sdl3
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_RemoveTimer", ExactSpelling = true)]
         [return: NativeTypeName("_Bool")]
-        public static extern byte RemoveTimer([NativeTypeName("SDL_TimerID")] uint id);
+        public static extern bool8 RemoveTimer([NativeTypeName("SDL_TimerID")] uint id);
     }
 }
