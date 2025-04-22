@@ -1,0 +1,25 @@
+﻿name: Build
+
+on:
+  workflow_dispatch
+  
+jobs:
+  build-windows-arm64:
+    runs-on: windows-11-arm
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+      - name: Setup Ninja
+        uses: ashutoshvarma/setup-ninja@v1.1
+      - name: Cmake Setup
+        run: cmake --preset WinArm64
+      - name: Cmake Build
+        run: cmake --build --target SDL3-shared --config Release --preset "Release (WinArm64)"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 'native-windows-arm64'
+          path: ./build/arm/SDL/Release/SDL3.dll
+          overwrite: true
+  
