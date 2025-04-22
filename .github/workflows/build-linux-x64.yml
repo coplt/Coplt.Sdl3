@@ -1,0 +1,26 @@
+﻿name: Build Windows x64
+
+on:
+  workflow_dispatch
+  
+jobs:
+  build-ubuntu-x64:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+      - name: Setup Clang
+        uses: egor-tensin/setup-clang@v1
+      - name: Setup Ninja
+        uses: ashutoshvarma/setup-ninja@v1.1
+      - name: Cmake Setup
+        run: cmake --preset Main
+      - name: Cmake Build
+        run: cmake --build --target SDL3-shared --config Release --preset Release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 'native-ubuntu-x64'
+          path: ./build/SDL/Release/libSDL3.so
+          overwrite: true
