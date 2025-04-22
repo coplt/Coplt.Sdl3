@@ -4,7 +4,7 @@ on:
   workflow_dispatch
   
 jobs:
-  build-ubuntu-x64:
+  build-linux-x64:
     runs-on: ubuntu-latest
     
     steps:
@@ -21,6 +21,6 @@ jobs:
         run: cmake --build --target SDL3-shared --config Release --preset Release
       - uses: actions/upload-artifact@v4
         with:
-          name: 'native-ubuntu-x64'
+          name: 'native-linux-x64'
           path: ./build/SDL/Release/libSDL3.so
           overwrite: true
