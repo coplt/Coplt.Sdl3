@@ -242,16 +242,9 @@ namespace Coplt.Sdl3
 
     public partial struct SDL_Color
     {
-        [NativeTypeName("Uint8")]
         public byte r;
-
-        [NativeTypeName("Uint8")]
         public byte g;
-
-        [NativeTypeName("Uint8")]
         public byte b;
-
-        [NativeTypeName("Uint8")]
         public byte a;
     }
 
@@ -271,8 +264,6 @@ namespace Coplt.Sdl3
         public int ncolors;
 
         public SDL_Color* colors;
-
-        [NativeTypeName("Uint32")]
         public uint version;
 
         public int refcount;
@@ -281,50 +272,20 @@ namespace Coplt.Sdl3
     public partial struct SDL_PixelFormatDetails
     {
         public SDL_PixelFormat format;
-
-        [NativeTypeName("Uint8")]
         public byte bits_per_pixel;
-
-        [NativeTypeName("Uint8")]
         public byte bytes_per_pixel;
-
-        [NativeTypeName("Uint8[2]")]
         public _padding_e__FixedBuffer padding;
-
-        [NativeTypeName("Uint32")]
         public uint Rmask;
-
-        [NativeTypeName("Uint32")]
         public uint Gmask;
-
-        [NativeTypeName("Uint32")]
         public uint Bmask;
-
-        [NativeTypeName("Uint32")]
         public uint Amask;
-
-        [NativeTypeName("Uint8")]
         public byte Rbits;
-
-        [NativeTypeName("Uint8")]
         public byte Gbits;
-
-        [NativeTypeName("Uint8")]
         public byte Bbits;
-
-        [NativeTypeName("Uint8")]
         public byte Abits;
-
-        [NativeTypeName("Uint8")]
         public byte Rshift;
-
-        [NativeTypeName("Uint8")]
         public byte Gshift;
-
-        [NativeTypeName("Uint8")]
         public byte Bshift;
-
-        [NativeTypeName("Uint8")]
         public byte Ashift;
 
         [InlineArray(2)]
@@ -337,42 +298,36 @@ namespace Coplt.Sdl3
     public static unsafe partial class SDL
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetPixelFormatName", ExactSpelling = true)]
-        [return: NativeTypeName("const char *")]
         public static extern byte* GetPixelFormatName(SDL_PixelFormat format);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetMasksForPixelFormat", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 GetMasksForPixelFormat(SDL_PixelFormat format, int* bpp, [NativeTypeName("Uint32 *")] uint* Rmask, [NativeTypeName("Uint32 *")] uint* Gmask, [NativeTypeName("Uint32 *")] uint* Bmask, [NativeTypeName("Uint32 *")] uint* Amask);
+        public static extern bool8 GetMasksForPixelFormat(SDL_PixelFormat format, int* bpp,uint* Rmask,uint* Gmask,uint* Bmask,uint* Amask);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetPixelFormatForMasks", ExactSpelling = true)]
-        public static extern SDL_PixelFormat GetPixelFormatForMasks(int bpp, [NativeTypeName("Uint32")] uint Rmask, [NativeTypeName("Uint32")] uint Gmask, [NativeTypeName("Uint32")] uint Bmask, [NativeTypeName("Uint32")] uint Amask);
+        public static extern SDL_PixelFormat GetPixelFormatForMasks(int bpp,uint Rmask,uint Gmask,uint Bmask,uint Amask);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetPixelFormatDetails", ExactSpelling = true)]
-        [return: NativeTypeName("const SDL_PixelFormatDetails *")]
         public static extern SDL_PixelFormatDetails* GetPixelFormatDetails(SDL_PixelFormat format);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreatePalette", ExactSpelling = true)]
         public static extern SDL_Palette* CreatePalette(int ncolors);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetPaletteColors", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 SetPaletteColors(SDL_Palette* palette, [NativeTypeName("const SDL_Color *")] SDL_Color* colors, int firstcolor, int ncolors);
+        public static extern bool8 SetPaletteColors(SDL_Palette* palette,SDL_Color* colors, int firstcolor, int ncolors);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_DestroyPalette", ExactSpelling = true)]
         public static extern void DestroyPalette(SDL_Palette* palette);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_MapRGB", ExactSpelling = true)]
-        [return: NativeTypeName("Uint32")]
-        public static extern uint MapRGB([NativeTypeName("const SDL_PixelFormatDetails *")] SDL_PixelFormatDetails* format, [NativeTypeName("const SDL_Palette *")] SDL_Palette* palette, [NativeTypeName("Uint8")] byte r, [NativeTypeName("Uint8")] byte g, [NativeTypeName("Uint8")] byte b);
+        public static extern uint MapRGB(SDL_PixelFormatDetails* format,SDL_Palette* palette,byte r,byte g,byte b);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_MapRGBA", ExactSpelling = true)]
-        [return: NativeTypeName("Uint32")]
-        public static extern uint MapRGBA([NativeTypeName("const SDL_PixelFormatDetails *")] SDL_PixelFormatDetails* format, [NativeTypeName("const SDL_Palette *")] SDL_Palette* palette, [NativeTypeName("Uint8")] byte r, [NativeTypeName("Uint8")] byte g, [NativeTypeName("Uint8")] byte b, [NativeTypeName("Uint8")] byte a);
+        public static extern uint MapRGBA(SDL_PixelFormatDetails* format,SDL_Palette* palette,byte r,byte g,byte b,byte a);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetRGB", ExactSpelling = true)]
-        public static extern void GetRGB([NativeTypeName("Uint32")] uint pixel, [NativeTypeName("const SDL_PixelFormatDetails *")] SDL_PixelFormatDetails* format, [NativeTypeName("const SDL_Palette *")] SDL_Palette* palette, [NativeTypeName("Uint8 *")] byte* r, [NativeTypeName("Uint8 *")] byte* g, [NativeTypeName("Uint8 *")] byte* b);
+        public static extern void GetRGB(uint pixel,SDL_PixelFormatDetails* format,SDL_Palette* palette,byte* r,byte* g,byte* b);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetRGBA", ExactSpelling = true)]
-        public static extern void GetRGBA([NativeTypeName("Uint32")] uint pixel, [NativeTypeName("const SDL_PixelFormatDetails *")] SDL_PixelFormatDetails* format, [NativeTypeName("const SDL_Palette *")] SDL_Palette* palette, [NativeTypeName("Uint8 *")] byte* r, [NativeTypeName("Uint8 *")] byte* g, [NativeTypeName("Uint8 *")] byte* b, [NativeTypeName("Uint8 *")] byte* a);
+        public static extern void GetRGBA(uint pixel,SDL_PixelFormatDetails* format,SDL_Palette* palette,byte* r,byte* g,byte* b,byte* a);
     }
 }

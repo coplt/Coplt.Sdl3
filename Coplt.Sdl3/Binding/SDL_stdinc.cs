@@ -4,7 +4,6 @@ namespace Coplt.Sdl3
 {
     public unsafe partial struct SDL_alignment_test
     {
-        [NativeTypeName("Uint8")]
         public byte a;
 
         public void* b;
@@ -26,29 +25,28 @@ namespace Coplt.Sdl3
     public static unsafe partial class SDL
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_malloc", ExactSpelling = true)]
-        public static extern void* malloc([NativeTypeName("size_t")] nuint size);
+        public static extern void* malloc(nuint size);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_calloc", ExactSpelling = true)]
-        public static extern void* calloc([NativeTypeName("size_t")] nuint nmemb, [NativeTypeName("size_t")] nuint size);
+        public static extern void* calloc(nuint nmemb,nuint size);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_realloc", ExactSpelling = true)]
-        public static extern void* realloc(void* mem, [NativeTypeName("size_t")] nuint size);
+        public static extern void* realloc(void* mem,nuint size);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_free", ExactSpelling = true)]
         public static extern void free(void* mem);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetOriginalMemoryFunctions", ExactSpelling = true)]
-        public static extern void GetOriginalMemoryFunctions([NativeTypeName("SDL_malloc_func *")] delegate* unmanaged[Cdecl]<nuint, void*>* malloc_func, [NativeTypeName("SDL_calloc_func *")] delegate* unmanaged[Cdecl]<nuint, nuint, void*>* calloc_func, [NativeTypeName("SDL_realloc_func *")] delegate* unmanaged[Cdecl]<void*, nuint, void*>* realloc_func, [NativeTypeName("SDL_free_func *")] delegate* unmanaged[Cdecl]<void*, void>* free_func);
+        public static extern void GetOriginalMemoryFunctions(delegate* unmanaged[Cdecl]<nuint, void*>* malloc_func,delegate* unmanaged[Cdecl]<nuint, nuint, void*>* calloc_func,delegate* unmanaged[Cdecl]<void*, nuint, void*>* realloc_func,delegate* unmanaged[Cdecl]<void*, void>* free_func);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetMemoryFunctions", ExactSpelling = true)]
-        public static extern void GetMemoryFunctions([NativeTypeName("SDL_malloc_func *")] delegate* unmanaged[Cdecl]<nuint, void*>* malloc_func, [NativeTypeName("SDL_calloc_func *")] delegate* unmanaged[Cdecl]<nuint, nuint, void*>* calloc_func, [NativeTypeName("SDL_realloc_func *")] delegate* unmanaged[Cdecl]<void*, nuint, void*>* realloc_func, [NativeTypeName("SDL_free_func *")] delegate* unmanaged[Cdecl]<void*, void>* free_func);
+        public static extern void GetMemoryFunctions(delegate* unmanaged[Cdecl]<nuint, void*>* malloc_func,delegate* unmanaged[Cdecl]<nuint, nuint, void*>* calloc_func,delegate* unmanaged[Cdecl]<void*, nuint, void*>* realloc_func,delegate* unmanaged[Cdecl]<void*, void>* free_func);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetMemoryFunctions", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 SetMemoryFunctions([NativeTypeName("SDL_malloc_func")] delegate* unmanaged[Cdecl]<nuint, void*> malloc_func, [NativeTypeName("SDL_calloc_func")] delegate* unmanaged[Cdecl]<nuint, nuint, void*> calloc_func, [NativeTypeName("SDL_realloc_func")] delegate* unmanaged[Cdecl]<void*, nuint, void*> realloc_func, [NativeTypeName("SDL_free_func")] delegate* unmanaged[Cdecl]<void*, void> free_func);
+        public static extern bool8 SetMemoryFunctions(delegate* unmanaged[Cdecl]<nuint, void*> malloc_func,delegate* unmanaged[Cdecl]<nuint, nuint, void*> calloc_func,delegate* unmanaged[Cdecl]<void*, nuint, void*> realloc_func,delegate* unmanaged[Cdecl]<void*, void> free_func);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_aligned_alloc", ExactSpelling = true)]
-        public static extern void* aligned_alloc([NativeTypeName("size_t")] nuint alignment, [NativeTypeName("size_t")] nuint size);
+        public static extern void* aligned_alloc(nuint alignment,nuint size);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_aligned_free", ExactSpelling = true)]
         public static extern void aligned_free(void* mem);
@@ -60,52 +58,46 @@ namespace Coplt.Sdl3
         public static extern SDL_Environment* GetEnvironment();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateEnvironment", ExactSpelling = true)]
-        public static extern SDL_Environment* CreateEnvironment([NativeTypeName("_Bool")] bool8 populated);
+        public static extern SDL_Environment* CreateEnvironment(bool8 populated);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetEnvironmentVariable", ExactSpelling = true)]
-        [return: NativeTypeName("const char *")]
-        public static extern byte* GetEnvironmentVariable(SDL_Environment* env, [NativeTypeName("const char *")] byte* name);
+        public static extern byte* GetEnvironmentVariable(SDL_Environment* env,byte* name);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetEnvironmentVariables", ExactSpelling = true)]
-        [return: NativeTypeName("char **")]
         public static extern byte** GetEnvironmentVariables(SDL_Environment* env);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetEnvironmentVariable", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 SetEnvironmentVariable(SDL_Environment* env, [NativeTypeName("const char *")] byte* name, [NativeTypeName("const char *")] byte* value, [NativeTypeName("_Bool")] bool8 overwrite);
+        public static extern bool8 SetEnvironmentVariable(SDL_Environment* env,byte* name,byte* value,bool8 overwrite);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_UnsetEnvironmentVariable", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 UnsetEnvironmentVariable(SDL_Environment* env, [NativeTypeName("const char *")] byte* name);
+        public static extern bool8 UnsetEnvironmentVariable(SDL_Environment* env,byte* name);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_DestroyEnvironment", ExactSpelling = true)]
         public static extern void DestroyEnvironment(SDL_Environment* env);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_getenv", ExactSpelling = true)]
-        [return: NativeTypeName("const char *")]
-        public static extern byte* getenv([NativeTypeName("const char *")] byte* name);
+        public static extern byte* getenv(byte* name);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_getenv_unsafe", ExactSpelling = true)]
-        [return: NativeTypeName("const char *")]
-        public static extern byte* getenv_unsafe([NativeTypeName("const char *")] byte* name);
+        public static extern byte* getenv_unsafe(byte* name);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_setenv_unsafe", ExactSpelling = true)]
-        public static extern int setenv_unsafe([NativeTypeName("const char *")] byte* name, [NativeTypeName("const char *")] byte* value, int overwrite);
+        public static extern int setenv_unsafe(byte* name,byte* value, int overwrite);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_unsetenv_unsafe", ExactSpelling = true)]
-        public static extern int unsetenv_unsafe([NativeTypeName("const char *")] byte* name);
+        public static extern int unsetenv_unsafe(byte* name);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_qsort", ExactSpelling = true)]
-        public static extern void qsort(void* @base, [NativeTypeName("size_t")] nuint nmemb, [NativeTypeName("size_t")] nuint size, [NativeTypeName("SDL_CompareCallback")] delegate* unmanaged[Cdecl]<void*, void*, int> compare);
+        public static extern void qsort(void* @base,nuint nmemb,nuint size,delegate* unmanaged[Cdecl]<void*, void*, int> compare);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_bsearch", ExactSpelling = true)]
-        public static extern void* bsearch([NativeTypeName("const void *")] void* key, [NativeTypeName("const void *")] void* @base, [NativeTypeName("size_t")] nuint nmemb, [NativeTypeName("size_t")] nuint size, [NativeTypeName("SDL_CompareCallback")] delegate* unmanaged[Cdecl]<void*, void*, int> compare);
+        public static extern void* bsearch(void* key,void* @base,nuint nmemb,nuint size,delegate* unmanaged[Cdecl]<void*, void*, int> compare);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_qsort_r", ExactSpelling = true)]
-        public static extern void qsort_r(void* @base, [NativeTypeName("size_t")] nuint nmemb, [NativeTypeName("size_t")] nuint size, [NativeTypeName("SDL_CompareCallback_r")] delegate* unmanaged[Cdecl]<void*, void*, void*, int> compare, void* userdata);
+        public static extern void qsort_r(void* @base,nuint nmemb,nuint size,delegate* unmanaged[Cdecl]<void*, void*, void*, int> compare, void* userdata);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_bsearch_r", ExactSpelling = true)]
-        public static extern void* bsearch_r([NativeTypeName("const void *")] void* key, [NativeTypeName("const void *")] void* @base, [NativeTypeName("size_t")] nuint nmemb, [NativeTypeName("size_t")] nuint size, [NativeTypeName("SDL_CompareCallback_r")] delegate* unmanaged[Cdecl]<void*, void*, void*, int> compare, void* userdata);
+        public static extern void* bsearch_r(void* key,void* @base,nuint nmemb,nuint size,delegate* unmanaged[Cdecl]<void*, void*, void*, int> compare, void* userdata);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_abs", ExactSpelling = true)]
         public static extern int abs(int x);
@@ -153,273 +145,226 @@ namespace Coplt.Sdl3
         public static extern int tolower(int x);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_crc16", ExactSpelling = true)]
-        [return: NativeTypeName("Uint16")]
-        public static extern ushort crc16([NativeTypeName("Uint16")] ushort crc, [NativeTypeName("const void *")] void* data, [NativeTypeName("size_t")] nuint len);
+        public static extern ushort crc16(ushort crc,void* data,nuint len);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_crc32", ExactSpelling = true)]
-        [return: NativeTypeName("Uint32")]
-        public static extern uint crc32([NativeTypeName("Uint32")] uint crc, [NativeTypeName("const void *")] void* data, [NativeTypeName("size_t")] nuint len);
+        public static extern uint crc32(uint crc,void* data,nuint len);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_murmur3_32", ExactSpelling = true)]
-        [return: NativeTypeName("Uint32")]
-        public static extern uint murmur3_32([NativeTypeName("const void *")] void* data, [NativeTypeName("size_t")] nuint len, [NativeTypeName("Uint32")] uint seed);
+        public static extern uint murmur3_32(void* data,nuint len,uint seed);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_memcpy", ExactSpelling = true)]
-        public static extern void* memcpy(void* dst, [NativeTypeName("const void *")] void* src, [NativeTypeName("size_t")] nuint len);
+        public static extern void* memcpy(void* dst,void* src,nuint len);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_memmove", ExactSpelling = true)]
-        public static extern void* memmove(void* dst, [NativeTypeName("const void *")] void* src, [NativeTypeName("size_t")] nuint len);
+        public static extern void* memmove(void* dst,void* src,nuint len);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_memset", ExactSpelling = true)]
-        public static extern void* memset(void* dst, int c, [NativeTypeName("size_t")] nuint len);
+        public static extern void* memset(void* dst, int c,nuint len);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_memset4", ExactSpelling = true)]
-        public static extern void* memset4(void* dst, [NativeTypeName("Uint32")] uint val, [NativeTypeName("size_t")] nuint dwords);
+        public static extern void* memset4(void* dst,uint val,nuint dwords);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_memcmp", ExactSpelling = true)]
-        public static extern int memcmp([NativeTypeName("const void *")] void* s1, [NativeTypeName("const void *")] void* s2, [NativeTypeName("size_t")] nuint len);
+        public static extern int memcmp(void* s1,void* s2,nuint len);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_wcslen", ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern nuint wcslen([NativeTypeName("const wchar_t *")] ushort* wstr);
+        public static extern nuint wcslen(ushort* wstr);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_wcsnlen", ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern nuint wcsnlen([NativeTypeName("const wchar_t *")] ushort* wstr, [NativeTypeName("size_t")] nuint maxlen);
+        public static extern nuint wcsnlen(ushort* wstr,nuint maxlen);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_wcslcpy", ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern nuint wcslcpy([NativeTypeName("wchar_t *")] ushort* dst, [NativeTypeName("const wchar_t *")] ushort* src, [NativeTypeName("size_t")] nuint maxlen);
+        public static extern nuint wcslcpy(ushort* dst,ushort* src,nuint maxlen);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_wcslcat", ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern nuint wcslcat([NativeTypeName("wchar_t *")] ushort* dst, [NativeTypeName("const wchar_t *")] ushort* src, [NativeTypeName("size_t")] nuint maxlen);
+        public static extern nuint wcslcat(ushort* dst,ushort* src,nuint maxlen);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_wcsdup", ExactSpelling = true)]
-        [return: NativeTypeName("wchar_t *")]
-        public static extern ushort* wcsdup([NativeTypeName("const wchar_t *")] ushort* wstr);
+        public static extern ushort* wcsdup(ushort* wstr);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_wcsstr", ExactSpelling = true)]
-        [return: NativeTypeName("wchar_t *")]
-        public static extern ushort* wcsstr([NativeTypeName("const wchar_t *")] ushort* haystack, [NativeTypeName("const wchar_t *")] ushort* needle);
+        public static extern ushort* wcsstr(ushort* haystack,ushort* needle);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_wcsnstr", ExactSpelling = true)]
-        [return: NativeTypeName("wchar_t *")]
-        public static extern ushort* wcsnstr([NativeTypeName("const wchar_t *")] ushort* haystack, [NativeTypeName("const wchar_t *")] ushort* needle, [NativeTypeName("size_t")] nuint maxlen);
+        public static extern ushort* wcsnstr(ushort* haystack,ushort* needle,nuint maxlen);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_wcscmp", ExactSpelling = true)]
-        public static extern int wcscmp([NativeTypeName("const wchar_t *")] ushort* str1, [NativeTypeName("const wchar_t *")] ushort* str2);
+        public static extern int wcscmp(ushort* str1,ushort* str2);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_wcsncmp", ExactSpelling = true)]
-        public static extern int wcsncmp([NativeTypeName("const wchar_t *")] ushort* str1, [NativeTypeName("const wchar_t *")] ushort* str2, [NativeTypeName("size_t")] nuint maxlen);
+        public static extern int wcsncmp(ushort* str1,ushort* str2,nuint maxlen);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_wcscasecmp", ExactSpelling = true)]
-        public static extern int wcscasecmp([NativeTypeName("const wchar_t *")] ushort* str1, [NativeTypeName("const wchar_t *")] ushort* str2);
+        public static extern int wcscasecmp(ushort* str1,ushort* str2);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_wcsncasecmp", ExactSpelling = true)]
-        public static extern int wcsncasecmp([NativeTypeName("const wchar_t *")] ushort* str1, [NativeTypeName("const wchar_t *")] ushort* str2, [NativeTypeName("size_t")] nuint maxlen);
+        public static extern int wcsncasecmp(ushort* str1,ushort* str2,nuint maxlen);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_wcstol", ExactSpelling = true)]
-        [return: NativeTypeName("long")]
-        public static extern nint wcstol([NativeTypeName("const wchar_t *")] ushort* str, [NativeTypeName("wchar_t **")] ushort** endp, int @base);
+        public static extern nint wcstol(ushort* str,ushort** endp, int @base);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strlen", ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern nuint strlen([NativeTypeName("const char *")] byte* str);
+        public static extern nuint strlen(byte* str);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strnlen", ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern nuint strnlen([NativeTypeName("const char *")] byte* str, [NativeTypeName("size_t")] nuint maxlen);
+        public static extern nuint strnlen(byte* str,nuint maxlen);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strlcpy", ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern nuint strlcpy([NativeTypeName("char *")] byte* dst, [NativeTypeName("const char *")] byte* src, [NativeTypeName("size_t")] nuint maxlen);
+        public static extern nuint strlcpy(byte* dst,byte* src,nuint maxlen);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_utf8strlcpy", ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern nuint utf8strlcpy([NativeTypeName("char *")] byte* dst, [NativeTypeName("const char *")] byte* src, [NativeTypeName("size_t")] nuint dst_bytes);
+        public static extern nuint utf8strlcpy(byte* dst,byte* src,nuint dst_bytes);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strlcat", ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern nuint strlcat([NativeTypeName("char *")] byte* dst, [NativeTypeName("const char *")] byte* src, [NativeTypeName("size_t")] nuint maxlen);
+        public static extern nuint strlcat(byte* dst,byte* src,nuint maxlen);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strdup", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* strdup([NativeTypeName("const char *")] byte* str);
+        public static extern byte* strdup(byte* str);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strndup", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* strndup([NativeTypeName("const char *")] byte* str, [NativeTypeName("size_t")] nuint maxlen);
+        public static extern byte* strndup(byte* str,nuint maxlen);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strrev", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* strrev([NativeTypeName("char *")] byte* str);
+        public static extern byte* strrev(byte* str);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strupr", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* strupr([NativeTypeName("char *")] byte* str);
+        public static extern byte* strupr(byte* str);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strlwr", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* strlwr([NativeTypeName("char *")] byte* str);
+        public static extern byte* strlwr(byte* str);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strchr", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* strchr([NativeTypeName("const char *")] byte* str, int c);
+        public static extern byte* strchr(byte* str, int c);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strrchr", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* strrchr([NativeTypeName("const char *")] byte* str, int c);
+        public static extern byte* strrchr(byte* str, int c);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strstr", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* strstr([NativeTypeName("const char *")] byte* haystack, [NativeTypeName("const char *")] byte* needle);
+        public static extern byte* strstr(byte* haystack,byte* needle);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strnstr", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* strnstr([NativeTypeName("const char *")] byte* haystack, [NativeTypeName("const char *")] byte* needle, [NativeTypeName("size_t")] nuint maxlen);
+        public static extern byte* strnstr(byte* haystack,byte* needle,nuint maxlen);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strcasestr", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* strcasestr([NativeTypeName("const char *")] byte* haystack, [NativeTypeName("const char *")] byte* needle);
+        public static extern byte* strcasestr(byte* haystack,byte* needle);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strtok_r", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* strtok_r([NativeTypeName("char *")] byte* str, [NativeTypeName("const char *")] byte* delim, [NativeTypeName("char **")] byte** saveptr);
+        public static extern byte* strtok_r(byte* str,byte* delim,byte** saveptr);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_utf8strlen", ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern nuint utf8strlen([NativeTypeName("const char *")] byte* str);
+        public static extern nuint utf8strlen(byte* str);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_utf8strnlen", ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern nuint utf8strnlen([NativeTypeName("const char *")] byte* str, [NativeTypeName("size_t")] nuint bytes);
+        public static extern nuint utf8strnlen(byte* str,nuint bytes);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_itoa", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* itoa(int value, [NativeTypeName("char *")] byte* str, int radix);
+        public static extern byte* itoa(int value,byte* str, int radix);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_uitoa", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* uitoa([NativeTypeName("unsigned int")] uint value, [NativeTypeName("char *")] byte* str, int radix);
+        public static extern byte* uitoa(uint value,byte* str, int radix);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ltoa", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* ltoa([NativeTypeName("long")] nint value, [NativeTypeName("char *")] byte* str, int radix);
+        public static extern byte* ltoa(nint value,byte* str, int radix);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ultoa", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* ultoa([NativeTypeName("unsigned long")] nuint value, [NativeTypeName("char *")] byte* str, int radix);
+        public static extern byte* ultoa(nuint value,byte* str, int radix);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_lltoa", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* lltoa([NativeTypeName("long long")] long value, [NativeTypeName("char *")] byte* str, int radix);
+        public static extern byte* lltoa(long value,byte* str, int radix);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ulltoa", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* ulltoa([NativeTypeName("unsigned long long")] ulong value, [NativeTypeName("char *")] byte* str, int radix);
+        public static extern byte* ulltoa(ulong value,byte* str, int radix);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_atoi", ExactSpelling = true)]
-        public static extern int atoi([NativeTypeName("const char *")] byte* str);
+        public static extern int atoi(byte* str);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_atof", ExactSpelling = true)]
-        public static extern double atof([NativeTypeName("const char *")] byte* str);
+        public static extern double atof(byte* str);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strtol", ExactSpelling = true)]
-        [return: NativeTypeName("long")]
-        public static extern nint strtol([NativeTypeName("const char *")] byte* str, [NativeTypeName("char **")] byte** endp, int @base);
+        public static extern nint strtol(byte* str,byte** endp, int @base);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strtoul", ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long")]
-        public static extern nuint strtoul([NativeTypeName("const char *")] byte* str, [NativeTypeName("char **")] byte** endp, int @base);
+        public static extern nuint strtoul(byte* str,byte** endp, int @base);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strtoll", ExactSpelling = true)]
-        [return: NativeTypeName("long long")]
-        public static extern long strtoll([NativeTypeName("const char *")] byte* str, [NativeTypeName("char **")] byte** endp, int @base);
+        public static extern long strtoll(byte* str,byte** endp, int @base);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strtoull", ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong strtoull([NativeTypeName("const char *")] byte* str, [NativeTypeName("char **")] byte** endp, int @base);
+        public static extern ulong strtoull(byte* str,byte** endp, int @base);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strtod", ExactSpelling = true)]
-        public static extern double strtod([NativeTypeName("const char *")] byte* str, [NativeTypeName("char **")] byte** endp);
+        public static extern double strtod(byte* str,byte** endp);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strcmp", ExactSpelling = true)]
-        public static extern int strcmp([NativeTypeName("const char *")] byte* str1, [NativeTypeName("const char *")] byte* str2);
+        public static extern int strcmp(byte* str1,byte* str2);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strncmp", ExactSpelling = true)]
-        public static extern int strncmp([NativeTypeName("const char *")] byte* str1, [NativeTypeName("const char *")] byte* str2, [NativeTypeName("size_t")] nuint maxlen);
+        public static extern int strncmp(byte* str1,byte* str2,nuint maxlen);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strcasecmp", ExactSpelling = true)]
-        public static extern int strcasecmp([NativeTypeName("const char *")] byte* str1, [NativeTypeName("const char *")] byte* str2);
+        public static extern int strcasecmp(byte* str1,byte* str2);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strncasecmp", ExactSpelling = true)]
-        public static extern int strncasecmp([NativeTypeName("const char *")] byte* str1, [NativeTypeName("const char *")] byte* str2, [NativeTypeName("size_t")] nuint maxlen);
+        public static extern int strncasecmp(byte* str1,byte* str2,nuint maxlen);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_strpbrk", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* strpbrk([NativeTypeName("const char *")] byte* str, [NativeTypeName("const char *")] byte* breakset);
+        public static extern byte* strpbrk(byte* str,byte* breakset);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_StepUTF8", ExactSpelling = true)]
-        [return: NativeTypeName("Uint32")]
-        public static extern uint StepUTF8([NativeTypeName("const char **")] byte** pstr, [NativeTypeName("size_t *")] nuint* pslen);
+        public static extern uint StepUTF8(byte** pstr,nuint* pslen);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_StepBackUTF8", ExactSpelling = true)]
-        [return: NativeTypeName("Uint32")]
-        public static extern uint StepBackUTF8([NativeTypeName("const char *")] byte* start, [NativeTypeName("const char **")] byte** pstr);
+        public static extern uint StepBackUTF8(byte* start,byte** pstr);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_UCS4ToUTF8", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* UCS4ToUTF8([NativeTypeName("Uint32")] uint codepoint, [NativeTypeName("char *")] byte* dst);
+        public static extern byte* UCS4ToUTF8(uint codepoint,byte* dst);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_sscanf", ExactSpelling = true)]
-        public static extern int sscanf([NativeTypeName("const char *")] byte* text, [NativeTypeName("const char *")] byte* fmt, __arglist);
+        public static extern int sscanf(byte* text,byte* fmt, __arglist);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_vsscanf", ExactSpelling = true)]
-        public static extern int vsscanf([NativeTypeName("const char *")] byte* text, [NativeTypeName("const char *")] byte* fmt, [NativeTypeName("va_list")] byte* ap);
+        public static extern int vsscanf(byte* text,byte* fmt,byte* ap);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_snprintf", ExactSpelling = true)]
-        public static extern int snprintf([NativeTypeName("char *")] byte* text, [NativeTypeName("size_t")] nuint maxlen, [NativeTypeName("const char *")] byte* fmt, __arglist);
+        public static extern int snprintf(byte* text,nuint maxlen,byte* fmt, __arglist);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_swprintf", ExactSpelling = true)]
-        public static extern int swprintf([NativeTypeName("wchar_t *")] ushort* text, [NativeTypeName("size_t")] nuint maxlen, [NativeTypeName("const wchar_t *")] ushort* fmt, __arglist);
+        public static extern int swprintf(ushort* text,nuint maxlen,ushort* fmt, __arglist);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_vsnprintf", ExactSpelling = true)]
-        public static extern int vsnprintf([NativeTypeName("char *")] byte* text, [NativeTypeName("size_t")] nuint maxlen, [NativeTypeName("const char *")] byte* fmt, [NativeTypeName("va_list")] byte* ap);
+        public static extern int vsnprintf(byte* text,nuint maxlen,byte* fmt,byte* ap);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_vswprintf", ExactSpelling = true)]
-        public static extern int vswprintf([NativeTypeName("wchar_t *")] ushort* text, [NativeTypeName("size_t")] nuint maxlen, [NativeTypeName("const wchar_t *")] ushort* fmt, [NativeTypeName("va_list")] byte* ap);
+        public static extern int vswprintf(ushort* text,nuint maxlen,ushort* fmt,byte* ap);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_asprintf", ExactSpelling = true)]
-        public static extern int asprintf([NativeTypeName("char **")] byte** strp, [NativeTypeName("const char *")] byte* fmt, __arglist);
+        public static extern int asprintf(byte** strp,byte* fmt, __arglist);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_vasprintf", ExactSpelling = true)]
-        public static extern int vasprintf([NativeTypeName("char **")] byte** strp, [NativeTypeName("const char *")] byte* fmt, [NativeTypeName("va_list")] byte* ap);
+        public static extern int vasprintf(byte** strp,byte* fmt,byte* ap);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_srand", ExactSpelling = true)]
-        public static extern void srand([NativeTypeName("Uint64")] ulong seed);
+        public static extern void srand(ulong seed);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_rand", ExactSpelling = true)]
-        [return: NativeTypeName("Sint32")]
-        public static extern int rand([NativeTypeName("Sint32")] int n);
+        public static extern int rand(int n);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_randf", ExactSpelling = true)]
         public static extern float randf();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_rand_bits", ExactSpelling = true)]
-        [return: NativeTypeName("Uint32")]
         public static extern uint rand_bits();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_rand_r", ExactSpelling = true)]
-        [return: NativeTypeName("Sint32")]
-        public static extern int rand_r([NativeTypeName("Uint64 *")] ulong* state, [NativeTypeName("Sint32")] int n);
+        public static extern int rand_r(ulong* state,int n);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_randf_r", ExactSpelling = true)]
-        public static extern float randf_r([NativeTypeName("Uint64 *")] ulong* state);
+        public static extern float randf_r(ulong* state);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_rand_bits_r", ExactSpelling = true)]
-        [return: NativeTypeName("Uint32")]
-        public static extern uint rand_bits_r([NativeTypeName("Uint64 *")] ulong* state);
+        public static extern uint rand_bits_r(ulong* state);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_acos", ExactSpelling = true)]
         public static extern double acos(double x);
@@ -536,11 +481,9 @@ namespace Coplt.Sdl3
         public static extern float roundf(float x);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_lround", ExactSpelling = true)]
-        [return: NativeTypeName("long")]
         public static extern nint lround(double x);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_lroundf", ExactSpelling = true)]
-        [return: NativeTypeName("long")]
         public static extern nint lroundf(float x);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_scalbn", ExactSpelling = true)]
@@ -568,22 +511,17 @@ namespace Coplt.Sdl3
         public static extern float tanf(float x);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_iconv_open", ExactSpelling = true)]
-        [return: NativeTypeName("SDL_iconv_t")]
-        public static extern SDL_iconv_data_t* iconv_open([NativeTypeName("const char *")] byte* tocode, [NativeTypeName("const char *")] byte* fromcode);
+        public static extern SDL_iconv_data_t* iconv_open(byte* tocode,byte* fromcode);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_iconv_close", ExactSpelling = true)]
-        public static extern int iconv_close([NativeTypeName("SDL_iconv_t")] SDL_iconv_data_t* cd);
+        public static extern int iconv_close(SDL_iconv_data_t* cd);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_iconv", ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern nuint iconv([NativeTypeName("SDL_iconv_t")] SDL_iconv_data_t* cd, [NativeTypeName("const char **")] byte** inbuf, [NativeTypeName("size_t *")] nuint* inbytesleft, [NativeTypeName("char **")] byte** outbuf, [NativeTypeName("size_t *")] nuint* outbytesleft);
+        public static extern nuint iconv(SDL_iconv_data_t* cd,byte** inbuf,nuint* inbytesleft,byte** outbuf,nuint* outbytesleft);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_iconv_string", ExactSpelling = true)]
-        [return: NativeTypeName("char *")]
-        public static extern byte* iconv_string([NativeTypeName("const char *")] byte* tocode, [NativeTypeName("const char *")] byte* fromcode, [NativeTypeName("const char *")] byte* inbuf, [NativeTypeName("size_t")] nuint inbytesleft);
-
-        [return: NativeTypeName("_Bool")]
-        public static bool8 size_mul_check_overflow([NativeTypeName("size_t")] nuint a, [NativeTypeName("size_t")] nuint b, [NativeTypeName("size_t *")] nuint* ret)
+        public static extern byte* iconv_string(byte* tocode,byte* fromcode,byte* inbuf,nuint inbytesleft);
+        public static bool8 size_mul_check_overflow(nuint a,nuint b,nuint* ret)
         {
             if (a != 0 && unchecked(b > 0xffffffffffffffffUL / a))
             {
@@ -593,9 +531,7 @@ namespace Coplt.Sdl3
             *ret = a * b;
             return (1) != 0;
         }
-
-        [return: NativeTypeName("_Bool")]
-        public static bool8 size_add_check_overflow([NativeTypeName("size_t")] nuint a, [NativeTypeName("size_t")] nuint b, [NativeTypeName("size_t *")] nuint* ret)
+        public static bool8 size_add_check_overflow(nuint a,nuint b,nuint* ret)
         {
             if (b > unchecked(0xffffffffffffffffUL - a))
             {

@@ -17,17 +17,16 @@ namespace Coplt.Sdl3
     public static unsafe partial class SDL
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateProcess", ExactSpelling = true)]
-        public static extern SDL_Process* CreateProcess([NativeTypeName("const char *const *")] byte** args, [NativeTypeName("_Bool")] bool8 pipe_stdio);
+        public static extern SDL_Process* CreateProcess(byte** args,bool8 pipe_stdio);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateProcessWithProperties", ExactSpelling = true)]
-        public static extern SDL_Process* CreateProcessWithProperties([NativeTypeName("SDL_PropertiesID")] uint props);
+        public static extern SDL_Process* CreateProcessWithProperties(uint props);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetProcessProperties", ExactSpelling = true)]
-        [return: NativeTypeName("SDL_PropertiesID")]
         public static extern uint GetProcessProperties(SDL_Process* process);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ReadProcess", ExactSpelling = true)]
-        public static extern void* ReadProcess(SDL_Process* process, [NativeTypeName("size_t *")] nuint* datasize, int* exitcode);
+        public static extern void* ReadProcess(SDL_Process* process,nuint* datasize, int* exitcode);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetProcessInput", ExactSpelling = true)]
         public static extern SDL_IOStream* GetProcessInput(SDL_Process* process);
@@ -36,12 +35,10 @@ namespace Coplt.Sdl3
         public static extern SDL_IOStream* GetProcessOutput(SDL_Process* process);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_KillProcess", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 KillProcess(SDL_Process* process, [NativeTypeName("_Bool")] bool8 force);
+        public static extern bool8 KillProcess(SDL_Process* process,bool8 force);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_WaitProcess", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 WaitProcess(SDL_Process* process, [NativeTypeName("_Bool")] bool8 block, int* exitcode);
+        public static extern bool8 WaitProcess(SDL_Process* process,bool8 block, int* exitcode);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_DestroyProcess", ExactSpelling = true)]
         public static extern void DestroyProcess(SDL_Process* process);

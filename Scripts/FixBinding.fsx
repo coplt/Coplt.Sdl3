@@ -96,3 +96,9 @@ let fix_rect () =
     File.WriteAllText(path, code)
 
 fix_rect ()
+
+let remove_native_names_regex = Regex("\s*\[(return: )?NativeTypeName\(\"[\w\d _&*(),\[\]]*\"\)\] ?");
+for path in Directory.GetFiles("./Coplt.Sdl3/Binding") do
+    let code = File.ReadAllText(path)
+    let code = remove_native_names_regex.Replace(code, "")
+    File.WriteAllText(path, code)

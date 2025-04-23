@@ -5,24 +5,16 @@ namespace Coplt.Sdl3
 {
     public unsafe partial struct SDL_MessageBoxButtonData
     {
-        [NativeTypeName("SDL_MessageBoxButtonFlags")]
         public uint flags;
 
         public int buttonID;
-
-        [NativeTypeName("const char *")]
         public byte* text;
     }
 
     public partial struct SDL_MessageBoxColor
     {
-        [NativeTypeName("Uint8")]
         public byte r;
-
-        [NativeTypeName("Uint8")]
         public byte g;
-
-        [NativeTypeName("Uint8")]
         public byte b;
     }
 
@@ -38,7 +30,6 @@ namespace Coplt.Sdl3
 
     public partial struct SDL_MessageBoxColorScheme
     {
-        [NativeTypeName("SDL_MessageBoxColor[5]")]
         public _colors_e__FixedBuffer colors;
 
         [InlineArray(5)]
@@ -50,34 +41,23 @@ namespace Coplt.Sdl3
 
     public unsafe partial struct SDL_MessageBoxData
     {
-        [NativeTypeName("SDL_MessageBoxFlags")]
         public uint flags;
 
         public SDL_Window* window;
-
-        [NativeTypeName("const char *")]
         public byte* title;
-
-        [NativeTypeName("const char *")]
         public byte* message;
 
         public int numbuttons;
-
-        [NativeTypeName("const SDL_MessageBoxButtonData *")]
         public SDL_MessageBoxButtonData* buttons;
-
-        [NativeTypeName("const SDL_MessageBoxColorScheme *")]
         public SDL_MessageBoxColorScheme* colorScheme;
     }
 
     public static unsafe partial class SDL
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ShowMessageBox", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 ShowMessageBox([NativeTypeName("const SDL_MessageBoxData *")] SDL_MessageBoxData* messageboxdata, int* buttonid);
+        public static extern bool8 ShowMessageBox(SDL_MessageBoxData* messageboxdata, int* buttonid);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ShowSimpleMessageBox", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 ShowSimpleMessageBox([NativeTypeName("SDL_MessageBoxFlags")] uint flags, [NativeTypeName("const char *")] byte* title, [NativeTypeName("const char *")] byte* message, SDL_Window* window);
+        public static extern bool8 ShowSimpleMessageBox(uint flags,byte* title,byte* message, SDL_Window* window);
     }
 }

@@ -12,7 +12,6 @@ namespace Coplt.Sdl3
 
     public partial struct SDL_Finger
     {
-        [NativeTypeName("SDL_FingerID")]
         public ulong id;
 
         public float x;
@@ -25,17 +24,15 @@ namespace Coplt.Sdl3
     public static unsafe partial class SDL
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetTouchDevices", ExactSpelling = true)]
-        [return: NativeTypeName("SDL_TouchID *")]
         public static extern ulong* GetTouchDevices(int* count);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetTouchDeviceName", ExactSpelling = true)]
-        [return: NativeTypeName("const char *")]
-        public static extern byte* GetTouchDeviceName([NativeTypeName("SDL_TouchID")] ulong touchID);
+        public static extern byte* GetTouchDeviceName(ulong touchID);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetTouchDeviceType", ExactSpelling = true)]
-        public static extern SDL_TouchDeviceType GetTouchDeviceType([NativeTypeName("SDL_TouchID")] ulong touchID);
+        public static extern SDL_TouchDeviceType GetTouchDeviceType(ulong touchID);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetTouchFingers", ExactSpelling = true)]
-        public static extern SDL_Finger** GetTouchFingers([NativeTypeName("SDL_TouchID")] ulong touchID, int* count);
+        public static extern SDL_Finger** GetTouchFingers(ulong touchID, int* count);
     }
 }

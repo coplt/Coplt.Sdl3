@@ -39,27 +39,22 @@ namespace Coplt.Sdl3
     public static unsafe partial class SDL
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDateTimeLocalePreferences", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
         public static extern bool8 GetDateTimeLocalePreferences(SDL_DateFormat* dateFormat, SDL_TimeFormat* timeFormat);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetCurrentTime", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 GetCurrentTime([NativeTypeName("SDL_Time *")] long* ticks);
+        public static extern bool8 GetCurrentTime(long* ticks);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_TimeToDateTime", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 TimeToDateTime([NativeTypeName("SDL_Time")] long ticks, SDL_DateTime* dt, [NativeTypeName("_Bool")] bool8 localTime);
+        public static extern bool8 TimeToDateTime(long ticks, SDL_DateTime* dt,bool8 localTime);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_DateTimeToTime", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 DateTimeToTime([NativeTypeName("const SDL_DateTime *")] SDL_DateTime* dt, [NativeTypeName("SDL_Time *")] long* ticks);
+        public static extern bool8 DateTimeToTime(SDL_DateTime* dt,long* ticks);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_TimeToWindows", ExactSpelling = true)]
-        public static extern void TimeToWindows([NativeTypeName("SDL_Time")] long ticks, [NativeTypeName("Uint32 *")] uint* dwLowDateTime, [NativeTypeName("Uint32 *")] uint* dwHighDateTime);
+        public static extern void TimeToWindows(long ticks,uint* dwLowDateTime,uint* dwHighDateTime);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_TimeFromWindows", ExactSpelling = true)]
-        [return: NativeTypeName("SDL_Time")]
-        public static extern long TimeFromWindows([NativeTypeName("Uint32")] uint dwLowDateTime, [NativeTypeName("Uint32")] uint dwHighDateTime);
+        public static extern long TimeFromWindows(uint dwLowDateTime,uint dwHighDateTime);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDaysInMonth", ExactSpelling = true)]
         public static extern int GetDaysInMonth(int year, int month);

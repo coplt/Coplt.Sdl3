@@ -12,33 +12,27 @@ namespace Coplt.Sdl3
     public static unsafe partial class SDL
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetHintWithPriority", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 SetHintWithPriority([NativeTypeName("const char *")] byte* name, [NativeTypeName("const char *")] byte* value, SDL_HintPriority priority);
+        public static extern bool8 SetHintWithPriority(byte* name,byte* value, SDL_HintPriority priority);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetHint", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 SetHint([NativeTypeName("const char *")] byte* name, [NativeTypeName("const char *")] byte* value);
+        public static extern bool8 SetHint(byte* name,byte* value);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ResetHint", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 ResetHint([NativeTypeName("const char *")] byte* name);
+        public static extern bool8 ResetHint(byte* name);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ResetHints", ExactSpelling = true)]
         public static extern void ResetHints();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetHint", ExactSpelling = true)]
-        [return: NativeTypeName("const char *")]
-        public static extern byte* GetHint([NativeTypeName("const char *")] byte* name);
+        public static extern byte* GetHint(byte* name);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetHintBoolean", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 GetHintBoolean([NativeTypeName("const char *")] byte* name, [NativeTypeName("_Bool")] bool8 default_value);
+        public static extern bool8 GetHintBoolean(byte* name,bool8 default_value);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_AddHintCallback", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 AddHintCallback([NativeTypeName("const char *")] byte* name, [NativeTypeName("SDL_HintCallback")] delegate* unmanaged[Cdecl]<void*, byte*, byte*, byte*, void> callback, void* userdata);
+        public static extern bool8 AddHintCallback(byte* name,delegate* unmanaged[Cdecl]<void*, byte*, byte*, byte*, void> callback, void* userdata);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_RemoveHintCallback", ExactSpelling = true)]
-        public static extern void RemoveHintCallback([NativeTypeName("const char *")] byte* name, [NativeTypeName("SDL_HintCallback")] delegate* unmanaged[Cdecl]<void*, byte*, byte*, byte*, void> callback, void* userdata);
+        public static extern void RemoveHintCallback(byte* name,delegate* unmanaged[Cdecl]<void*, byte*, byte*, byte*, void> callback, void* userdata);
     }
 }

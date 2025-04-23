@@ -25,25 +25,21 @@ namespace Coplt.Sdl3
     public static unsafe partial class SDL
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateThreadRuntime", ExactSpelling = true)]
-        public static extern SDL_Thread* CreateThreadRuntime([NativeTypeName("SDL_ThreadFunction")] delegate* unmanaged[Cdecl]<void*, int> fn, [NativeTypeName("const char *")] byte* name, void* data, [NativeTypeName("SDL_FunctionPointer")] delegate* unmanaged[Cdecl]<void> pfnBeginThread, [NativeTypeName("SDL_FunctionPointer")] delegate* unmanaged[Cdecl]<void> pfnEndThread);
+        public static extern SDL_Thread* CreateThreadRuntime(delegate* unmanaged[Cdecl]<void*, int> fn,byte* name, void* data,delegate* unmanaged[Cdecl]<void> pfnBeginThread,delegate* unmanaged[Cdecl]<void> pfnEndThread);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateThreadWithPropertiesRuntime", ExactSpelling = true)]
-        public static extern SDL_Thread* CreateThreadWithPropertiesRuntime([NativeTypeName("SDL_PropertiesID")] uint props, [NativeTypeName("SDL_FunctionPointer")] delegate* unmanaged[Cdecl]<void> pfnBeginThread, [NativeTypeName("SDL_FunctionPointer")] delegate* unmanaged[Cdecl]<void> pfnEndThread);
+        public static extern SDL_Thread* CreateThreadWithPropertiesRuntime(uint props,delegate* unmanaged[Cdecl]<void> pfnBeginThread,delegate* unmanaged[Cdecl]<void> pfnEndThread);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetThreadName", ExactSpelling = true)]
-        [return: NativeTypeName("const char *")]
         public static extern byte* GetThreadName(SDL_Thread* thread);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetCurrentThreadID", ExactSpelling = true)]
-        [return: NativeTypeName("SDL_ThreadID")]
         public static extern ulong GetCurrentThreadID();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetThreadID", ExactSpelling = true)]
-        [return: NativeTypeName("SDL_ThreadID")]
         public static extern ulong GetThreadID(SDL_Thread* thread);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetCurrentThreadPriority", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
         public static extern bool8 SetCurrentThreadPriority(SDL_ThreadPriority priority);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_WaitThread", ExactSpelling = true)]
@@ -56,11 +52,10 @@ namespace Coplt.Sdl3
         public static extern void DetachThread(SDL_Thread* thread);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetTLS", ExactSpelling = true)]
-        public static extern void* GetTLS([NativeTypeName("SDL_TLSID *")] SDL_AtomicInt* id);
+        public static extern void* GetTLS(SDL_AtomicInt* id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetTLS", ExactSpelling = true)]
-        [return: NativeTypeName("_Bool")]
-        public static extern bool8 SetTLS([NativeTypeName("SDL_TLSID *")] SDL_AtomicInt* id, [NativeTypeName("const void *")] void* value, [NativeTypeName("SDL_TLSDestructorCallback")] delegate* unmanaged[Cdecl]<void*, void> destructor);
+        public static extern bool8 SetTLS(SDL_AtomicInt* id,void* value,delegate* unmanaged[Cdecl]<void*, void> destructor);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CleanupTLS", ExactSpelling = true)]
         public static extern void CleanupTLS();
