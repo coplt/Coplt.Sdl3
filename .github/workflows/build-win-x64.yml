@@ -1,11 +1,17 @@
 ﻿name: Build Windows x64
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+  workflow_call:
+    outputs:
+      nupkg-artifact:
+        value: ${{ jobs.build-windows-x64.outputs.nupkg-artifact }}
   
 jobs:
   build-windows-x64:
     runs-on: windows-latest
+    outputs:
+      nupkg-artifact: ${{ steps.upload-nupkg-artifact.outputs.artifact-id }}
     
     steps:
       - uses: actions/checkout@v4
@@ -34,7 +40,8 @@ jobs:
           overwrite: true
       - name: Build Package
         run: dotnet build --no-restore -c Release ./Packages/Coplt.Sdl3.Native.Win.x64/Coplt.Sdl3.Native.Win.x64.csproj
-      - uses: actions/upload-artifact@v4
+      - id: upload-nupkg-artifact
+        uses: actions/upload-artifact@v4
         with:
           name: 'native-windows-x64.nupkg'
           path: ./Packages/Coplt.Sdl3.Native.Win.x64/bin/Release/*.nupkg
