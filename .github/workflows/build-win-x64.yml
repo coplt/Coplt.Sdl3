@@ -11,6 +11,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: ExtractSdlVersion
+        run: dotnet fsi .\Scripts\ExtractSdlVersion.fsx
       - name: Setup Clang
         uses: egor-tensin/setup-clang@v1
       - name: Setup Ninja
@@ -19,8 +27,15 @@ jobs:
         run: cmake --preset Main
       - name: Cmake Build
         run: cmake --build --target SDL3-shared --config Release --preset Release
+      - name: Build Package
+        run: dotnet build --no-restore -c Release ./Packages/Coplt.Sdl3.Native.Win64/Coplt.Sdl3.Native.Win64.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: 'native-windows-x64'
           path: ./build/SDL/Release/SDL3.dll
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 'native-windows-x64.nuget'
+          path: ./Packages/Coplt.Sdl3.Native.Win64/bin/Release/*.nuget
           overwrite: true

@@ -11,6 +11,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: ExtractSdlVersion
+        run: dotnet fsi .\Scripts\ExtractSdlVersion.fsx
       - name: Cmake Setup
         run: cmake --preset WinArm64
       - name: Cmake Build
