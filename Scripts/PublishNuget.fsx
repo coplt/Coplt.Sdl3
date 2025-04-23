@@ -8,8 +8,8 @@ if NUGET_KEY = null then
     NUGET_KEY <- ""
 
 for path in Directory.GetFiles "./artifact" do
-    Process
-        .Start(
+    let child =
+        Process.Start(
             "dotnet",
             [| "nuget"
                "push"
@@ -19,4 +19,8 @@ for path in Directory.GetFiles "./artifact" do
                "--source"
                "https://api.nuget.org/v3/index.json" |]
         )
-        .WaitForExit()
+
+    child.WaitForExit()
+
+    if child.ExitCode <> 0 then
+        Environment.Exit child.ExitCode

@@ -17,6 +17,9 @@ on:
       nupkg-artifact-name:
         type: string
         description: artifact name
+    secrets:
+      NUGET_KEY:
+        required: true
 
 jobs:
   publish-to-nuget:
