@@ -36,6 +36,6 @@ jobs:
           overwrite: true
       - uses: actions/upload-artifact@v4
         with:
-          name: 'native-windows-x64.nuget'
-          path: ./Packages/Coplt.Sdl3.Native.Win64/bin/Release/*.nuget
+          name: 'native-windows-x64.nupkg'
+          path: ./Packages/Coplt.Sdl3.Native.Win64/bin/Release/*.nupkg
           overwrite: true
