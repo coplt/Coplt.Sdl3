@@ -12,16 +12,16 @@ namespace Coplt.Sdl3
     public static unsafe partial class SDL
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_Init", ExactSpelling = true)]
-        public static extern bool8 Init(uint flags);
+        public static extern bool8 Init(SDL_InitFlags flags);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_InitSubSystem", ExactSpelling = true)]
-        public static extern bool8 InitSubSystem(uint flags);
+        public static extern bool8 InitSubSystem(SDL_InitFlags flags);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_QuitSubSystem", ExactSpelling = true)]
-        public static extern void QuitSubSystem(uint flags);
+        public static extern void QuitSubSystem(SDL_InitFlags flags);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_WasInit", ExactSpelling = true)]
-        public static extern uint WasInit(uint flags);
+        public static extern SDL_InitFlags WasInit(SDL_InitFlags flags);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_Quit", ExactSpelling = true)]
         public static extern void Quit();

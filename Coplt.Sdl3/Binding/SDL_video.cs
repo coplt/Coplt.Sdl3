@@ -188,10 +188,10 @@ namespace Coplt.Sdl3
         public static extern SDL_Window** GetWindows(int* count);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateWindow", ExactSpelling = true)]
-        public static extern SDL_Window* CreateWindow(byte* title, int w, int h,ulong flags);
+        public static extern SDL_Window* CreateWindow(byte* title, int w, int h, SDL_WindowFlags flags);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreatePopupWindow", ExactSpelling = true)]
-        public static extern SDL_Window* CreatePopupWindow(SDL_Window* parent, int offset_x, int offset_y, int w, int h,ulong flags);
+        public static extern SDL_Window* CreatePopupWindow(SDL_Window* parent, int offset_x, int offset_y, int w, int h, SDL_WindowFlags flags);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateWindowWithProperties", ExactSpelling = true)]
         public static extern SDL_Window* CreateWindowWithProperties(uint props);
@@ -209,7 +209,7 @@ namespace Coplt.Sdl3
         public static extern uint GetWindowProperties(SDL_Window* window);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetWindowFlags", ExactSpelling = true)]
-        public static extern ulong GetWindowFlags(SDL_Window* window);
+        public static extern SDL_WindowFlags GetWindowFlags(SDL_Window* window);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetWindowTitle", ExactSpelling = true)]
         public static extern bool8 SetWindowTitle(SDL_Window* window,byte* title);

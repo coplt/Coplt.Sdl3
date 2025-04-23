@@ -72,7 +72,7 @@ namespace Coplt.Sdl3
         public static extern bool8 GetPathInfo(byte* path, SDL_PathInfo* info);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GlobDirectory", ExactSpelling = true)]
-        public static extern byte** GlobDirectory(byte* path,byte* pattern,uint flags, int* count);
+        public static extern byte** GlobDirectory(byte* path,byte* pattern, SDL_GlobFlags flags, int* count);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetCurrentDirectory", ExactSpelling = true)]
         public static extern byte* GetCurrentDirectory();

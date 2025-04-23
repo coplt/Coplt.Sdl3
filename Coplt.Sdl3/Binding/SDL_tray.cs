@@ -44,7 +44,7 @@ namespace Coplt.Sdl3
         public static extern void RemoveTrayEntry(SDL_TrayEntry* entry);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_InsertTrayEntryAt", ExactSpelling = true)]
-        public static extern SDL_TrayEntry* InsertTrayEntryAt(SDL_TrayMenu* menu, int pos,byte* label,uint flags);
+        public static extern SDL_TrayEntry* InsertTrayEntryAt(SDL_TrayMenu* menu, int pos,byte* label, SDL_TrayEntryFlags flags);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetTrayEntryLabel", ExactSpelling = true)]
         public static extern void SetTrayEntryLabel(SDL_TrayEntry* entry,byte* label);

@@ -5,7 +5,7 @@ namespace Coplt.Sdl3
 {
     public unsafe partial struct SDL_MessageBoxButtonData
     {
-        public uint flags;
+        public SDL_MessageBoxButtonFlags flags;
 
         public int buttonID;
         public byte* text;
@@ -41,7 +41,7 @@ namespace Coplt.Sdl3
 
     public unsafe partial struct SDL_MessageBoxData
     {
-        public uint flags;
+        public SDL_MessageBoxFlags flags;
 
         public SDL_Window* window;
         public byte* title;
@@ -58,6 +58,6 @@ namespace Coplt.Sdl3
         public static extern bool8 ShowMessageBox(SDL_MessageBoxData* messageboxdata, int* buttonid);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ShowSimpleMessageBox", ExactSpelling = true)]
-        public static extern bool8 ShowSimpleMessageBox(uint flags,byte* title,byte* message, SDL_Window* window);
+        public static extern bool8 ShowSimpleMessageBox(SDL_MessageBoxFlags flags,byte* title,byte* message, SDL_Window* window);
     }
 }

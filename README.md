@@ -36,3 +36,11 @@ Unsafe C# bindings for SDL3
   [Coplt.Sdl3.Native.Macos](https://www.nuget.org/packages/Coplt.Sdl3.Native.Macos/)  
 
   `Macos` `x64 & arm64` `clang`
+
+## Generate Bindings
+
+```powershell
+dotnet fsi ./Scripts/GenFlags.fsx
+dotnet fsi ./Scripts/GenBinding.fsx
+dotnet fsi ./Scripts/FixBinding.fsx
+```

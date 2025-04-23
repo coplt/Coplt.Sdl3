@@ -18,7 +18,7 @@ namespace Coplt.Sdl3
 
     public unsafe partial struct SDL_Surface
     {
-        public uint flags;
+        public SDL_SurfaceFlags flags;
 
         public SDL_PixelFormat format;
 

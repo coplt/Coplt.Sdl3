@@ -52,13 +52,13 @@ namespace Coplt.Sdl3
         public static extern SDL_Window* GetMouseFocus();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetMouseState", ExactSpelling = true)]
-        public static extern uint GetMouseState(float* x, float* y);
+        public static extern SDL_MouseButtonFlags GetMouseState(float* x, float* y);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGlobalMouseState", ExactSpelling = true)]
-        public static extern uint GetGlobalMouseState(float* x, float* y);
+        public static extern SDL_MouseButtonFlags GetGlobalMouseState(float* x, float* y);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetRelativeMouseState", ExactSpelling = true)]
-        public static extern uint GetRelativeMouseState(float* x, float* y);
+        public static extern SDL_MouseButtonFlags GetRelativeMouseState(float* x, float* y);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_WarpMouseInWindow", ExactSpelling = true)]
         public static extern void WarpMouseInWindow(SDL_Window* window, float x, float y);

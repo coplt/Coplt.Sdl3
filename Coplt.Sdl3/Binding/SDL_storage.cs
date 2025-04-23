@@ -73,6 +73,6 @@ namespace Coplt.Sdl3
         public static extern ulong GetStorageSpaceRemaining(SDL_Storage* storage);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GlobStorageDirectory", ExactSpelling = true)]
-        public static extern byte** GlobStorageDirectory(SDL_Storage* storage,byte* path,byte* pattern,uint flags, int* count);
+        public static extern byte** GlobStorageDirectory(SDL_Storage* storage,byte* path,byte* pattern, SDL_GlobFlags flags, int* count);
     }
 }

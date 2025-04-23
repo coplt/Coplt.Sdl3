@@ -51,7 +51,7 @@ namespace Coplt.Sdl3
         public static extern byte* GetRenderDriver(int index);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateWindowAndRenderer", ExactSpelling = true)]
-        public static extern bool8 CreateWindowAndRenderer(byte* title, int width, int height,ulong window_flags, SDL_Window** window, SDL_Renderer** renderer);
+        public static extern bool8 CreateWindowAndRenderer(byte* title, int width, int height, SDL_WindowFlags window_flags, SDL_Window** window, SDL_Renderer** renderer);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateRenderer", ExactSpelling = true)]
         public static extern SDL_Renderer* CreateRenderer(SDL_Window* window,byte* name);

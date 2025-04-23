@@ -8,13 +8,13 @@ unsafe class Program
     [STAThread]
     static void Main(string[] args)
     {
-        if (!SDL.Init(0x00000020u)) throw new Exception("Init failed");
+        if (!SDL.Init(SDL_InitFlags.Video)) throw new Exception("Init failed");
 
         SDL_Window* window;
         SDL_Renderer* renderer;
         fixed (byte* p_name = "Test"u8)
         {
-            if (!SDL.CreateWindowAndRenderer(p_name, 960, 540, 0x0000000000000020, &window, &renderer))
+            if (!SDL.CreateWindowAndRenderer(p_name, 960, 540, SDL_WindowFlags.Resizable, &window, &renderer))
                 throw new Exception(new string((sbyte*)SDL.GetError()));
         }
 

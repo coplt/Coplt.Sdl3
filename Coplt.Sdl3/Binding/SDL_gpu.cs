@@ -560,7 +560,8 @@ namespace Coplt.Sdl3
         public SDL_GPUBlendFactor dst_alpha_blendfactor;
 
         public SDL_GPUBlendOp alpha_blend_op;
-        public byte color_write_mask;
+
+        public SDL_GPUColorComponentFlags color_write_mask;
         public bool8 enable_blend;
         public bool8 enable_color_write_mask;
         public byte padding1;
@@ -587,7 +588,8 @@ namespace Coplt.Sdl3
         public SDL_GPUTextureType type;
 
         public SDL_GPUTextureFormat format;
-        public uint usage;
+
+        public SDL_GPUTextureUsageFlags usage;
         public uint width;
         public uint height;
         public uint layer_count_or_depth;
@@ -599,7 +601,7 @@ namespace Coplt.Sdl3
 
     public partial struct SDL_GPUBufferCreateInfo
     {
-        public uint usage;
+        public SDL_GPUBufferUsageFlags usage;
         public uint size;
         public uint props;
     }
@@ -1076,7 +1078,7 @@ namespace Coplt.Sdl3
         public static extern uint GPUTextureFormatTexelBlockSize(SDL_GPUTextureFormat format);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GPUTextureSupportsFormat", ExactSpelling = true)]
-        public static extern bool8 GPUTextureSupportsFormat(SDL_GPUDevice* device, SDL_GPUTextureFormat format, SDL_GPUTextureType type,uint usage);
+        public static extern bool8 GPUTextureSupportsFormat(SDL_GPUDevice* device, SDL_GPUTextureFormat format, SDL_GPUTextureType type, SDL_GPUTextureUsageFlags usage);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GPUTextureSupportsSampleCount", ExactSpelling = true)]
         public static extern bool8 GPUTextureSupportsSampleCount(SDL_GPUDevice* device, SDL_GPUTextureFormat format, SDL_GPUSampleCount sample_count);

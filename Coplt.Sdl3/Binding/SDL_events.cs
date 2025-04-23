@@ -226,7 +226,8 @@ namespace Coplt.Sdl3
         public ulong timestamp;
         public uint windowID;
         public uint which;
-        public uint state;
+
+        public SDL_MouseButtonFlags state;
 
         public float x;
 
@@ -476,7 +477,8 @@ namespace Coplt.Sdl3
         public ulong timestamp;
         public uint windowID;
         public uint which;
-        public uint pen_state;
+
+        public SDL_PenInputFlags pen_state;
 
         public float x;
 
@@ -490,7 +492,8 @@ namespace Coplt.Sdl3
         public ulong timestamp;
         public uint windowID;
         public uint which;
-        public uint pen_state;
+
+        public SDL_PenInputFlags pen_state;
 
         public float x;
 
@@ -506,7 +509,8 @@ namespace Coplt.Sdl3
         public ulong timestamp;
         public uint windowID;
         public uint which;
-        public uint pen_state;
+
+        public SDL_PenInputFlags pen_state;
 
         public float x;
 
@@ -522,7 +526,8 @@ namespace Coplt.Sdl3
         public ulong timestamp;
         public uint windowID;
         public uint which;
-        public uint pen_state;
+
+        public SDL_PenInputFlags pen_state;
 
         public float x;
 
