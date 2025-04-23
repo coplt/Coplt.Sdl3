@@ -5,10 +5,26 @@
 Unsafe C# bindings for SDL3
 
 ### Packages
-- [![Nuget](https://img.shields.io/nuget/v/Coplt.Sdl3)](https://www.nuget.org/packages/Coplt.Sdl3/)
+- [![Nuget](https://img.shields.io/nuget/v/Coplt.Sdl3)](https://www.nuget.org/packages/Coplt.Sdl3/) `Coplt.Sdl3`  
   Managed bindings only, no automatic dependency on sdl3 native library
-- [![Nuget](https://img.shields.io/nuget/v/Coplt.Sdl3.Native.Win.x64)](https://www.nuget.org/packages/Coplt.Sdl3.Native.Win.x64/) windows x64 native
-- [![Nuget](https://img.shields.io/nuget/v/Coplt.Sdl3.Native.Win.Arm64)](https://www.nuget.org/packages/Coplt.Sdl3.Native.Win.Arm64/) windows arm64 native
-- [![Nuget](https://img.shields.io/nuget/v/Coplt.Sdl3.Native.Linux.x64)](https://www.nuget.org/packages/Coplt.Sdl3.Native.Linux.x64/) linux x64 native
-- [![Nuget](https://img.shields.io/nuget/v/Coplt.Sdl3.Native.Linux.Arm64)](https://www.nuget.org/packages/Coplt.Sdl3.Native.Linux.Arm64/) linux arm64 native
-- [![Nuget](https://img.shields.io/nuget/v/Coplt.Sdl3.Native.Macos)](https://www.nuget.org/packages/Coplt.Sdl3.Native.Macos/) macos (x64 | arm64) native
+
+
+- [![Nuget](https://img.shields.io/nuget/v/Coplt.Sdl3.Native.Win.x64)](https://www.nuget.org/packages/Coplt.Sdl3.Native.Win.x64/) `Coplt.Sdl3.Native.Win.x64`  
+
+  `Windows` `x64` `clang` `SDL3.dll`
+
+- [![Nuget](https://img.shields.io/nuget/v/Coplt.Sdl3.Native.Win.Arm64)](https://www.nuget.org/packages/Coplt.Sdl3.Native.Win.Arm64/) `Coplt.Sdl3.Native.Win.Arm64`  
+
+  `Windows` `arm64`  `msvc` `SDL3.dll`
+
+- [![Nuget](https://img.shields.io/nuget/v/Coplt.Sdl3.Native.Linux.x64)](https://www.nuget.org/packages/Coplt.Sdl3.Native.Linux.x64/) `Coplt.Sdl3.Native.Linux.x64`  
+
+  `Linux` `x64` `clang` `libSDL3.so` `ubuntu 24+`
+
+- [![Nuget](https://img.shields.io/nuget/v/Coplt.Sdl3.Native.Linux.Arm64)](https://www.nuget.org/packages/Coplt.Sdl3.Native.Linux.Arm64/) `Coplt.Sdl3.Native.Linux.Arm64`  
+
+  `Linux` `arm64` `clang` `libSDL3.so` `ubuntu 24+`
+
+- [![Nuget](https://img.shields.io/nuget/v/Coplt.Sdl3.Native.Macos)](https://www.nuget.org/packages/Coplt.Sdl3.Native.Macos/) `Coplt.Sdl3.Native.Macos`  
+
+  `Macos` `x64 & arm64` `clang` `libSDL3.dylib`
