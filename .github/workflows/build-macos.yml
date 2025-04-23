@@ -18,9 +18,9 @@ jobs:
       - name: ExtractSdlVersion
         run: dotnet fsi ./Scripts/ExtractSdlVersion.fsx
       - name: Cmake Setup
-        run: cmake --preset Main "-DCMAKE_OSX_ARCHITECTURES=arm64;x86_64" -DCMAKE_OSX_DEPLOYMENT_TARGET=10.13
+        run: cmake --preset Macos
       - name: Cmake Build
-        run: cmake --build --target SDL3-shared --config Release --preset Release "-DCMAKE_OSX_ARCHITECTURES=arm64;x86_64" -DCMAKE_OSX_DEPLOYMENT_TARGET=10.13
+        run: cmake --build --target SDL3-shared --config Release --preset "Release (Macos)"
       - uses: actions/upload-artifact@v4
         with:
           name: 'native-macos'

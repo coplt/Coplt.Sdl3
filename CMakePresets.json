@@ -19,6 +19,15 @@
         "value": "ARM64",
         "strategy": "set"
       }
+    },
+    {
+      "name": "Macos",
+      "binaryDir": "${sourceDir}/build",
+      "generator": "Ninja Multi-Config",
+      "cacheVariables": {
+        "CMAKE_OSX_DEPLOYMENT_TARGET": "10.13",
+        "CMAKE_OSX_ARCHITECTURES": "arm64;x86_64"
+      }
     }
   ],
   "buildPresets": [
@@ -44,6 +53,18 @@
       "name": "Release (WinArm64)",
       "configurePreset": "WinArm64",
       "displayName": "Build (Release WinArm64)",
+      "configuration": "Release"
+    },
+    {
+      "name": "Debug (Macos)",
+      "configurePreset": "Macos",
+      "displayName": "Build (Debug Macos)",
+      "configuration": "Debug"
+    },
+    {
+      "name": "Release (Macos)",
+      "configurePreset": "Macos",
+      "displayName": "Build (Release Macos)",
       "configuration": "Release"
     }
   ]
