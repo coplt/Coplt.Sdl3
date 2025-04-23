@@ -15,6 +15,8 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 9.0.x
+      - name: Restore dependencies
+        run: dotnet restore
       - name: ExtractSdlVersion
         run: dotnet fsi ./Scripts/ExtractSdlVersion.fsx
       - name: Cmake Setup
@@ -25,4 +27,11 @@ jobs:
         with:
           name: 'native-macos'
           path: ./build/SDL/Release/libSDL3.dylib
+          overwrite: true
+      - name: Build Package
+        run: dotnet build --no-restore -c Release ./Packages/Coplt.Sdl3.Native.Macos/Coplt.Sdl3.Native.Macos.csproj
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 'native-macos.nupkg'
+          path: ./Packages/Coplt.Sdl3.Native.Macos/bin/Release/*.nupkg
           overwrite: true
