@@ -4,15 +4,19 @@ on:
   workflow_dispatch:
     inputs:
       nupkg-artifact:
-        required: true
         type: string
         description: artifact id
+      nupkg-artifact-name:
+        type: string
+        description: artifact name
   workflow_call:
     inputs:
       nupkg-artifact:
-        required: true
         type: string
         description: artifact id
+      nupkg-artifact-name:
+        type: string
+        description: artifact name
 
 jobs:
   publish-to-nuget:
@@ -26,6 +30,7 @@ jobs:
           dotnet-version: 9.0.x
       - uses: actions/download-artifact@v4
         with:
+          name: ${{ inputs.nupkg-artifact-name }}
           artifact-ids: ${{ inputs.nupkg-artifact }}
           path: ./artifact
       - name: Display structure of downloaded files
