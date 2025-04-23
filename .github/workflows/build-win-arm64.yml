@@ -18,7 +18,7 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
       - name: ExtractSdlVersion
-        run: dotnet fsi .\Scripts\ExtractSdlVersion.fsx
+        run: dotnet fsi ./Scripts/ExtractSdlVersion.fsx
       - name: Cmake Setup
         run: cmake --preset WinArm64
       - name: Cmake Build

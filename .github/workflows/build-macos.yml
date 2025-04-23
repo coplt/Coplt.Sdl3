@@ -16,7 +16,7 @@ jobs:
         with:
           dotnet-version: 9.0.x
       - name: ExtractSdlVersion
-        run: dotnet fsi .\Scripts\ExtractSdlVersion.fsx
+        run: dotnet fsi ./Scripts/ExtractSdlVersion.fsx
       - name: Setup Clang
         uses: egor-tensin/setup-clang@v1
       - name: Cmake Setup
