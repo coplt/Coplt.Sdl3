@@ -1,22 +1,32 @@
-﻿on:
-  workflow_dispatch
+﻿name: Publish to Nuget
+
+on:
+  workflow_dispatch:
+    inputs:
+      nupkg-artifact:
+        required: true
+        type: string
+        description: artifact id
+  workflow_call:
+    inputs:
+      nupkg-artifact:
+        required: true
+        type: string
+        description: artifact id
 
 jobs:
-  build-windows-x64:
-    uses: ./.github/workflows/build-win-x64.yml
-    
   publish-to-nuget:
     runs-on: ubuntu-latest
-    needs:
-      - build-windows-x64
     
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: 'recursive'
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 9.0.x
-      - name: Restore dependencies
-        run: dotnet restore
+      - uses: actions/download-artifact@v4
+        with:
+          artifact-ids: ${{ inputs.nupkg-artifact }}
+          path: ./artifact
+      - name: Display structure of downloaded files
+        run: ls -R

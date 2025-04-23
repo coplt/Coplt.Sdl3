@@ -1,0 +1,24 @@
+﻿name: Publish Native
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-windows-x64:
+    uses: ./.github/workflows/build-win-x64.yml
+#  build-windows-arm64:
+#    uses: ./.github/workflows/build-win-arm64.yml
+#  build-linux-x64:
+#    uses: ./.github/workflows/build-linux-x64.yml
+#  build-linux-arm64:
+#    uses: ./.github/workflows/build-linux-arm64.yml
+#  build-macos:
+#    uses: ./.github/workflows/build-macos.yml
+    
+  publish-windows-x64:
+    uses: ./.github/workflows/publish-to-nuget.yml
+    needs:
+      - build-windows-x64
+    with:
+      nupkg-artifact: ${{ needs.build-windows-x64.outputs.nupkg-artifact }}
+      

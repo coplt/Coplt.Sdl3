@@ -1,11 +1,17 @@
 ﻿name: Build Linux Arm64
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+  workflow_call:
+    outputs:
+      nupkg-artifact:
+        value: ${{ jobs.build-linux-arm64.outputs.nupkg-artifact }}
   
 jobs:
   build-linux-arm64:
     runs-on: ubuntu-24.04-arm
+    outputs:
+      nupkg-artifact: ${{ steps.upload-nupkg-artifact.outputs.artifact-id }}
     
     steps:
       - uses: actions/checkout@v4
@@ -34,7 +40,8 @@ jobs:
           overwrite: true
       - name: Build Package
         run: dotnet build --no-restore -c Release ./Packages/Coplt.Sdl3.Native.Linux.Arm64/Coplt.Sdl3.Native.Linux.Arm64.csproj
-      - uses: actions/upload-artifact@v4
+      - id: upload-nupkg-artifact
+        uses: actions/upload-artifact@v4
         with:
           name: 'native-linux-arm64.nupkg'
           path: ./Packages/Coplt.Sdl3.Native.Linux.Arm64/bin/Release/*.nupkg

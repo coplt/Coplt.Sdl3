@@ -1,11 +1,17 @@
 ﻿name: Build Windows Arm64
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+  workflow_call:
+    outputs:
+      nupkg-artifact:
+        value: ${{ jobs.build-windows-arm64.outputs.nupkg-artifact }}
   
 jobs:
   build-windows-arm64:
     runs-on: windows-11-arm
+    outputs:
+      nupkg-artifact: ${{ steps.upload-nupkg-artifact.outputs.artifact-id }}
     
     steps:
       - uses: actions/checkout@v4
@@ -30,7 +36,8 @@ jobs:
           overwrite: true
       - name: Build Package
         run: dotnet build --no-restore -c Release ./Packages/Coplt.Sdl3.Native.Win.Arm64/Coplt.Sdl3.Native.Win.Arm64.csproj
-      - uses: actions/upload-artifact@v4
+      - id: upload-nupkg-artifact
+        uses: actions/upload-artifact@v4
         with:
           name: 'native-windows-arm64.nupkg'
           path: ./Packages/Coplt.Sdl3.Native.Win.Arm64/bin/Release/*.nupkg

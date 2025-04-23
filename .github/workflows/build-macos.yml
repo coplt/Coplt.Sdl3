@@ -1,11 +1,17 @@
 ﻿name: Build Macos
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+  workflow_call:
+    outputs:
+      nupkg-artifact:
+        value: ${{ jobs.build-macos.outputs.nupkg-artifact }}
   
 jobs:
   build-macos:
     runs-on: macos-latest
+    outputs:
+      nupkg-artifact: ${{ steps.upload-nupkg-artifact.outputs.artifact-id }}
     
     steps:
       - uses: actions/checkout@v4
@@ -30,7 +36,8 @@ jobs:
           overwrite: true
       - name: Build Package
         run: dotnet build --no-restore -c Release ./Packages/Coplt.Sdl3.Native.Macos/Coplt.Sdl3.Native.Macos.csproj
-      - uses: actions/upload-artifact@v4
+      - id: upload-nupkg-artifact
+        uses: actions/upload-artifact@v4
         with:
           name: 'native-macos.nupkg'
           path: ./Packages/Coplt.Sdl3.Native.Macos/bin/Release/*.nupkg
