@@ -2,7 +2,6 @@ using System.Runtime.InteropServices;
 
 namespace Coplt.Sdl3
 {
-    [NativeTypeName("uint32_t")]
     public enum SDL_AudioFormat : uint
     {
         SDL_AUDIO_UNKNOWN = 0x0000U,

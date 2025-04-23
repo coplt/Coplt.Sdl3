@@ -64,7 +64,6 @@ namespace Coplt.Sdl3
         SDL_PACKEDLAYOUT_1010102,
     }
 
-    [NativeTypeName("uint32_t")]
     public enum SDL_PixelFormat : uint
     {
         SDL_PIXELFORMAT_UNKNOWN = 0,
@@ -224,7 +223,6 @@ namespace Coplt.Sdl3
         SDL_CHROMA_LOCATION_TOPLEFT = 3,
     }
 
-    [NativeTypeName("uint32_t")]
     public enum SDL_Colorspace : uint
     {
         SDL_COLORSPACE_UNKNOWN = 0,
