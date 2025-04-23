@@ -1,0 +1,30 @@
+﻿name: Build Macos
+
+on:
+  workflow_dispatch
+  
+jobs:
+  build-macos:
+    runs-on: macos-latest-large
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: ExtractSdlVersion
+        run: dotnet fsi .\Scripts\ExtractSdlVersion.fsx
+      - name: Setup Clang
+        uses: egor-tensin/setup-clang@v1
+      - name: Cmake Setup
+        run: cmake --preset Main "-DCMAKE_OSX_ARCHITECTURES=arm64;x86_64" -DCMAKE_OSX_DEPLOYMENT_TARGET=10.13
+      - name: Cmake Build
+        run: cmake --build --target SDL3-shared --config Release --preset Release "-DCMAKE_OSX_ARCHITECTURES=arm64;x86_64" -DCMAKE_OSX_DEPLOYMENT_TARGET=10.13
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 'native-macos'
+          path: ./build/SDL/Release/libSDL3.dylib
+          overwrite: true
