@@ -15,6 +15,8 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 9.0.x
+      - name: Restore dependencies
+        run: dotnet restore
       - name: ExtractSdlVersion
         run: dotnet fsi ./Scripts/ExtractSdlVersion.fsx
       - name: Install Packages
@@ -29,4 +31,11 @@ jobs:
         with:
           name: 'native-linux-x64'
           path: ./build/SDL/Release/libSDL3.so
+          overwrite: true
+      - name: Build Package
+        run: dotnet build --no-restore -c Release ./Packages/Coplt.Sdl3.Native.Linux.x64/Coplt.Sdl3.Native.Linux.x64.csproj
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 'native-linux-x64.nupkg'
+          path: ./Packages/Coplt.Sdl3.Native.Linux.x64/bin/Release/*.nupkg
           overwrite: true
