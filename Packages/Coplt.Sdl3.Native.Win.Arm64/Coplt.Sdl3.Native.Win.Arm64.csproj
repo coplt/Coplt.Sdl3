@@ -15,15 +15,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="../../build/SDL/Release/SDL3.dll">
+        <None Include="../../build/arm/SDL/Release/SDL3.dll">
             <Pack>True</Pack>
-            <Link>runtimes/win-x64/native/SDL3.dll</Link>
-            <PackagePath>runtimes/win-x64/native</PackagePath>
+            <Link>runtimes/win-arm64/native/SDL3.dll</Link>
+            <PackagePath>runtimes/win-arm64/native</PackagePath>
         </None>
     </ItemGroup>
 
     <ItemGroup>
         <None Include="../../LICENSE.md">
+            <Pack>True</Pack>
+            <PackagePath>/</PackagePath>
+        </None>
+        <None Include="../../SDL/LICENSE.txt">
             <Pack>True</Pack>
             <PackagePath>/</PackagePath>
         </None>

@@ -27,15 +27,15 @@ jobs:
         run: cmake --preset Main
       - name: Cmake Build
         run: cmake --build --target SDL3-shared --config Release --preset Release
-      - name: Build Package
-        run: dotnet build --no-restore -c Release ./Packages/Coplt.Sdl3.Native.Win64/Coplt.Sdl3.Native.Win64.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: 'native-windows-x64'
           path: ./build/SDL/Release/SDL3.dll
           overwrite: true
+      - name: Build Package
+        run: dotnet build --no-restore -c Release ./Packages/Coplt.Sdl3.Native.Win.x64/Coplt.Sdl3.Native.Win.x64.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: 'native-windows-x64.nupkg'
-          path: ./Packages/Coplt.Sdl3.Native.Win64/bin/Release/*.nupkg
+          path: ./Packages/Coplt.Sdl3.Native.Win.x64/bin/Release/*.nupkg
           overwrite: true

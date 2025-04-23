@@ -1,44 +1,40 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <Import Project="../../Version.props"/>
-
+    
     <PropertyGroup>
-        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
-        <LangVersion>13.0</LangVersion>
-        <Nullable>enable</Nullable>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <IsAotCompatible>True</IsAotCompatible>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Description>Unsafe C# bindings for SDL3</Description>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryUrl>https://github.com/coplt/Coplt.Sdl3</RepositoryUrl>
         <PackageProjectUrl>https://github.com/coplt/Coplt.Sdl3</PackageProjectUrl>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <NoWarn>NU5128</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="PolySharp" Version="1.15.0">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
+        <None Include="../../build/SDL/Release/SDL3.dll">
+            <Pack>True</Pack>
+            <Link>runtimes/win-x64/native/SDL3.dll</Link>
+            <PackagePath>runtimes/win-x64/native</PackagePath>
+        </None>
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="../LICENSE.md">
+        <None Include="../../LICENSE.md">
             <Pack>True</Pack>
             <PackagePath>/</PackagePath>
         </None>
-        <None Include="../SDL/LICENSE.txt">
+        <None Include="../../SDL/LICENSE.txt">
             <Pack>True</Pack>
             <PackagePath>/</PackagePath>
         </None>
-        <None Include="../README.md">
+        <None Include="../../README.md">
             <Pack>True</Pack>
             <PackagePath>/</PackagePath>
         </None>
-    </ItemGroup>
-    <ItemGroup>
-        <Folder Include="Binding\"/>
     </ItemGroup>
 
 </Project>
