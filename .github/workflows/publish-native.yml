@@ -6,19 +6,46 @@ on:
 jobs:
   build-windows-x64:
     uses: ./.github/workflows/build-win-x64.yml
-#  build-windows-arm64:
-#    uses: ./.github/workflows/build-win-arm64.yml
-#  build-linux-x64:
-#    uses: ./.github/workflows/build-linux-x64.yml
-#  build-linux-arm64:
-#    uses: ./.github/workflows/build-linux-arm64.yml
-#  build-macos:
-#    uses: ./.github/workflows/build-macos.yml
-    
   publish-windows-x64:
     uses: ./.github/workflows/publish-to-nuget.yml
-    needs:
-      - build-windows-x64
+    needs: [ build-windows-x64 ]
     with:
       nupkg-artifact: ${{ needs.build-windows-x64.outputs.nupkg-artifact }}
       nupkg-artifact-name: native-windows-x64.nupkg
+  
+  build-windows-arm64:
+    uses: ./.github/workflows/build-win-arm64.yml
+  publish-windows-arm64:
+    uses: ./.github/workflows/publish-to-nuget.yml
+    needs: [ build-windows-arm64 ]
+    with:
+      nupkg-artifact: ${{ needs.build-windows-arm64.outputs.nupkg-artifact }}
+      nupkg-artifact-name: native-windows-arm64.nupkg
+  
+  build-linux-x64:
+    uses: ./.github/workflows/build-linux-x64.yml
+  publish-linux-x64:
+    uses: ./.github/workflows/publish-to-x64.yml
+    needs: [ build-linux-x64 ]
+    with:
+      nupkg-artifact: ${{ needs.build-linux-x64.outputs.nupkg-artifact }}
+      nupkg-artifact-name: native-linux-x64.nupkg
+  
+  build-linux-arm64:
+    uses: ./.github/workflows/build-linux-arm64.yml
+  publish-linux-arm64:
+    uses: ./.github/workflows/publish-to-nuget.yml
+    needs: [ build-linux-arm64 ]
+    with:
+      nupkg-artifact: ${{ needs.build-linux-arm64.outputs.nupkg-artifact }}
+      nupkg-artifact-name: native-linux-arm64.nupkg
+  
+  build-macos:
+    uses: ./.github/workflows/build-macos.yml
+  publish-macos:
+    uses: ./.github/workflows/publish-to-nuget.yml
+    needs: [ build-macos ]
+    with:
+      nupkg-artifact: ${{ needs.build-macos.outputs.nupkg-artifact }}
+      nupkg-artifact-name: native-macos.nupkg
+    

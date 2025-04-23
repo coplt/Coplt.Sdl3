@@ -34,4 +34,9 @@ jobs:
           artifact-ids: ${{ inputs.nupkg-artifact }}
           path: ./artifact
       - name: Display structure of downloaded files
-        run: ls -R
+        run: ls -R ./artifact
+      - name: Publish
+        run: dotnet fsi ./Scripts/PublishNuget.fsx
+        env:
+          NUGET_KEY: ${{ secrets.NUGET_KEY }}
+        
