@@ -21,4 +21,4 @@ jobs:
       - build-windows-x64
     with:
       nupkg-artifact: ${{ needs.build-windows-x64.outputs.nupkg-artifact }}
-      
+      nupkg-artifact-name: native-windows-x64.nupkg
