@@ -25,7 +25,7 @@ jobs:
   build-linux-x64:
     uses: ./.github/workflows/build-linux-x64.yml
   publish-linux-x64:
-    uses: ./.github/workflows/publish-to-x64.yml
+    uses: ./.github/workflows/publish-to-nuget.yml
     needs: [ build-linux-x64 ]
     with:
       nupkg-artifact: ${{ needs.build-linux-x64.outputs.nupkg-artifact }}
