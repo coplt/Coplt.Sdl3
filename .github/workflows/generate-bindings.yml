@@ -13,7 +13,7 @@ on:
 
 jobs:
   generate-bindings:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     outputs:
       nupkg-artifact: ${{ steps.upload-nupkg-artifact.outputs.artifact-id }}
     
