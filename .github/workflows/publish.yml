@@ -1,9 +1,20 @@
-﻿name: Publish Native
+﻿name: Publish
 
 on:
   workflow_dispatch:
 
 jobs:
+  build-bindings:
+    uses: ./.github/workflows/generate-bindings.yml
+  publish-bindings:
+    uses: ./.github/workflows/publish-to-nuget.yml
+    needs: [ build-bindings ]
+    secrets:
+      NUGET_KEY: ${{ secrets.NUGET_KEY }}
+    with:
+      nupkg-artifact: ${{ needs.build-bindings.outputs.nupkg-artifact }}
+      nupkg-artifact-name: binding.nupkg
+  
   build-meta-package:
     uses: ./.github/workflows/build-native-meta-package.yml
   publish-meta-package:
