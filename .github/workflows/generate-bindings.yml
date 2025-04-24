@@ -10,7 +10,7 @@ on:
 
 jobs:
   generate-bindings:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     
     steps:
       - uses: actions/checkout@v4
@@ -22,8 +22,8 @@ jobs:
           dotnet-version: 9.0.x
       - name: Restore dependencies
         run: dotnet restore
-      - name: Restore tools
-        run: dotnet tool restore
+      - name: Install ClangSharpPInvokeGenerator
+        run: dotnet tool install --global ClangSharpPInvokeGenerator --version 18.1.0
       - name: ExtractSdlVersion
         run: dotnet fsi ./Scripts/ExtractSdlVersion.fsx
       - name: ExtractSdlProps
