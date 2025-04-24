@@ -15,6 +15,8 @@ if not <| Directory.Exists "./Coplt.Sdl3/Structs" then
 
 let ignores = Set [ "MouseButton" ]
 
+let is_flags = Set [ "GPUShaderFormat" ]
+
 let type_map =
     Map
         [ "Uint64", "ulong"
@@ -33,7 +35,9 @@ type State =
     | Flags
 
 let flags_regex =
-    Regex("typedef (?<type>Uint64|Uint32|Uint16|Uint8|Int64|Int32|Int16|Int8) SDL_((?<flags>(?<name>[\w]+)Flags)|(?<name>[\w]+));")
+    Regex(
+        "typedef (?<type>Uint64|Uint32|Uint16|Uint8|Int64|Int32|Int16|Int8) SDL_((?<flags>(?<name>[\w]+)Flags)|(?<name>[\w]+));"
+    )
 
 let val_regex =
     Regex("(?<val>0x[\da-fA-F]+u)|SDL_UINT64_C\((?<val>0x[\da-fA-F]+)\)|\((?<val>\d+u << \d+)\)")
@@ -46,6 +50,7 @@ for path in File.ReadLines("./HeadersToGen.txt") do
     let mutable cur_name = ""
     let mutable def_name = ""
     let mutable cur_start = ""
+    let mutable flags_suffix = ""
     let mutable cur_list = List<string>()
 
     for line in File.ReadLines($"./SDL/include/{path}") do
@@ -58,11 +63,13 @@ for path in File.ReadLines("./HeadersToGen.txt") do
                 cur_type <- type_map[mat.Groups["type"].Value]
                 cur_name <- mat.Groups["name"].Value
 
-                if mat.Groups["flags"].Success then
+                if mat.Groups["flags"].Success || is_flags.Contains cur_name then
                     if ignores.Contains cur_name then
                         ()
                     else
                         state <- TypeDef
+
+                        flags_suffix <- if mat.Groups["flags"].Success then "Flags" else ""
 
                         if cur_name = "MessageBoxButton" then
                             def_name <- $"MESSAGEBOX_BUTTON"
@@ -74,8 +81,8 @@ for path in File.ReadLines("./HeadersToGen.txt") do
                             def_name <- cur_name.ToUpper()
 
                         cur_start <- $"#define SDL_{def_name}_"
-                        type_remaps.Add($"SDL_{cur_name}Flags")
-                        printfn $"\nFind flags {def_name}\nenum SDL_{cur_name}Flags : {cur_type}\n{{"
+                        type_remaps.Add($"SDL_{cur_name}{flags_suffix}")
+                        printfn $"\nFind flags {def_name}\nenum SDL_{cur_name}{flags_suffix} : {cur_type}\n{{"
                 else
                     type_remaps.Add($"SDL_{cur_name}")
                     let new_type = $"readonly record struct SDL_{cur_name}({cur_type} Value);"
@@ -113,7 +120,7 @@ for path in File.ReadLines("./HeadersToGen.txt") do
             else
                 printfn "}"
                 state <- State.None
-                flags.Add($"public enum SDL_{cur_name}Flags : {cur_type}", cur_list)
+                flags.Add($"public enum SDL_{cur_name}{flags_suffix} : {cur_type}", cur_list)
                 cur_list <- List()
 
     if flags.Count > 0 || new_types.Count > 0 then

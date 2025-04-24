@@ -26,6 +26,17 @@ public enum SDL_GPUBufferUsageFlags : uint
 }
 
 [Flags]
+public enum SDL_GPUShaderFormat : uint
+{
+    Private = 1u << 0,
+    Spirv = 1u << 1,
+    Dxbc = 1u << 2,
+    Dxil = 1u << 3,
+    Msl = 1u << 4,
+    Metallib = 1u << 5,
+}
+
+[Flags]
 public enum SDL_GPUColorComponentFlags : byte
 {
     R = (byte)(1u << 0),
@@ -33,5 +44,3 @@ public enum SDL_GPUColorComponentFlags : byte
     B = (byte)(1u << 2),
     A = (byte)(1u << 3),
 }
-
-public readonly record struct SDL_GPUShaderFormat(uint Value);

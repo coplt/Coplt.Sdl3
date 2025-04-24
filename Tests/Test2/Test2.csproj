@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PublishAot>true</PublishAot>
+        <InvariantGlobalization>true</InvariantGlobalization>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Coplt.Sdl3\Coplt.Sdl3.csproj"/>
+        <PackageReference Include="Microsoft.Direct3D.DXC" Version="1.8.2502.8" GeneratePathProperty="true" ExcludeAssets="all" />
+    </ItemGroup>
+
+    <Target Name="BuildShader" AfterTargets="Build">
+        <Exec Command="$(PkgMicrosoft_Direct3D_DXC)\build\native\bin\x64\dxc.exe -T vs_6_0 -E Vertex -Zs -Fo $(OutDir)/Shader.Vertex.dxil ./Shaders/Shader.hlsl"/>
+        <Exec Command="$(PkgMicrosoft_Direct3D_DXC)\build\native\bin\x64\dxc.exe -T ps_6_0 -E Pixel -Zs -Fo $(OutDir)/Shader.Pixel.dxil ./Shaders/Shader.hlsl"/>
+        <Exec Command="$(PkgMicrosoft_Direct3D_DXC)\build\native\bin\x64\dxc.exe -T vs_6_0 -E Vertex -Zs -spirv -Fo $(OutDir)/Shader.Vertex.spv ./Shaders/Shader.hlsl"/>
+        <Exec Command="$(PkgMicrosoft_Direct3D_DXC)\build\native\bin\x64\dxc.exe -T ps_6_0 -E Pixel -Zs -spirv -Fo $(OutDir)/Shader.Pixel.spv ./Shaders/Shader.hlsl"/>
+    </Target>
+
+    <ItemGroup>
+        <Content Include="..\..\build\SDL\Release\SDL3.dll" Condition="'$(OS)' == 'Windows_NT'">
+            <Link>SDL3.dll</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="..\..\build\SDL\Release\libSDL3.so" Condition="'$(OS)' == 'unix'">
+            <Link>libSDL3.so</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ClCompile Include="Shaders\Shader.hlsl" />
+    </ItemGroup>
+
+</Project>

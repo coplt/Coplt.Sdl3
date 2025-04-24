@@ -1,22 +1,19 @@
 ﻿using System.Runtime.InteropServices;
 using Coplt.Sdl3;
 
-namespace Test1;
+namespace Test2;
 
 unsafe class Program
 {
     [STAThread]
     static void Main(string[] args)
     {
-        if (!SDL.Init(SDL_InitFlags.Video)) throw new Exception("Init failed");
+        if (!SDL.Init(SDL_InitFlags.Video)) throw new SdlException();
 
         SDL_Window* window;
         SDL_Renderer* renderer;
-        fixed (byte* p_name = "Test"u8)
-        {
-            if (!SDL.CreateWindowAndRenderer(p_name, 960, 540, SDL_WindowFlags.Resizable, &window, &renderer))
-                throw new Exception(new string((sbyte*)SDL.GetError()));
-        }
+        if (!SDL.CreateWindowAndRenderer(SDL.StrPtr("Test"u8), 960, 540, SDL_WindowFlags.Resizable, &window, &renderer))
+            throw new SdlException();
 
         var run = true;
         while (run)
