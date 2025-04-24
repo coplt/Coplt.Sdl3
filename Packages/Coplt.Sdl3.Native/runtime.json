@@ -1,0 +1,34 @@
+{
+  "runtimes": {
+    "linux-arm64": {
+      "Coplt.Sdl3.Native": {
+        "Coplt.Sdl3.Native.Linux.Arm64": "3.2.11-0.1.0"
+      }
+    },
+    "linux-x64": {
+      "Coplt.Sdl3.Native": {
+        "Coplt.Sdl3.Native.Linux.x64": "3.2.11-0.1.0"
+      }
+    },
+    "osx-arm64": {
+      "Coplt.Sdl3.Native": {
+        "Coplt.Sdl3.Native.Macos": "3.2.11-0.1.0"
+      }
+    },
+    "osx-x64": {
+      "Coplt.Sdl3.Native": {
+        "Coplt.Sdl3.Native.Macos": "3.2.11-0.1.0"
+      }
+    },
+    "win-arm64": {
+      "Coplt.Sdl3.Native": {
+        "Coplt.Sdl3.Native.Win.Arm64": "3.2.11-0.1.0"
+      }
+    },
+    "win-x64": {
+      "Coplt.Sdl3.Native": {
+        "Coplt.Sdl3.Native.Win.x64": "3.2.11-0.1.0"
+      }
+    }
+  }
+}

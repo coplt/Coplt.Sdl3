@@ -1,0 +1,35 @@
+﻿name: Build Native Meta Package
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    outputs:
+      nupkg-artifact:
+        value: ${{ jobs.build-windows-x64.outputs.nupkg-artifact }}
+  
+jobs:
+  build-native-meta-package:
+    runs-on: ubuntu-latest
+    outputs:
+      nupkg-artifact: ${{ steps.upload-nupkg-artifact.outputs.artifact-id }}
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: ExtractSdlVersion
+        run: dotnet fsi ./Scripts/ExtractSdlVersion.fsx
+      - name: Build Package
+        run: dotnet build --no-restore -c Release ./Packages/Coplt.Sdl3.Native/Coplt.Sdl3.Native.csproj
+      - id: upload-nupkg-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'native-meta-package.nupkg'
+          path: ./Packages/Coplt.Sdl3.Native/bin/Release/*.nupkg
+          overwrite: true
