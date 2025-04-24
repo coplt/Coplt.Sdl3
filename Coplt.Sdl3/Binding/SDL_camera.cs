@@ -23,9 +23,9 @@ namespace Coplt.Sdl3
 
     public enum SDL_CameraPosition
     {
-        SDL_CAMERA_POSITION_UNKNOWN,
-        SDL_CAMERA_POSITION_FRONT_FACING,
-        SDL_CAMERA_POSITION_BACK_FACING,
+        Unknown,
+        FrontFacing,
+        BackFacing,
     }
 
     public static unsafe partial class SDL

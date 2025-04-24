@@ -4,19 +4,19 @@ namespace Coplt.Sdl3
 {
     public enum SDL_IOStatus
     {
-        SDL_IO_STATUS_READY,
-        SDL_IO_STATUS_ERROR,
-        SDL_IO_STATUS_EOF,
-        SDL_IO_STATUS_NOT_READY,
-        SDL_IO_STATUS_READONLY,
-        SDL_IO_STATUS_WRITEONLY,
+        StatusReady,
+        StatusError,
+        StatusEof,
+        StatusNotReady,
+        StatusReadonly,
+        StatusWriteonly,
     }
 
     public enum SDL_IOWhence
     {
-        SDL_IO_SEEK_SET,
-        SDL_IO_SEEK_CUR,
-        SDL_IO_SEEK_END,
+        SeekSet,
+        SeekCur,
+        SeekEnd,
     }
 
     public unsafe partial struct SDL_IOStreamInterface

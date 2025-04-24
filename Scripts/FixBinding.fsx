@@ -1,5 +1,6 @@
 ﻿open System
 open System.IO
+open System.Text
 open System.Text.RegularExpressions
 
 [<Struct>]
@@ -100,9 +101,112 @@ fix_rect ()
 let remove_native_names_regex =
     Regex("\s*\[(return: )?NativeTypeName\(\"[\w\d _&*(),\[\]]*\"\)\] ?")
 
+let enum_name_map (name: string) =
+    String.Join(
+        "",
+        name.Split("_")
+        |> Seq.map _.ToLower()
+        |> Seq.map (fun s ->
+            let mutable s = s
+
+            if s.Length > 0 && Char.IsNumber(s[0]) then
+                s <- $"_{s}"
+
+            if s.Length <= 1 then
+                s.ToUpper()
+            else
+                $"{s[0].ToString().ToUpper()}{s[1..]}")
+    )
+
+type State =
+    | None
+    | EnumStart
+    | EnumBody
+
+let use_enum_item2_names = Set [ "SDL_EventAction" ]
+
+let enum_name_regex = Regex("    public enum (?<name>SDL_[\w\d_]+)")
+
+let enum_item_regex =
+    Regex(
+        "        (?<raw>SDL_(CAMERA_POSITION|GAMEPAD_TYPE|GAMEPAD_BUTTON_LABEL|GAMEPAD_BUTTON|DATE_FORMAT|TIME_FORMAT|TOUCH_DEVICE|SYSTEM_THEME|[^_]+)_(?<name>[\w\d_]+))( = (?<val>[\w\d<>()\-]+))?,"
+    )
+
+let enum_item_regex2 =
+    Regex("        (?<raw>SDL_(?<name>[\w\d_]+))( = (?<val>[\w\d<>()\-]+))?,")
+
 for path in Directory.GetFiles("./Coplt.Sdl3/Binding") do
     let code = File.ReadAllText(path)
     let code = remove_native_names_regex.Replace(code, "")
-    File.WriteAllText(path, code)
 
-// todo fix enum names
+    // fix enum names
+    let lines = code.Split "\n"
+
+    let mutable state = State.None
+    let mutable use_enum_item2 = false
+
+    let lines =
+        lines
+        |> Seq.map (fun line ->
+            match state with
+            | None ->
+                let enum_mat = enum_name_regex.Match line
+
+                if enum_mat.Success then
+                    state <- State.EnumStart
+                    let name = enum_mat.Groups["name"].Value
+                    use_enum_item2 <- use_enum_item2_names.Contains name
+                    printfn $"\nFind enum; {line} ; ({name}) ; Item2 = {use_enum_item2}"
+                    line
+                else
+                    line
+            | EnumStart ->
+                if line.StartsWith "    {" then
+                    state <- State.EnumBody
+                else
+                    printfn $"\n"
+                    state <- State.None
+
+                line
+            | EnumBody ->
+                if line.StartsWith "    }" then
+                    printfn $"\n"
+                    state <- State.None
+                    line
+                else
+                    let regex = if use_enum_item2 then enum_item_regex2 else enum_item_regex
+                    let mat = regex.Match line
+
+                    if mat.Success then
+                        let raw = mat.Groups["raw"].Value
+                        let name = mat.Groups["name"].Value
+                        let v = mat.Groups["val"].Value
+
+                        let vv =
+                            if mat.Groups["val"].Success then
+                                let v_mat = regex.Match $"        {v},"
+
+                                let s =
+                                    if v_mat.Success then
+                                        let v_name = v_mat.Groups["name"].Value
+                                        let v_name = enum_name_map v_name
+                                        v_name
+                                    else
+                                        v
+
+                                $" = {s}"
+                            else
+                                ""
+
+                        let name = enum_name_map name
+                        let item = $"        {name}{vv},"
+                        printfn $"{item}"
+                        item
+                    else
+                        line
+        //
+        )
+
+    let code = String.Join("\n", lines)
+
+    File.WriteAllText(path, code)

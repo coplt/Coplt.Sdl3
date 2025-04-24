@@ -8,18 +8,18 @@ namespace Coplt.Sdl3
 
     public enum SDL_ThreadPriority
     {
-        SDL_THREAD_PRIORITY_LOW,
-        SDL_THREAD_PRIORITY_NORMAL,
-        SDL_THREAD_PRIORITY_HIGH,
-        SDL_THREAD_PRIORITY_TIME_CRITICAL,
+        PriorityLow,
+        PriorityNormal,
+        PriorityHigh,
+        PriorityTimeCritical,
     }
 
     public enum SDL_ThreadState
     {
-        SDL_THREAD_UNKNOWN,
-        SDL_THREAD_ALIVE,
-        SDL_THREAD_DETACHED,
-        SDL_THREAD_COMPLETE,
+        Unknown,
+        Alive,
+        Detached,
+        Complete,
     }
 
     public static unsafe partial class SDL

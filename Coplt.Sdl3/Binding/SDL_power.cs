@@ -4,12 +4,12 @@ namespace Coplt.Sdl3
 {
     public enum SDL_PowerState
     {
-        SDL_POWERSTATE_ERROR = -1,
-        SDL_POWERSTATE_UNKNOWN,
-        SDL_POWERSTATE_ON_BATTERY,
-        SDL_POWERSTATE_NO_BATTERY,
-        SDL_POWERSTATE_CHARGING,
-        SDL_POWERSTATE_CHARGED,
+        Error = -1,
+        Unknown,
+        OnBattery,
+        NoBattery,
+        Charging,
+        Charged,
     }
 
     public static unsafe partial class SDL

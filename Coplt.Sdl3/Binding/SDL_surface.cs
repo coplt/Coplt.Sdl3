@@ -4,16 +4,16 @@ namespace Coplt.Sdl3
 {
     public enum SDL_ScaleMode
     {
-        SDL_SCALEMODE_INVALID = -1,
-        SDL_SCALEMODE_NEAREST,
-        SDL_SCALEMODE_LINEAR,
+        Invalid = -1,
+        Nearest,
+        Linear,
     }
 
     public enum SDL_FlipMode
     {
-        SDL_FLIP_NONE,
-        SDL_FLIP_HORIZONTAL,
-        SDL_FLIP_VERTICAL,
+        None,
+        Horizontal,
+        Vertical,
     }
 
     public unsafe partial struct SDL_Surface

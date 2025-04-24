@@ -20,12 +20,12 @@ namespace Coplt.Sdl3
 
     public enum SDL_MessageBoxColorType
     {
-        SDL_MESSAGEBOX_COLOR_BACKGROUND,
-        SDL_MESSAGEBOX_COLOR_TEXT,
-        SDL_MESSAGEBOX_COLOR_BUTTON_BORDER,
-        SDL_MESSAGEBOX_COLOR_BUTTON_BACKGROUND,
-        SDL_MESSAGEBOX_COLOR_BUTTON_SELECTED,
-        SDL_MESSAGEBOX_COLOR_COUNT,
+        ColorBackground,
+        ColorText,
+        ColorButtonBorder,
+        ColorButtonBackground,
+        ColorButtonSelected,
+        ColorCount,
     }
 
     public partial struct SDL_MessageBoxColorScheme

@@ -4,23 +4,23 @@ namespace Coplt.Sdl3
 {
     public enum SDL_TextInputType
     {
-        SDL_TEXTINPUT_TYPE_TEXT,
-        SDL_TEXTINPUT_TYPE_TEXT_NAME,
-        SDL_TEXTINPUT_TYPE_TEXT_EMAIL,
-        SDL_TEXTINPUT_TYPE_TEXT_USERNAME,
-        SDL_TEXTINPUT_TYPE_TEXT_PASSWORD_HIDDEN,
-        SDL_TEXTINPUT_TYPE_TEXT_PASSWORD_VISIBLE,
-        SDL_TEXTINPUT_TYPE_NUMBER,
-        SDL_TEXTINPUT_TYPE_NUMBER_PASSWORD_HIDDEN,
-        SDL_TEXTINPUT_TYPE_NUMBER_PASSWORD_VISIBLE,
+        TypeText,
+        TypeTextName,
+        TypeTextEmail,
+        TypeTextUsername,
+        TypeTextPasswordHidden,
+        TypeTextPasswordVisible,
+        TypeNumber,
+        TypeNumberPasswordHidden,
+        TypeNumberPasswordVisible,
     }
 
     public enum SDL_Capitalization
     {
-        SDL_CAPITALIZE_NONE,
-        SDL_CAPITALIZE_SENTENCES,
-        SDL_CAPITALIZE_WORDS,
-        SDL_CAPITALIZE_LETTERS,
+        None,
+        Sentences,
+        Words,
+        Letters,
     }
 
     public static unsafe partial class SDL

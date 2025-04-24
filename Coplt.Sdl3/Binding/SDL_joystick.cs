@@ -9,25 +9,25 @@ namespace Coplt.Sdl3
 
     public enum SDL_JoystickType
     {
-        SDL_JOYSTICK_TYPE_UNKNOWN,
-        SDL_JOYSTICK_TYPE_GAMEPAD,
-        SDL_JOYSTICK_TYPE_WHEEL,
-        SDL_JOYSTICK_TYPE_ARCADE_STICK,
-        SDL_JOYSTICK_TYPE_FLIGHT_STICK,
-        SDL_JOYSTICK_TYPE_DANCE_PAD,
-        SDL_JOYSTICK_TYPE_GUITAR,
-        SDL_JOYSTICK_TYPE_DRUM_KIT,
-        SDL_JOYSTICK_TYPE_ARCADE_PAD,
-        SDL_JOYSTICK_TYPE_THROTTLE,
-        SDL_JOYSTICK_TYPE_COUNT,
+        TypeUnknown,
+        TypeGamepad,
+        TypeWheel,
+        TypeArcadeStick,
+        TypeFlightStick,
+        TypeDancePad,
+        TypeGuitar,
+        TypeDrumKit,
+        TypeArcadePad,
+        TypeThrottle,
+        TypeCount,
     }
 
     public enum SDL_JoystickConnectionState
     {
-        SDL_JOYSTICK_CONNECTION_INVALID = -1,
-        SDL_JOYSTICK_CONNECTION_UNKNOWN,
-        SDL_JOYSTICK_CONNECTION_WIRED,
-        SDL_JOYSTICK_CONNECTION_WIRELESS,
+        ConnectionInvalid = -1,
+        ConnectionUnknown,
+        ConnectionWired,
+        ConnectionWireless,
     }
 
     public partial struct SDL_VirtualJoystickTouchpadDesc

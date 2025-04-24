@@ -25,15 +25,15 @@ namespace Coplt.Sdl3
 
     public enum SDL_DateFormat
     {
-        SDL_DATE_FORMAT_YYYYMMDD = 0,
-        SDL_DATE_FORMAT_DDMMYYYY = 1,
-        SDL_DATE_FORMAT_MMDDYYYY = 2,
+        Yyyymmdd = 0,
+        Ddmmyyyy = 1,
+        Mmddyyyy = 2,
     }
 
     public enum SDL_TimeFormat
     {
-        SDL_TIME_FORMAT_24HR = 0,
-        SDL_TIME_FORMAT_12HR = 1,
+        _24hr = 0,
+        _12hr = 1,
     }
 
     public static unsafe partial class SDL

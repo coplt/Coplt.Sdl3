@@ -13,18 +13,18 @@ namespace Coplt.Sdl3
 
     public enum SDL_TextureAccess
     {
-        SDL_TEXTUREACCESS_STATIC,
-        SDL_TEXTUREACCESS_STREAMING,
-        SDL_TEXTUREACCESS_TARGET,
+        Static,
+        Streaming,
+        Target,
     }
 
     public enum SDL_RendererLogicalPresentation
     {
-        SDL_LOGICAL_PRESENTATION_DISABLED,
-        SDL_LOGICAL_PRESENTATION_STRETCH,
-        SDL_LOGICAL_PRESENTATION_LETTERBOX,
-        SDL_LOGICAL_PRESENTATION_OVERSCAN,
-        SDL_LOGICAL_PRESENTATION_INTEGER_SCALE,
+        PresentationDisabled,
+        PresentationStretch,
+        PresentationLetterbox,
+        PresentationOverscan,
+        PresentationIntegerScale,
     }
 
     public partial struct SDL_Renderer

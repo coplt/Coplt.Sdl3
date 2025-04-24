@@ -8,11 +8,11 @@ namespace Coplt.Sdl3
 
     public enum SDL_hid_bus_type
     {
-        SDL_HID_API_BUS_UNKNOWN = 0x00,
-        SDL_HID_API_BUS_USB = 0x01,
-        SDL_HID_API_BUS_BLUETOOTH = 0x02,
-        SDL_HID_API_BUS_I2C = 0x03,
-        SDL_HID_API_BUS_SPI = 0x04,
+        ApiBusUnknown = 0x00,
+        ApiBusUsb = 0x01,
+        ApiBusBluetooth = 0x02,
+        ApiBusI2c = 0x03,
+        ApiBusSpi = 0x04,
     }
 
     public unsafe partial struct SDL_hid_device_info

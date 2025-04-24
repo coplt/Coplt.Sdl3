@@ -4,18 +4,18 @@ namespace Coplt.Sdl3
 {
     public enum SDL_AudioFormat : uint
     {
-        SDL_AUDIO_UNKNOWN = 0x0000U,
-        SDL_AUDIO_U8 = 0x0008U,
-        SDL_AUDIO_S8 = 0x8008U,
-        SDL_AUDIO_S16LE = 0x8010U,
-        SDL_AUDIO_S16BE = 0x9010U,
-        SDL_AUDIO_S32LE = 0x8020U,
-        SDL_AUDIO_S32BE = 0x9020U,
-        SDL_AUDIO_F32LE = 0x8120U,
-        SDL_AUDIO_F32BE = 0x9120U,
-        SDL_AUDIO_S16 = SDL_AUDIO_S16LE,
-        SDL_AUDIO_S32 = SDL_AUDIO_S32LE,
-        SDL_AUDIO_F32 = SDL_AUDIO_F32LE,
+        Unknown = 0x0000U,
+        U8 = 0x0008U,
+        S8 = 0x8008U,
+        S16le = 0x8010U,
+        S16be = 0x9010U,
+        S32le = 0x8020U,
+        S32be = 0x9020U,
+        F32le = 0x8120U,
+        F32be = 0x9120U,
+        S16 = S16le,
+        S32 = S32le,
+        F32 = F32le,
     }
 
     public partial struct SDL_AudioSpec

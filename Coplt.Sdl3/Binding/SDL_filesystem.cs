@@ -4,26 +4,26 @@ namespace Coplt.Sdl3
 {
     public enum SDL_Folder
     {
-        SDL_FOLDER_HOME,
-        SDL_FOLDER_DESKTOP,
-        SDL_FOLDER_DOCUMENTS,
-        SDL_FOLDER_DOWNLOADS,
-        SDL_FOLDER_MUSIC,
-        SDL_FOLDER_PICTURES,
-        SDL_FOLDER_PUBLICSHARE,
-        SDL_FOLDER_SAVEDGAMES,
-        SDL_FOLDER_SCREENSHOTS,
-        SDL_FOLDER_TEMPLATES,
-        SDL_FOLDER_VIDEOS,
-        SDL_FOLDER_COUNT,
+        Home,
+        Desktop,
+        Documents,
+        Downloads,
+        Music,
+        Pictures,
+        Publicshare,
+        Savedgames,
+        Screenshots,
+        Templates,
+        Videos,
+        Count,
     }
 
     public enum SDL_PathType
     {
-        SDL_PATHTYPE_NONE,
-        SDL_PATHTYPE_FILE,
-        SDL_PATHTYPE_DIRECTORY,
-        SDL_PATHTYPE_OTHER,
+        None,
+        File,
+        Directory,
+        Other,
     }
 
     public partial struct SDL_PathInfo
@@ -37,9 +37,9 @@ namespace Coplt.Sdl3
 
     public enum SDL_EnumerationResult
     {
-        SDL_ENUM_CONTINUE,
-        SDL_ENUM_SUCCESS,
-        SDL_ENUM_FAILURE,
+        Continue,
+        Success,
+        Failure,
     }
 
     public static unsafe partial class SDL

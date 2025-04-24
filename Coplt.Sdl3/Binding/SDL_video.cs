@@ -4,9 +4,9 @@ namespace Coplt.Sdl3
 {
     public enum SDL_SystemTheme
     {
-        SDL_SYSTEM_THEME_UNKNOWN,
-        SDL_SYSTEM_THEME_LIGHT,
-        SDL_SYSTEM_THEME_DARK,
+        Unknown,
+        Light,
+        Dark,
     }
 
     public partial struct SDL_DisplayModeData
@@ -36,11 +36,11 @@ namespace Coplt.Sdl3
 
     public enum SDL_DisplayOrientation
     {
-        SDL_ORIENTATION_UNKNOWN,
-        SDL_ORIENTATION_LANDSCAPE,
-        SDL_ORIENTATION_LANDSCAPE_FLIPPED,
-        SDL_ORIENTATION_PORTRAIT,
-        SDL_ORIENTATION_PORTRAIT_FLIPPED,
+        Unknown,
+        Landscape,
+        LandscapeFlipped,
+        Portrait,
+        PortraitFlipped,
     }
 
     public partial struct SDL_Window
@@ -49,9 +49,9 @@ namespace Coplt.Sdl3
 
     public enum SDL_FlashOperation
     {
-        SDL_FLASH_CANCEL,
-        SDL_FLASH_BRIEFLY,
-        SDL_FLASH_UNTIL_FOCUSED,
+        Cancel,
+        Briefly,
+        UntilFocused,
     }
 
     public partial struct SDL_GLContextState
@@ -60,48 +60,48 @@ namespace Coplt.Sdl3
 
     public enum SDL_GLAttr
     {
-        SDL_GL_RED_SIZE,
-        SDL_GL_GREEN_SIZE,
-        SDL_GL_BLUE_SIZE,
-        SDL_GL_ALPHA_SIZE,
-        SDL_GL_BUFFER_SIZE,
-        SDL_GL_DOUBLEBUFFER,
-        SDL_GL_DEPTH_SIZE,
-        SDL_GL_STENCIL_SIZE,
-        SDL_GL_ACCUM_RED_SIZE,
-        SDL_GL_ACCUM_GREEN_SIZE,
-        SDL_GL_ACCUM_BLUE_SIZE,
-        SDL_GL_ACCUM_ALPHA_SIZE,
-        SDL_GL_STEREO,
-        SDL_GL_MULTISAMPLEBUFFERS,
-        SDL_GL_MULTISAMPLESAMPLES,
-        SDL_GL_ACCELERATED_VISUAL,
-        SDL_GL_RETAINED_BACKING,
-        SDL_GL_CONTEXT_MAJOR_VERSION,
-        SDL_GL_CONTEXT_MINOR_VERSION,
-        SDL_GL_CONTEXT_FLAGS,
-        SDL_GL_CONTEXT_PROFILE_MASK,
-        SDL_GL_SHARE_WITH_CURRENT_CONTEXT,
-        SDL_GL_FRAMEBUFFER_SRGB_CAPABLE,
-        SDL_GL_CONTEXT_RELEASE_BEHAVIOR,
-        SDL_GL_CONTEXT_RESET_NOTIFICATION,
-        SDL_GL_CONTEXT_NO_ERROR,
-        SDL_GL_FLOATBUFFERS,
-        SDL_GL_EGL_PLATFORM,
+        RedSize,
+        GreenSize,
+        BlueSize,
+        AlphaSize,
+        BufferSize,
+        Doublebuffer,
+        DepthSize,
+        StencilSize,
+        AccumRedSize,
+        AccumGreenSize,
+        AccumBlueSize,
+        AccumAlphaSize,
+        Stereo,
+        Multisamplebuffers,
+        Multisamplesamples,
+        AcceleratedVisual,
+        RetainedBacking,
+        ContextMajorVersion,
+        ContextMinorVersion,
+        ContextFlags,
+        ContextProfileMask,
+        ShareWithCurrentContext,
+        FramebufferSrgbCapable,
+        ContextReleaseBehavior,
+        ContextResetNotification,
+        ContextNoError,
+        Floatbuffers,
+        EglPlatform,
     }
 
     public enum SDL_HitTestResult
     {
-        SDL_HITTEST_NORMAL,
-        SDL_HITTEST_DRAGGABLE,
-        SDL_HITTEST_RESIZE_TOPLEFT,
-        SDL_HITTEST_RESIZE_TOP,
-        SDL_HITTEST_RESIZE_TOPRIGHT,
-        SDL_HITTEST_RESIZE_RIGHT,
-        SDL_HITTEST_RESIZE_BOTTOMRIGHT,
-        SDL_HITTEST_RESIZE_BOTTOM,
-        SDL_HITTEST_RESIZE_BOTTOMLEFT,
-        SDL_HITTEST_RESIZE_LEFT,
+        Normal,
+        Draggable,
+        ResizeTopleft,
+        ResizeTop,
+        ResizeTopright,
+        ResizeRight,
+        ResizeBottomright,
+        ResizeBottom,
+        ResizeBottomleft,
+        ResizeLeft,
     }
 
     public static unsafe partial class SDL

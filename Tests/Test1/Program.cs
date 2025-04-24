@@ -24,7 +24,7 @@ unsafe class Program
             SDL_Event e;
             if (SDL.PollEvent(&e))
             {
-                if (e.Type == SDL_EventType.SDL_EVENT_QUIT)
+                if (e.Type == SDL_EventType.Quit)
                 {
                     run = false;
                 }

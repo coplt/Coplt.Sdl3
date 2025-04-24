@@ -20,10 +20,10 @@ namespace Coplt.Sdl3
 
     public enum SDL_InitStatus
     {
-        SDL_INIT_STATUS_UNINITIALIZED,
-        SDL_INIT_STATUS_INITIALIZING,
-        SDL_INIT_STATUS_INITIALIZED,
-        SDL_INIT_STATUS_UNINITIALIZING,
+        StatusUninitialized,
+        StatusInitializing,
+        StatusInitialized,
+        StatusUninitializing,
     }
 
     public unsafe partial struct SDL_InitState

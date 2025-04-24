@@ -8,16 +8,16 @@ namespace Coplt.Sdl3
 
     public enum SDL_AsyncIOTaskType
     {
-        SDL_ASYNCIO_TASK_READ,
-        SDL_ASYNCIO_TASK_WRITE,
-        SDL_ASYNCIO_TASK_CLOSE,
+        TaskRead,
+        TaskWrite,
+        TaskClose,
     }
 
     public enum SDL_AsyncIOResult
     {
-        SDL_ASYNCIO_COMPLETE,
-        SDL_ASYNCIO_FAILURE,
-        SDL_ASYNCIO_CANCELED,
+        Complete,
+        Failure,
+        Canceled,
     }
 
     public unsafe partial struct SDL_AsyncIOOutcome

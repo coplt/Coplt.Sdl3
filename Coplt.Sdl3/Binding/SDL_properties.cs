@@ -4,12 +4,12 @@ namespace Coplt.Sdl3
 {
     public enum SDL_PropertyType
     {
-        SDL_PROPERTY_TYPE_INVALID,
-        SDL_PROPERTY_TYPE_POINTER,
-        SDL_PROPERTY_TYPE_STRING,
-        SDL_PROPERTY_TYPE_NUMBER,
-        SDL_PROPERTY_TYPE_FLOAT,
-        SDL_PROPERTY_TYPE_BOOLEAN,
+        TypeInvalid,
+        TypePointer,
+        TypeString,
+        TypeNumber,
+        TypeFloat,
+        TypeBoolean,
     }
 
     public static unsafe partial class SDL

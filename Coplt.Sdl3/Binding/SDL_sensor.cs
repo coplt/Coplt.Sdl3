@@ -8,14 +8,14 @@ namespace Coplt.Sdl3
 
     public enum SDL_SensorType
     {
-        SDL_SENSOR_INVALID = -1,
-        SDL_SENSOR_UNKNOWN,
-        SDL_SENSOR_ACCEL,
-        SDL_SENSOR_GYRO,
-        SDL_SENSOR_ACCEL_L,
-        SDL_SENSOR_GYRO_L,
-        SDL_SENSOR_ACCEL_R,
-        SDL_SENSOR_GYRO_R,
+        Invalid = -1,
+        Unknown,
+        Accel,
+        Gyro,
+        AccelL,
+        GyroL,
+        AccelR,
+        GyroR,
     }
 
     public static unsafe partial class SDL
