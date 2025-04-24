@@ -101,7 +101,6 @@ fix_rect ()
 let remove_native_names_regex =
     Regex("\s*\[(return: )?NativeTypeName\(\"[\w\d _&*(),\[\]]*\"\)\] ?")
 
-let start_with_number = Regex("^\d")
 let enum_name_map (name: string) =
     String.Join(
         "",

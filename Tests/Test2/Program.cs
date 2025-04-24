@@ -26,18 +26,19 @@ unsafe class Program
         {
             shader_format = SDL_GPUShaderFormat.Spirv;
             shader_suffix = "spv";
-            SDL.SetBooleanProperty(device_prop, SDL.StrPtr("SDL.gpu.device.create.shaders.spirv"u8), true);
-            SDL.SetBooleanProperty(device_prop, SDL.StrPtr("SDL.gpu.device.create.debugmode"u8), gpu_debug);
-            SDL.SetStringProperty(device_prop, SDL.StrPtr("SDL.gpu.device.create.name"u8), null);
+            SDL.SetBooleanProperty(device_prop, SDL.Prop_Gpu_Device_Create_Shaders_Spirv_Boolean, true);
+            
+            SDL.SetBooleanProperty(device_prop, SDL.Prop_Gpu_Device_Create_Debugmode_Boolean, gpu_debug);
+            SDL.SetStringProperty(device_prop, SDL.Prop_Gpu_Device_Create_Name_String, null);
         }
         else
         {
             shader_format = SDL_GPUShaderFormat.Dxil;
             shader_suffix = "dxil";
-            SDL.SetBooleanProperty(device_prop, SDL.StrPtr("SDL.gpu.device.create.shaders.dxil"u8), true);
-            SDL.SetBooleanProperty(device_prop, SDL.StrPtr("SDL.gpu.device.create.debugmode"u8), gpu_debug);
-            SDL.SetStringProperty(device_prop, SDL.StrPtr("SDL.gpu.device.create.name"u8), null);
-            SDL.SetStringProperty(device_prop, SDL.StrPtr("SDL.gpu.device.create.d3d12.semantic"u8), SDL.StrPtr("POSITION"u8));
+            SDL.SetBooleanProperty(device_prop, SDL.Prop_Gpu_Device_Create_Shaders_Dxil_Boolean, true);
+            SDL.SetBooleanProperty(device_prop, SDL.Prop_Gpu_Device_Create_Debugmode_Boolean, gpu_debug);
+            SDL.SetStringProperty(device_prop,  SDL.Prop_Gpu_Device_Create_Name_String, null);
+            SDL.SetStringProperty(device_prop, SDL.Prop_Gpu_Device_Create_D3d12_Semantic_Name_String, SDL.StrPtr("POSITION"u8));
         }
         var device = SDL.CreateGPUDeviceWithProperties(device_prop);
         if (device == null) throw new SdlException();

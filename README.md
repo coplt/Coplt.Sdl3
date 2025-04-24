@@ -40,6 +40,7 @@ Unsafe C# bindings for SDL3
 ## Generate Bindings
 
 ```powershell
+dotnet fsi ./Scripts/ExtractSdlProps.fsx
 dotnet fsi ./Scripts/PreGen.fsx
 dotnet fsi ./Scripts/GenBinding.fsx
 dotnet fsi ./Scripts/FixBinding.fsx

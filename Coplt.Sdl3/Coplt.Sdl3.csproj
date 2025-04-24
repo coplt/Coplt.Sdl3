@@ -39,6 +39,7 @@
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Binding\"/>
+        <Folder Include="Props\" />
     </ItemGroup>
 
 </Project>
