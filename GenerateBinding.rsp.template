@@ -3,7 +3,6 @@ preview-codegen
 unix-types
 single-file
 generate-aggressive-inlining
-strip-enum-member-type-name
 --include-directory
 ./SDL/include/
 --file-directory

@@ -7,10 +7,15 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
   workflow_call:
+    outputs:
+      nupkg-artifact:
+        value: ${{ jobs.generate-bindings.outputs.nupkg-artifact }}
 
 jobs:
   generate-bindings:
     runs-on: ubuntu-latest
+    outputs:
+      nupkg-artifact: ${{ steps.upload-nupkg-artifact.outputs.artifact-id }}
     
     steps:
       - uses: actions/checkout@v4
@@ -36,3 +41,9 @@ jobs:
         run: dotnet fsi ./Scripts/FixBinding.fsx
       - name: Build
         run: dotnet build --no-restore -c Release ./Coplt.Sdl3/Coplt.Sdl3.csproj
+      - id: upload-nupkg-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'binding.nupkg'
+          path: ./Coplt.Sdl3/bin/Release/*.nupkg
+          overwrite: true

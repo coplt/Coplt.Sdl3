@@ -4,6 +4,17 @@ on:
   workflow_dispatch:
 
 jobs:
+  build-meta-package:
+    uses: ./.github/workflows/build-native-meta-package.yml
+  publish-meta-package:
+    uses: ./.github/workflows/publish-to-nuget.yml
+    needs: [ build-meta-package ]
+    secrets:
+      NUGET_KEY: ${{ secrets.NUGET_KEY }}
+    with:
+      nupkg-artifact: ${{ needs.build-meta-package.outputs.nupkg-artifact }}
+      nupkg-artifact-name: native-meta-package.nupkg
+      
   build-windows-x64:
     uses: ./.github/workflows/build-win-x64.yml
   publish-windows-x64:

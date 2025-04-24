@@ -4,6 +4,8 @@ on:
   workflow_dispatch
 
 jobs:
+  build-meta-package:
+    uses: ./.github/workflows/build-native-meta-package.yml
   build-windows-x64:
     uses: ./.github/workflows/build-win-x64.yml
   build-windows-arm64:

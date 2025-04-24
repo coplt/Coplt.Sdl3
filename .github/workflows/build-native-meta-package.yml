@@ -5,7 +5,7 @@ on:
   workflow_call:
     outputs:
       nupkg-artifact:
-        value: ${{ jobs.build-windows-x64.outputs.nupkg-artifact }}
+        value: ${{ jobs.build-native-meta-package.outputs.nupkg-artifact }}
   
 jobs:
   build-native-meta-package:
