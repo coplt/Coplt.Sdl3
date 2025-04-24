@@ -102,23 +102,22 @@ let remove_native_names_regex =
     Regex("\s*\[(return: )?NativeTypeName\(\"[\w\d _&*(),\[\]]*\"\)\] ?")
 
 let start_with_number = Regex("^\d")
-
 let enum_name_map (name: string) =
-    let is_number = start_with_number.Match name
-
-    let r =
-        String.Join(
-            "",
-            name.Split("_")
-            |> Seq.map _.ToLower()
-            |> Seq.map (fun s ->
-                if s.Length <= 1 then
-                    s.ToUpper()
+    String.Join(
+        "",
+        name.Split("_")
+        |> Seq.map _.ToLower()
+        |> Seq.map (fun s ->
+            let s =
+                if s.Length > 0 && Char.IsNumber(s[0]) then
+                    $"_{s}"
                 else
-                    $"{s[0].ToString().ToUpper()}{s[1..]}")
-        )
-
-    if is_number.Success then $"_{r}" else r
+                    s
+            if s.Length <= 1 then
+                s.ToUpper()
+            else
+                $"{s[0].ToString().ToUpper()}{s[1..]}")
+    )
 
 type State =
     | None
