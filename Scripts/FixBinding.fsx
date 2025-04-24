@@ -101,22 +101,24 @@ fix_rect ()
 let remove_native_names_regex =
     Regex("\s*\[(return: )?NativeTypeName\(\"[\w\d _&*(),\[\]]*\"\)\] ?")
 
+let start_with_number = Regex("^\d")
+
 let enum_name_map (name: string) =
-    String.Join(
-        "",
-        name.Split("_")
-        |> Seq.map _.ToLower()
-        |> Seq.map (fun s ->
-            let mutable s = s
+    let is_number = start_with_number.Match name
 
-            if s.Length > 0 && Char.IsNumber(s[0]) then
-                s <- $"_{s}"
+    let r =
+        String.Join(
+            "",
+            name.Split("_")
+            |> Seq.map _.ToLower()
+            |> Seq.map (fun s ->
+                if s.Length <= 1 then
+                    s.ToUpper()
+                else
+                    $"{s[0].ToString().ToUpper()}{s[1..]}")
+        )
 
-            if s.Length <= 1 then
-                s.ToUpper()
-            else
-                $"{s[0].ToString().ToUpper()}{s[1..]}")
-    )
+    if is_number.Success then $"_{r}" else r
 
 type State =
     | None
@@ -129,7 +131,7 @@ let enum_name_regex = Regex("    public enum (?<name>SDL_[\w\d_]+)")
 
 let enum_item_regex =
     Regex(
-        "        (?<raw>SDL_(CAMERA_POSITION|GAMEPAD_TYPE|GAMEPAD_BUTTON_LABEL|GAMEPAD_BUTTON|DATE_FORMAT|TIME_FORMAT|TOUCH_DEVICE|SYSTEM_THEME|[^_]+)_(?<name>[\w\d_]+))( = (?<val>[\w\d<>()\-]+))?,"
+        "        (?<raw>SDL_(CAMERA_POSITION|GAMEPAD_TYPE|GAMEPAD_BUTTON_LABEL|GAMEPAD_BUTTON|DATE_FORMAT|TIME_FORMAT|TOUCH_DEVICE|SYSTEM_THEME|GPU_[^_]+|[^_]+)_(?<name>[\w\d_]+))( = (?<val>[\w\d<>()\-]+))?,"
     )
 
 let enum_item_regex2 =
