@@ -14,6 +14,13 @@ Unsafe C# bindings for SDL3
 
 ---
 
+- [![Nuget](https://img.shields.io/nuget/v/Coplt.Sdl3.Native)](https://www.nuget.org/packages/Coplt.Sdl3.Native/)  
+  [Coplt.Sdl3.Native](https://www.nuget.org/packages/Coplt.Sdl3.Native/)  
+
+  Meta package for automatic dependency on sdl3 native library
+
+---
+
 - [![Nuget](https://img.shields.io/nuget/v/Coplt.Sdl3.Native.Win.x64)](https://www.nuget.org/packages/Coplt.Sdl3.Native.Win.x64/)  
   [Coplt.Sdl3.Native.Win.x64](https://www.nuget.org/packages/Coplt.Sdl3.Native.Win.x64/)  
 
