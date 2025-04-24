@@ -1,6 +1,8 @@
 # Coplt.Sdl3
 
 [![Nuget](https://img.shields.io/nuget/v/Coplt.Sdl3)](https://www.nuget.org/packages/Coplt.Sdl3/)
+[![Generate Bindings](https://github.com/coplt/Coplt.Sdl3/actions/workflows/generate-bindings.yml/badge.svg)](https://github.com/coplt/Coplt.Sdl3/actions/workflows/generate-bindings.yml)
+[![Build Native](https://github.com/coplt/Coplt.Sdl3/actions/workflows/build-native.yml/badge.svg)](https://github.com/coplt/Coplt.Sdl3/actions/workflows/build-native.yml)
 
 Unsafe C# bindings for SDL3
 

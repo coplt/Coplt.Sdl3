@@ -28,6 +28,7 @@ public enum SDL_GPUBufferUsageFlags : uint
 [Flags]
 public enum SDL_GPUShaderFormat : uint
 {
+    Invalid = 0,
     Private = 1u << 0,
     Spirv = 1u << 1,
     Dxbc = 1u << 2,

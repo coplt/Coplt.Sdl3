@@ -40,7 +40,7 @@ let flags_regex =
     )
 
 let val_regex =
-    Regex("(?<val>0x[\da-fA-F]+u)|SDL_UINT64_C\((?<val>0x[\da-fA-F]+)\)|\((?<val>\d+u << \d+)\)")
+    Regex("(?<val>0x[\da-fA-F]+u)|SDL_UINT64_C\((?<val>0x[\da-fA-F]+)\)|\((?<val>\d+u << \d+)\)|(?<val>0)")
 
 for path in File.ReadLines("./HeadersToGen.txt") do
     let flags = Dictionary<string, List<string>>()
