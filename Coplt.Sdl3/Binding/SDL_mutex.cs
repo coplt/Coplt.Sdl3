@@ -29,7 +29,8 @@ namespace Coplt.Sdl3
     public unsafe partial struct SDL_InitState
     {
         public SDL_AtomicInt status;
-        public ulong thread;
+
+        public SDL_ThreadID thread;
 
         public void* reserved;
     }

@@ -25,10 +25,10 @@ namespace Coplt.Sdl3
     public static unsafe partial class SDL
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_OpenTitleStorage", ExactSpelling = true)]
-        public static extern SDL_Storage* OpenTitleStorage(byte* @override,uint props);
+        public static extern SDL_Storage* OpenTitleStorage(byte* @override, SDL_PropertiesID props);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_OpenUserStorage", ExactSpelling = true)]
-        public static extern SDL_Storage* OpenUserStorage(byte* org,byte* app,uint props);
+        public static extern SDL_Storage* OpenUserStorage(byte* org,byte* app, SDL_PropertiesID props);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_OpenFileStorage", ExactSpelling = true)]
         public static extern SDL_Storage* OpenFileStorage(byte* path);

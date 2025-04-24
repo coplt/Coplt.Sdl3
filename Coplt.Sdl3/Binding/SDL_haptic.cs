@@ -179,19 +179,19 @@ namespace Coplt.Sdl3
     public static unsafe partial class SDL
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetHaptics", ExactSpelling = true)]
-        public static extern uint* GetHaptics(int* count);
+        public static extern SDL_HapticID* GetHaptics(int* count);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetHapticNameForID", ExactSpelling = true)]
-        public static extern byte* GetHapticNameForID(uint instance_id);
+        public static extern byte* GetHapticNameForID(SDL_HapticID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_OpenHaptic", ExactSpelling = true)]
-        public static extern SDL_Haptic* OpenHaptic(uint instance_id);
+        public static extern SDL_Haptic* OpenHaptic(SDL_HapticID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetHapticFromID", ExactSpelling = true)]
-        public static extern SDL_Haptic* GetHapticFromID(uint instance_id);
+        public static extern SDL_Haptic* GetHapticFromID(SDL_HapticID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetHapticID", ExactSpelling = true)]
-        public static extern uint GetHapticID(SDL_Haptic* haptic);
+        public static extern SDL_HapticID GetHapticID(SDL_Haptic* haptic);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetHapticName", ExactSpelling = true)]
         public static extern byte* GetHapticName(SDL_Haptic* haptic);

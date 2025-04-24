@@ -26,12 +26,12 @@ namespace Coplt.Sdl3
         public static extern void DelayPrecise(ulong ns);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_AddTimer", ExactSpelling = true)]
-        public static extern uint AddTimer(uint interval,delegate* unmanaged[Cdecl]<void*, uint, uint, uint> callback, void* userdata);
+        public static extern SDL_TimerID AddTimer(uint interval,delegate* unmanaged[Cdecl]<void*, SDL_TimerID, uint, uint> callback, void* userdata);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_AddTimerNS", ExactSpelling = true)]
-        public static extern uint AddTimerNS(ulong interval,delegate* unmanaged[Cdecl]<void*, uint, ulong, ulong> callback, void* userdata);
+        public static extern SDL_TimerID AddTimerNS(ulong interval,delegate* unmanaged[Cdecl]<void*, SDL_TimerID, ulong, ulong> callback, void* userdata);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_RemoveTimer", ExactSpelling = true)]
-        public static extern bool8 RemoveTimer(uint id);
+        public static extern bool8 RemoveTimer(SDL_TimerID id);
     }
 }

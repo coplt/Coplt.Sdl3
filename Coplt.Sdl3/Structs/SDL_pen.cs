@@ -13,3 +13,5 @@ public enum SDL_PenInputFlags : uint
     Button5 = 1u << 5,
     EraserTip = 1u << 30,
 }
+
+public readonly record struct SDL_PenID(uint Value);

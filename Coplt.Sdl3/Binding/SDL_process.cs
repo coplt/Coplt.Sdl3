@@ -20,10 +20,10 @@ namespace Coplt.Sdl3
         public static extern SDL_Process* CreateProcess(byte** args,bool8 pipe_stdio);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateProcessWithProperties", ExactSpelling = true)]
-        public static extern SDL_Process* CreateProcessWithProperties(uint props);
+        public static extern SDL_Process* CreateProcessWithProperties(SDL_PropertiesID props);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetProcessProperties", ExactSpelling = true)]
-        public static extern uint GetProcessProperties(SDL_Process* process);
+        public static extern SDL_PropertiesID GetProcessProperties(SDL_Process* process);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ReadProcess", ExactSpelling = true)]
         public static extern void* ReadProcess(SDL_Process* process,nuint* datasize, int* exitcode);

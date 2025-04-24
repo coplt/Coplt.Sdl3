@@ -28,16 +28,16 @@ namespace Coplt.Sdl3
         public static extern SDL_Thread* CreateThreadRuntime(delegate* unmanaged[Cdecl]<void*, int> fn,byte* name, void* data,delegate* unmanaged[Cdecl]<void> pfnBeginThread,delegate* unmanaged[Cdecl]<void> pfnEndThread);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateThreadWithPropertiesRuntime", ExactSpelling = true)]
-        public static extern SDL_Thread* CreateThreadWithPropertiesRuntime(uint props,delegate* unmanaged[Cdecl]<void> pfnBeginThread,delegate* unmanaged[Cdecl]<void> pfnEndThread);
+        public static extern SDL_Thread* CreateThreadWithPropertiesRuntime(SDL_PropertiesID props,delegate* unmanaged[Cdecl]<void> pfnBeginThread,delegate* unmanaged[Cdecl]<void> pfnEndThread);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetThreadName", ExactSpelling = true)]
         public static extern byte* GetThreadName(SDL_Thread* thread);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetCurrentThreadID", ExactSpelling = true)]
-        public static extern ulong GetCurrentThreadID();
+        public static extern SDL_ThreadID GetCurrentThreadID();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetThreadID", ExactSpelling = true)]
-        public static extern ulong GetThreadID(SDL_Thread* thread);
+        public static extern SDL_ThreadID GetThreadID(SDL_Thread* thread);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetCurrentThreadPriority", ExactSpelling = true)]
         public static extern bool8 SetCurrentThreadPriority(SDL_ThreadPriority priority);

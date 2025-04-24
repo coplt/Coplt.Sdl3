@@ -40,28 +40,28 @@ namespace Coplt.Sdl3
         public static extern byte* GetCurrentCameraDriver();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetCameras", ExactSpelling = true)]
-        public static extern uint* GetCameras(int* count);
+        public static extern SDL_CameraID* GetCameras(int* count);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetCameraSupportedFormats", ExactSpelling = true)]
-        public static extern SDL_CameraSpec** GetCameraSupportedFormats(uint instance_id, int* count);
+        public static extern SDL_CameraSpec** GetCameraSupportedFormats(SDL_CameraID instance_id, int* count);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetCameraName", ExactSpelling = true)]
-        public static extern byte* GetCameraName(uint instance_id);
+        public static extern byte* GetCameraName(SDL_CameraID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetCameraPosition", ExactSpelling = true)]
-        public static extern SDL_CameraPosition GetCameraPosition(uint instance_id);
+        public static extern SDL_CameraPosition GetCameraPosition(SDL_CameraID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_OpenCamera", ExactSpelling = true)]
-        public static extern SDL_Camera* OpenCamera(uint instance_id,SDL_CameraSpec* spec);
+        public static extern SDL_Camera* OpenCamera(SDL_CameraID instance_id,SDL_CameraSpec* spec);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetCameraPermissionState", ExactSpelling = true)]
         public static extern int GetCameraPermissionState(SDL_Camera* camera);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetCameraID", ExactSpelling = true)]
-        public static extern uint GetCameraID(SDL_Camera* camera);
+        public static extern SDL_CameraID GetCameraID(SDL_Camera* camera);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetCameraProperties", ExactSpelling = true)]
-        public static extern uint GetCameraProperties(SDL_Camera* camera);
+        public static extern SDL_PropertiesID GetCameraProperties(SDL_Camera* camera);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetCameraFormat", ExactSpelling = true)]
         public static extern bool8 GetCameraFormat(SDL_Camera* camera, SDL_CameraSpec* spec);

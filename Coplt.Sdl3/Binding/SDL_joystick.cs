@@ -98,49 +98,49 @@ namespace Coplt.Sdl3
         public static extern bool8 HasJoystick();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetJoysticks", ExactSpelling = true)]
-        public static extern uint* GetJoysticks(int* count);
+        public static extern SDL_JoystickID* GetJoysticks(int* count);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetJoystickNameForID", ExactSpelling = true)]
-        public static extern byte* GetJoystickNameForID(uint instance_id);
+        public static extern byte* GetJoystickNameForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetJoystickPathForID", ExactSpelling = true)]
-        public static extern byte* GetJoystickPathForID(uint instance_id);
+        public static extern byte* GetJoystickPathForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetJoystickPlayerIndexForID", ExactSpelling = true)]
-        public static extern int GetJoystickPlayerIndexForID(uint instance_id);
+        public static extern int GetJoystickPlayerIndexForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetJoystickGUIDForID", ExactSpelling = true)]
-        public static extern SDL_GUID GetJoystickGUIDForID(uint instance_id);
+        public static extern SDL_GUID GetJoystickGUIDForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetJoystickVendorForID", ExactSpelling = true)]
-        public static extern ushort GetJoystickVendorForID(uint instance_id);
+        public static extern ushort GetJoystickVendorForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetJoystickProductForID", ExactSpelling = true)]
-        public static extern ushort GetJoystickProductForID(uint instance_id);
+        public static extern ushort GetJoystickProductForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetJoystickProductVersionForID", ExactSpelling = true)]
-        public static extern ushort GetJoystickProductVersionForID(uint instance_id);
+        public static extern ushort GetJoystickProductVersionForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetJoystickTypeForID", ExactSpelling = true)]
-        public static extern SDL_JoystickType GetJoystickTypeForID(uint instance_id);
+        public static extern SDL_JoystickType GetJoystickTypeForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_OpenJoystick", ExactSpelling = true)]
-        public static extern SDL_Joystick* OpenJoystick(uint instance_id);
+        public static extern SDL_Joystick* OpenJoystick(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetJoystickFromID", ExactSpelling = true)]
-        public static extern SDL_Joystick* GetJoystickFromID(uint instance_id);
+        public static extern SDL_Joystick* GetJoystickFromID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetJoystickFromPlayerIndex", ExactSpelling = true)]
         public static extern SDL_Joystick* GetJoystickFromPlayerIndex(int player_index);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_AttachVirtualJoystick", ExactSpelling = true)]
-        public static extern uint AttachVirtualJoystick(SDL_VirtualJoystickDesc* desc);
+        public static extern SDL_JoystickID AttachVirtualJoystick(SDL_VirtualJoystickDesc* desc);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_DetachVirtualJoystick", ExactSpelling = true)]
-        public static extern bool8 DetachVirtualJoystick(uint instance_id);
+        public static extern bool8 DetachVirtualJoystick(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_IsJoystickVirtual", ExactSpelling = true)]
-        public static extern bool8 IsJoystickVirtual(uint instance_id);
+        public static extern bool8 IsJoystickVirtual(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetJoystickVirtualAxis", ExactSpelling = true)]
         public static extern bool8 SetJoystickVirtualAxis(SDL_Joystick* joystick, int axis,short value);
@@ -161,7 +161,7 @@ namespace Coplt.Sdl3
         public static extern bool8 SendJoystickVirtualSensorData(SDL_Joystick* joystick, SDL_SensorType type,ulong sensor_timestamp,float* data, int num_values);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetJoystickProperties", ExactSpelling = true)]
-        public static extern uint GetJoystickProperties(SDL_Joystick* joystick);
+        public static extern SDL_PropertiesID GetJoystickProperties(SDL_Joystick* joystick);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetJoystickName", ExactSpelling = true)]
         public static extern byte* GetJoystickName(SDL_Joystick* joystick);
@@ -203,7 +203,7 @@ namespace Coplt.Sdl3
         public static extern bool8 JoystickConnected(SDL_Joystick* joystick);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetJoystickID", ExactSpelling = true)]
-        public static extern uint GetJoystickID(SDL_Joystick* joystick);
+        public static extern SDL_JoystickID GetJoystickID(SDL_Joystick* joystick);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetNumJoystickAxes", ExactSpelling = true)]
         public static extern int GetNumJoystickAxes(SDL_Joystick* joystick);

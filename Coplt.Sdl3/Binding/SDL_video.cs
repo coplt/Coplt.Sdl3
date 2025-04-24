@@ -15,7 +15,7 @@ namespace Coplt.Sdl3
 
     public unsafe partial struct SDL_DisplayMode
     {
-        public uint displayID;
+        public SDL_DisplayID displayID;
 
         public SDL_PixelFormat format;
 
@@ -119,52 +119,52 @@ namespace Coplt.Sdl3
         public static extern SDL_SystemTheme GetSystemTheme();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDisplays", ExactSpelling = true)]
-        public static extern uint* GetDisplays(int* count);
+        public static extern SDL_DisplayID* GetDisplays(int* count);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetPrimaryDisplay", ExactSpelling = true)]
-        public static extern uint GetPrimaryDisplay();
+        public static extern SDL_DisplayID GetPrimaryDisplay();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDisplayProperties", ExactSpelling = true)]
-        public static extern uint GetDisplayProperties(uint displayID);
+        public static extern SDL_PropertiesID GetDisplayProperties(SDL_DisplayID displayID);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDisplayName", ExactSpelling = true)]
-        public static extern byte* GetDisplayName(uint displayID);
+        public static extern byte* GetDisplayName(SDL_DisplayID displayID);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDisplayBounds", ExactSpelling = true)]
-        public static extern bool8 GetDisplayBounds(uint displayID, SDL_Rect* rect);
+        public static extern bool8 GetDisplayBounds(SDL_DisplayID displayID, SDL_Rect* rect);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDisplayUsableBounds", ExactSpelling = true)]
-        public static extern bool8 GetDisplayUsableBounds(uint displayID, SDL_Rect* rect);
+        public static extern bool8 GetDisplayUsableBounds(SDL_DisplayID displayID, SDL_Rect* rect);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetNaturalDisplayOrientation", ExactSpelling = true)]
-        public static extern SDL_DisplayOrientation GetNaturalDisplayOrientation(uint displayID);
+        public static extern SDL_DisplayOrientation GetNaturalDisplayOrientation(SDL_DisplayID displayID);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetCurrentDisplayOrientation", ExactSpelling = true)]
-        public static extern SDL_DisplayOrientation GetCurrentDisplayOrientation(uint displayID);
+        public static extern SDL_DisplayOrientation GetCurrentDisplayOrientation(SDL_DisplayID displayID);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDisplayContentScale", ExactSpelling = true)]
-        public static extern float GetDisplayContentScale(uint displayID);
+        public static extern float GetDisplayContentScale(SDL_DisplayID displayID);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetFullscreenDisplayModes", ExactSpelling = true)]
-        public static extern SDL_DisplayMode** GetFullscreenDisplayModes(uint displayID, int* count);
+        public static extern SDL_DisplayMode** GetFullscreenDisplayModes(SDL_DisplayID displayID, int* count);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetClosestFullscreenDisplayMode", ExactSpelling = true)]
-        public static extern bool8 GetClosestFullscreenDisplayMode(uint displayID, int w, int h, float refresh_rate,bool8 include_high_density_modes, SDL_DisplayMode* closest);
+        public static extern bool8 GetClosestFullscreenDisplayMode(SDL_DisplayID displayID, int w, int h, float refresh_rate,bool8 include_high_density_modes, SDL_DisplayMode* closest);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDesktopDisplayMode", ExactSpelling = true)]
-        public static extern SDL_DisplayMode* GetDesktopDisplayMode(uint displayID);
+        public static extern SDL_DisplayMode* GetDesktopDisplayMode(SDL_DisplayID displayID);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetCurrentDisplayMode", ExactSpelling = true)]
-        public static extern SDL_DisplayMode* GetCurrentDisplayMode(uint displayID);
+        public static extern SDL_DisplayMode* GetCurrentDisplayMode(SDL_DisplayID displayID);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDisplayForPoint", ExactSpelling = true)]
-        public static extern uint GetDisplayForPoint(SDL_Point* point);
+        public static extern SDL_DisplayID GetDisplayForPoint(SDL_Point* point);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDisplayForRect", ExactSpelling = true)]
-        public static extern uint GetDisplayForRect(SDL_Rect* rect);
+        public static extern SDL_DisplayID GetDisplayForRect(SDL_Rect* rect);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDisplayForWindow", ExactSpelling = true)]
-        public static extern uint GetDisplayForWindow(SDL_Window* window);
+        public static extern SDL_DisplayID GetDisplayForWindow(SDL_Window* window);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetWindowPixelDensity", ExactSpelling = true)]
         public static extern float GetWindowPixelDensity(SDL_Window* window);
@@ -194,19 +194,19 @@ namespace Coplt.Sdl3
         public static extern SDL_Window* CreatePopupWindow(SDL_Window* parent, int offset_x, int offset_y, int w, int h, SDL_WindowFlags flags);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateWindowWithProperties", ExactSpelling = true)]
-        public static extern SDL_Window* CreateWindowWithProperties(uint props);
+        public static extern SDL_Window* CreateWindowWithProperties(SDL_PropertiesID props);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetWindowID", ExactSpelling = true)]
-        public static extern uint GetWindowID(SDL_Window* window);
+        public static extern SDL_WindowID GetWindowID(SDL_Window* window);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetWindowFromID", ExactSpelling = true)]
-        public static extern SDL_Window* GetWindowFromID(uint id);
+        public static extern SDL_Window* GetWindowFromID(SDL_WindowID id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetWindowParent", ExactSpelling = true)]
         public static extern SDL_Window* GetWindowParent(SDL_Window* window);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetWindowProperties", ExactSpelling = true)]
-        public static extern uint GetWindowProperties(SDL_Window* window);
+        public static extern SDL_PropertiesID GetWindowProperties(SDL_Window* window);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetWindowFlags", ExactSpelling = true)]
         public static extern SDL_WindowFlags GetWindowFlags(SDL_Window* window);

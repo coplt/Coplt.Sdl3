@@ -43,10 +43,10 @@ namespace Coplt.Sdl3
         public static extern bool8 HasMouse();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetMice", ExactSpelling = true)]
-        public static extern uint* GetMice(int* count);
+        public static extern SDL_MouseID* GetMice(int* count);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetMouseNameForID", ExactSpelling = true)]
-        public static extern byte* GetMouseNameForID(uint instance_id);
+        public static extern byte* GetMouseNameForID(SDL_MouseID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetMouseFocus", ExactSpelling = true)]
         public static extern SDL_Window* GetMouseFocus();

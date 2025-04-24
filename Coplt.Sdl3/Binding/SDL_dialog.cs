@@ -27,6 +27,6 @@ namespace Coplt.Sdl3
         public static extern void ShowOpenFolderDialog(delegate* unmanaged[Cdecl]<void*, byte**, int, void> callback, void* userdata, SDL_Window* window,byte* default_location,bool8 allow_many);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ShowFileDialogWithProperties", ExactSpelling = true)]
-        public static extern void ShowFileDialogWithProperties(SDL_FileDialogType type,delegate* unmanaged[Cdecl]<void*, byte**, int, void> callback, void* userdata,uint props);
+        public static extern void ShowFileDialogWithProperties(SDL_FileDialogType type,delegate* unmanaged[Cdecl]<void*, byte**, int, void> callback, void* userdata, SDL_PropertiesID props);
     }
 }

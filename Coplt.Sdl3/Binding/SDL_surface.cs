@@ -47,7 +47,7 @@ namespace Coplt.Sdl3
         public static extern void DestroySurface(SDL_Surface* surface);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetSurfaceProperties", ExactSpelling = true)]
-        public static extern uint GetSurfaceProperties(SDL_Surface* surface);
+        public static extern SDL_PropertiesID GetSurfaceProperties(SDL_Surface* surface);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetSurfaceColorspace", ExactSpelling = true)]
         public static extern bool8 SetSurfaceColorspace(SDL_Surface* surface, SDL_Colorspace colorspace);
@@ -122,10 +122,10 @@ namespace Coplt.Sdl3
         public static extern bool8 GetSurfaceAlphaMod(SDL_Surface* surface,byte* alpha);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetSurfaceBlendMode", ExactSpelling = true)]
-        public static extern bool8 SetSurfaceBlendMode(SDL_Surface* surface,uint blendMode);
+        public static extern bool8 SetSurfaceBlendMode(SDL_Surface* surface, SDL_BlendMode blendMode);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetSurfaceBlendMode", ExactSpelling = true)]
-        public static extern bool8 GetSurfaceBlendMode(SDL_Surface* surface,uint* blendMode);
+        public static extern bool8 GetSurfaceBlendMode(SDL_Surface* surface, SDL_BlendMode* blendMode);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetSurfaceClipRect", ExactSpelling = true)]
         public static extern bool8 SetSurfaceClipRect(SDL_Surface* surface,SDL_Rect* rect);
@@ -146,13 +146,13 @@ namespace Coplt.Sdl3
         public static extern SDL_Surface* ConvertSurface(SDL_Surface* surface, SDL_PixelFormat format);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ConvertSurfaceAndColorspace", ExactSpelling = true)]
-        public static extern SDL_Surface* ConvertSurfaceAndColorspace(SDL_Surface* surface, SDL_PixelFormat format, SDL_Palette* palette, SDL_Colorspace colorspace,uint props);
+        public static extern SDL_Surface* ConvertSurfaceAndColorspace(SDL_Surface* surface, SDL_PixelFormat format, SDL_Palette* palette, SDL_Colorspace colorspace, SDL_PropertiesID props);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ConvertPixels", ExactSpelling = true)]
         public static extern bool8 ConvertPixels(int width, int height, SDL_PixelFormat src_format,void* src, int src_pitch, SDL_PixelFormat dst_format, void* dst, int dst_pitch);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ConvertPixelsAndColorspace", ExactSpelling = true)]
-        public static extern bool8 ConvertPixelsAndColorspace(int width, int height, SDL_PixelFormat src_format, SDL_Colorspace src_colorspace,uint src_properties,void* src, int src_pitch, SDL_PixelFormat dst_format, SDL_Colorspace dst_colorspace,uint dst_properties, void* dst, int dst_pitch);
+        public static extern bool8 ConvertPixelsAndColorspace(int width, int height, SDL_PixelFormat src_format, SDL_Colorspace src_colorspace, SDL_PropertiesID src_properties,void* src, int src_pitch, SDL_PixelFormat dst_format, SDL_Colorspace dst_colorspace, SDL_PropertiesID dst_properties, void* dst, int dst_pitch);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_PremultiplyAlpha", ExactSpelling = true)]
         public static extern bool8 PremultiplyAlpha(int width, int height, SDL_PixelFormat src_format,void* src, int src_pitch, SDL_PixelFormat dst_format, void* dst, int dst_pitch,bool8 linear);

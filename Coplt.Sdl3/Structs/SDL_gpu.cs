@@ -33,3 +33,5 @@ public enum SDL_GPUColorComponentFlags : byte
     B = (byte)(1u << 2),
     A = (byte)(1u << 3),
 }
+
+public readonly record struct SDL_GPUShaderFormat(uint Value);

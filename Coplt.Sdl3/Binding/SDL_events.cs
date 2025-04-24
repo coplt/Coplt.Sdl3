@@ -137,7 +137,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint displayID;
+
+        public SDL_DisplayID displayID;
         public int data1;
         public int data2;
     }
@@ -147,7 +148,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint windowID;
+
+        public SDL_WindowID windowID;
         public int data1;
         public int data2;
     }
@@ -157,7 +159,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint which;
+
+        public SDL_KeyboardID which;
     }
 
     public partial struct SDL_KeyboardEvent
@@ -165,12 +168,16 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint windowID;
-        public uint which;
+
+        public SDL_WindowID windowID;
+
+        public SDL_KeyboardID which;
 
         public SDL_Scancode scancode;
-        public uint key;
-        public ushort mod;
+
+        public SDL_Keycode key;
+
+        public SDL_Keymod mod;
         public ushort raw;
         public bool8 down;
         public bool8 repeat;
@@ -181,7 +188,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint windowID;
+
+        public SDL_WindowID windowID;
         public byte* text;
         public int start;
         public int length;
@@ -192,7 +200,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint windowID;
+
+        public SDL_WindowID windowID;
         public byte** candidates;
         public int num_candidates;
         public int selected_candidate;
@@ -207,7 +216,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint windowID;
+
+        public SDL_WindowID windowID;
         public byte* text;
     }
 
@@ -216,7 +226,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint which;
+
+        public SDL_MouseID which;
     }
 
     public partial struct SDL_MouseMotionEvent
@@ -224,8 +235,10 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint windowID;
-        public uint which;
+
+        public SDL_WindowID windowID;
+
+        public SDL_MouseID which;
 
         public SDL_MouseButtonFlags state;
 
@@ -243,8 +256,10 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint windowID;
-        public uint which;
+
+        public SDL_WindowID windowID;
+
+        public SDL_MouseID which;
         public byte button;
         public bool8 down;
         public byte clicks;
@@ -260,8 +275,10 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint windowID;
-        public uint which;
+
+        public SDL_WindowID windowID;
+
+        public SDL_MouseID which;
 
         public float x;
 
@@ -279,7 +296,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint which;
+
+        public SDL_JoystickID which;
         public byte axis;
         public byte padding1;
         public byte padding2;
@@ -293,7 +311,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint which;
+
+        public SDL_JoystickID which;
         public byte ball;
         public byte padding1;
         public byte padding2;
@@ -307,7 +326,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint which;
+
+        public SDL_JoystickID which;
         public byte hat;
         public byte value;
         public byte padding1;
@@ -319,7 +339,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint which;
+
+        public SDL_JoystickID which;
         public byte button;
         public bool8 down;
         public byte padding1;
@@ -331,7 +352,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint which;
+
+        public SDL_JoystickID which;
     }
 
     public partial struct SDL_JoyBatteryEvent
@@ -339,7 +361,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint which;
+
+        public SDL_JoystickID which;
 
         public SDL_PowerState state;
 
@@ -351,7 +374,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint which;
+
+        public SDL_JoystickID which;
         public byte axis;
         public byte padding1;
         public byte padding2;
@@ -365,7 +389,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint which;
+
+        public SDL_JoystickID which;
         public byte button;
         public bool8 down;
         public byte padding1;
@@ -377,7 +402,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint which;
+
+        public SDL_JoystickID which;
     }
 
     public partial struct SDL_GamepadTouchpadEvent
@@ -385,7 +411,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint which;
+
+        public SDL_JoystickID which;
         public int touchpad;
         public int finger;
 
@@ -401,7 +428,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint which;
+
+        public SDL_JoystickID which;
         public int sensor;
         public _data_e__FixedBuffer data;
         public ulong sensor_timestamp;
@@ -418,7 +446,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint which;
+
+        public SDL_AudioDeviceID which;
         public bool8 recording;
         public byte padding1;
         public byte padding2;
@@ -430,7 +459,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint which;
+
+        public SDL_CameraID which;
     }
 
     public partial struct SDL_RenderEvent
@@ -438,7 +468,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint windowID;
+
+        public SDL_WindowID windowID;
     }
 
     public partial struct SDL_TouchFingerEvent
@@ -446,8 +477,10 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public ulong touchID;
-        public ulong fingerID;
+
+        public SDL_TouchID touchID;
+
+        public SDL_FingerID fingerID;
 
         public float x;
 
@@ -458,7 +491,8 @@ namespace Coplt.Sdl3
         public float dy;
 
         public float pressure;
-        public uint windowID;
+
+        public SDL_WindowID windowID;
     }
 
     public partial struct SDL_PenProximityEvent
@@ -466,8 +500,10 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint windowID;
-        public uint which;
+
+        public SDL_WindowID windowID;
+
+        public SDL_PenID which;
     }
 
     public partial struct SDL_PenMotionEvent
@@ -475,8 +511,10 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint windowID;
-        public uint which;
+
+        public SDL_WindowID windowID;
+
+        public SDL_PenID which;
 
         public SDL_PenInputFlags pen_state;
 
@@ -490,8 +528,10 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint windowID;
-        public uint which;
+
+        public SDL_WindowID windowID;
+
+        public SDL_PenID which;
 
         public SDL_PenInputFlags pen_state;
 
@@ -507,8 +547,10 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint windowID;
-        public uint which;
+
+        public SDL_WindowID windowID;
+
+        public SDL_PenID which;
 
         public SDL_PenInputFlags pen_state;
 
@@ -524,8 +566,10 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint windowID;
-        public uint which;
+
+        public SDL_WindowID windowID;
+
+        public SDL_PenID which;
 
         public SDL_PenInputFlags pen_state;
 
@@ -543,7 +587,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint windowID;
+
+        public SDL_WindowID windowID;
 
         public float x;
 
@@ -567,7 +612,8 @@ namespace Coplt.Sdl3
         public SDL_EventType type;
         public uint reserved;
         public ulong timestamp;
-        public uint which;
+
+        public SDL_SensorID which;
         public _data_e__FixedBuffer data;
         public ulong sensor_timestamp;
 
@@ -590,7 +636,8 @@ namespace Coplt.Sdl3
         public uint type;
         public uint reserved;
         public ulong timestamp;
-        public uint windowID;
+
+        public SDL_WindowID windowID;
         public int code;
 
         public void* data1;

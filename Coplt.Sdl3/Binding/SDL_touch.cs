@@ -12,7 +12,7 @@ namespace Coplt.Sdl3
 
     public partial struct SDL_Finger
     {
-        public ulong id;
+        public SDL_FingerID id;
 
         public float x;
 
@@ -24,15 +24,15 @@ namespace Coplt.Sdl3
     public static unsafe partial class SDL
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetTouchDevices", ExactSpelling = true)]
-        public static extern ulong* GetTouchDevices(int* count);
+        public static extern SDL_TouchID* GetTouchDevices(int* count);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetTouchDeviceName", ExactSpelling = true)]
-        public static extern byte* GetTouchDeviceName(ulong touchID);
+        public static extern byte* GetTouchDeviceName(SDL_TouchID touchID);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetTouchDeviceType", ExactSpelling = true)]
-        public static extern SDL_TouchDeviceType GetTouchDeviceType(ulong touchID);
+        public static extern SDL_TouchDeviceType GetTouchDeviceType(SDL_TouchID touchID);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetTouchFingers", ExactSpelling = true)]
-        public static extern SDL_Finger** GetTouchFingers(ulong touchID, int* count);
+        public static extern SDL_Finger** GetTouchFingers(SDL_TouchID touchID, int* count);
     }
 }

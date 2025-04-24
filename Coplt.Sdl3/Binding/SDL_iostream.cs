@@ -55,7 +55,7 @@ namespace Coplt.Sdl3
         public static extern bool8 CloseIO(SDL_IOStream* context);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetIOProperties", ExactSpelling = true)]
-        public static extern uint GetIOProperties(SDL_IOStream* context);
+        public static extern SDL_PropertiesID GetIOProperties(SDL_IOStream* context);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetIOStatus", ExactSpelling = true)]
         public static extern SDL_IOStatus GetIOStatus(SDL_IOStream* context);

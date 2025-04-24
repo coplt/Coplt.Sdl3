@@ -31,3 +31,15 @@ public enum SDL_WindowFlags : ulong
     Transparent = 0x0000000040000000,
     NotFocusable = 0x0000000080000000,
 }
+
+public readonly record struct SDL_DisplayID(uint Value);
+
+public readonly record struct SDL_WindowID(uint Value);
+
+public readonly record struct SDL_GLProfile(uint Value);
+
+public readonly record struct SDL_GLContextFlag(uint Value);
+
+public readonly record struct SDL_GLContextReleaseFlag(uint Value);
+
+public readonly record struct SDL_GLContextResetNotification(uint Value);

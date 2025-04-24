@@ -168,61 +168,61 @@ namespace Coplt.Sdl3
         public static extern byte* GetGamepadMapping(SDL_Gamepad* gamepad);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetGamepadMapping", ExactSpelling = true)]
-        public static extern bool8 SetGamepadMapping(uint instance_id,byte* mapping);
+        public static extern bool8 SetGamepadMapping(SDL_JoystickID instance_id,byte* mapping);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_HasGamepad", ExactSpelling = true)]
         public static extern bool8 HasGamepad();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGamepads", ExactSpelling = true)]
-        public static extern uint* GetGamepads(int* count);
+        public static extern SDL_JoystickID* GetGamepads(int* count);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_IsGamepad", ExactSpelling = true)]
-        public static extern bool8 IsGamepad(uint instance_id);
+        public static extern bool8 IsGamepad(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGamepadNameForID", ExactSpelling = true)]
-        public static extern byte* GetGamepadNameForID(uint instance_id);
+        public static extern byte* GetGamepadNameForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGamepadPathForID", ExactSpelling = true)]
-        public static extern byte* GetGamepadPathForID(uint instance_id);
+        public static extern byte* GetGamepadPathForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGamepadPlayerIndexForID", ExactSpelling = true)]
-        public static extern int GetGamepadPlayerIndexForID(uint instance_id);
+        public static extern int GetGamepadPlayerIndexForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGamepadGUIDForID", ExactSpelling = true)]
-        public static extern SDL_GUID GetGamepadGUIDForID(uint instance_id);
+        public static extern SDL_GUID GetGamepadGUIDForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGamepadVendorForID", ExactSpelling = true)]
-        public static extern ushort GetGamepadVendorForID(uint instance_id);
+        public static extern ushort GetGamepadVendorForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGamepadProductForID", ExactSpelling = true)]
-        public static extern ushort GetGamepadProductForID(uint instance_id);
+        public static extern ushort GetGamepadProductForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGamepadProductVersionForID", ExactSpelling = true)]
-        public static extern ushort GetGamepadProductVersionForID(uint instance_id);
+        public static extern ushort GetGamepadProductVersionForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGamepadTypeForID", ExactSpelling = true)]
-        public static extern SDL_GamepadType GetGamepadTypeForID(uint instance_id);
+        public static extern SDL_GamepadType GetGamepadTypeForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetRealGamepadTypeForID", ExactSpelling = true)]
-        public static extern SDL_GamepadType GetRealGamepadTypeForID(uint instance_id);
+        public static extern SDL_GamepadType GetRealGamepadTypeForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGamepadMappingForID", ExactSpelling = true)]
-        public static extern byte* GetGamepadMappingForID(uint instance_id);
+        public static extern byte* GetGamepadMappingForID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_OpenGamepad", ExactSpelling = true)]
-        public static extern SDL_Gamepad* OpenGamepad(uint instance_id);
+        public static extern SDL_Gamepad* OpenGamepad(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGamepadFromID", ExactSpelling = true)]
-        public static extern SDL_Gamepad* GetGamepadFromID(uint instance_id);
+        public static extern SDL_Gamepad* GetGamepadFromID(SDL_JoystickID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGamepadFromPlayerIndex", ExactSpelling = true)]
         public static extern SDL_Gamepad* GetGamepadFromPlayerIndex(int player_index);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGamepadProperties", ExactSpelling = true)]
-        public static extern uint GetGamepadProperties(SDL_Gamepad* gamepad);
+        public static extern SDL_PropertiesID GetGamepadProperties(SDL_Gamepad* gamepad);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGamepadID", ExactSpelling = true)]
-        public static extern uint GetGamepadID(SDL_Gamepad* gamepad);
+        public static extern SDL_JoystickID GetGamepadID(SDL_Gamepad* gamepad);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGamepadName", ExactSpelling = true)]
         public static extern byte* GetGamepadName(SDL_Gamepad* gamepad);

@@ -507,7 +507,8 @@ namespace Coplt.Sdl3
         public bool8 enable_compare;
         public byte padding1;
         public byte padding2;
-        public uint props;
+
+        public SDL_PropertiesID props;
     }
 
     public partial struct SDL_GPUVertexBufferDescription
@@ -573,14 +574,16 @@ namespace Coplt.Sdl3
         public nuint code_size;
         public byte* code;
         public byte* entrypoint;
-        public uint format;
+
+        public SDL_GPUShaderFormat format;
 
         public SDL_GPUShaderStage stage;
         public uint num_samplers;
         public uint num_storage_textures;
         public uint num_storage_buffers;
         public uint num_uniform_buffers;
-        public uint props;
+
+        public SDL_PropertiesID props;
     }
 
     public partial struct SDL_GPUTextureCreateInfo
@@ -596,21 +599,24 @@ namespace Coplt.Sdl3
         public uint num_levels;
 
         public SDL_GPUSampleCount sample_count;
-        public uint props;
+
+        public SDL_PropertiesID props;
     }
 
     public partial struct SDL_GPUBufferCreateInfo
     {
         public SDL_GPUBufferUsageFlags usage;
         public uint size;
-        public uint props;
+
+        public SDL_PropertiesID props;
     }
 
     public partial struct SDL_GPUTransferBufferCreateInfo
     {
         public SDL_GPUTransferBufferUsage usage;
         public uint size;
-        public uint props;
+
+        public SDL_PropertiesID props;
     }
 
     public partial struct SDL_GPURasterizerState
@@ -695,7 +701,8 @@ namespace Coplt.Sdl3
         public SDL_GPUDepthStencilState depth_stencil_state;
 
         public SDL_GPUGraphicsPipelineTargetInfo target_info;
-        public uint props;
+
+        public SDL_PropertiesID props;
     }
 
     public unsafe partial struct SDL_GPUComputePipelineCreateInfo
@@ -703,7 +710,8 @@ namespace Coplt.Sdl3
         public nuint code_size;
         public byte* code;
         public byte* entrypoint;
-        public uint format;
+
+        public SDL_GPUShaderFormat format;
         public uint num_samplers;
         public uint num_readonly_storage_textures;
         public uint num_readonly_storage_buffers;
@@ -713,7 +721,8 @@ namespace Coplt.Sdl3
         public uint threadcount_x;
         public uint threadcount_y;
         public uint threadcount_z;
-        public uint props;
+
+        public SDL_PropertiesID props;
     }
 
     public unsafe partial struct SDL_GPUColorTargetInfo
@@ -811,16 +820,16 @@ namespace Coplt.Sdl3
     public static unsafe partial class SDL
     {
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GPUSupportsShaderFormats", ExactSpelling = true)]
-        public static extern bool8 GPUSupportsShaderFormats(uint format_flags,byte* name);
+        public static extern bool8 GPUSupportsShaderFormats(SDL_GPUShaderFormat format_flags,byte* name);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GPUSupportsProperties", ExactSpelling = true)]
-        public static extern bool8 GPUSupportsProperties(uint props);
+        public static extern bool8 GPUSupportsProperties(SDL_PropertiesID props);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateGPUDevice", ExactSpelling = true)]
-        public static extern SDL_GPUDevice* CreateGPUDevice(uint format_flags,bool8 debug_mode,byte* name);
+        public static extern SDL_GPUDevice* CreateGPUDevice(SDL_GPUShaderFormat format_flags,bool8 debug_mode,byte* name);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateGPUDeviceWithProperties", ExactSpelling = true)]
-        public static extern SDL_GPUDevice* CreateGPUDeviceWithProperties(uint props);
+        public static extern SDL_GPUDevice* CreateGPUDeviceWithProperties(SDL_PropertiesID props);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_DestroyGPUDevice", ExactSpelling = true)]
         public static extern void DestroyGPUDevice(SDL_GPUDevice* device);
@@ -835,7 +844,7 @@ namespace Coplt.Sdl3
         public static extern byte* GetGPUDeviceDriver(SDL_GPUDevice* device);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetGPUShaderFormats", ExactSpelling = true)]
-        public static extern uint GetGPUShaderFormats(SDL_GPUDevice* device);
+        public static extern SDL_GPUShaderFormat GetGPUShaderFormats(SDL_GPUDevice* device);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateGPUComputePipeline", ExactSpelling = true)]
         public static extern SDL_GPUComputePipeline* CreateGPUComputePipeline(SDL_GPUDevice* device,SDL_GPUComputePipelineCreateInfo* createinfo);

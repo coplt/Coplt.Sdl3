@@ -29,10 +29,10 @@ namespace Coplt.Sdl3
         public static extern bool8 HasKeyboard();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetKeyboards", ExactSpelling = true)]
-        public static extern uint* GetKeyboards(int* count);
+        public static extern SDL_KeyboardID* GetKeyboards(int* count);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetKeyboardNameForID", ExactSpelling = true)]
-        public static extern byte* GetKeyboardNameForID(uint instance_id);
+        public static extern byte* GetKeyboardNameForID(SDL_KeyboardID instance_id);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetKeyboardFocus", ExactSpelling = true)]
         public static extern SDL_Window* GetKeyboardFocus();
@@ -44,16 +44,16 @@ namespace Coplt.Sdl3
         public static extern void ResetKeyboard();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetModState", ExactSpelling = true)]
-        public static extern ushort GetModState();
+        public static extern SDL_Keymod GetModState();
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetModState", ExactSpelling = true)]
-        public static extern void SetModState(ushort modstate);
+        public static extern void SetModState(SDL_Keymod modstate);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetKeyFromScancode", ExactSpelling = true)]
-        public static extern uint GetKeyFromScancode(SDL_Scancode scancode,ushort modstate,bool8 key_event);
+        public static extern SDL_Keycode GetKeyFromScancode(SDL_Scancode scancode, SDL_Keymod modstate,bool8 key_event);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetScancodeFromKey", ExactSpelling = true)]
-        public static extern SDL_Scancode GetScancodeFromKey(uint key,ushort* modstate);
+        public static extern SDL_Scancode GetScancodeFromKey(SDL_Keycode key, SDL_Keymod* modstate);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetScancodeName", ExactSpelling = true)]
         public static extern bool8 SetScancodeName(SDL_Scancode scancode,byte* name);
@@ -65,16 +65,16 @@ namespace Coplt.Sdl3
         public static extern SDL_Scancode GetScancodeFromName(byte* name);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetKeyName", ExactSpelling = true)]
-        public static extern byte* GetKeyName(uint key);
+        public static extern byte* GetKeyName(SDL_Keycode key);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetKeyFromName", ExactSpelling = true)]
-        public static extern uint GetKeyFromName(byte* name);
+        public static extern SDL_Keycode GetKeyFromName(byte* name);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_StartTextInput", ExactSpelling = true)]
         public static extern bool8 StartTextInput(SDL_Window* window);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_StartTextInputWithProperties", ExactSpelling = true)]
-        public static extern bool8 StartTextInputWithProperties(SDL_Window* window,uint props);
+        public static extern bool8 StartTextInputWithProperties(SDL_Window* window, SDL_PropertiesID props);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_TextInputActive", ExactSpelling = true)]
         public static extern bool8 TextInputActive(SDL_Window* window);

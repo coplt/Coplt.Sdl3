@@ -26,10 +26,10 @@ namespace Coplt.Sdl3
         public static extern void SetWindowsMessageHook(delegate* unmanaged[Cdecl]<void*, tagMSG*, bool8> callback, void* userdata);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDirect3D9AdapterIndex", ExactSpelling = true)]
-        public static extern int GetDirect3D9AdapterIndex(uint displayID);
+        public static extern int GetDirect3D9AdapterIndex(SDL_DisplayID displayID);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetDXGIOutputInfo", ExactSpelling = true)]
-        public static extern bool8 GetDXGIOutputInfo(uint displayID, int* adapterIndex, int* outputIndex);
+        public static extern bool8 GetDXGIOutputInfo(SDL_DisplayID displayID, int* adapterIndex, int* outputIndex);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetX11EventHook", ExactSpelling = true)]
         public static extern void SetX11EventHook(delegate* unmanaged[Cdecl]<void*, _XEvent*, bool8> callback, void* userdata);

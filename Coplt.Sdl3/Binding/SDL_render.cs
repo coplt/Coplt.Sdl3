@@ -57,7 +57,7 @@ namespace Coplt.Sdl3
         public static extern SDL_Renderer* CreateRenderer(SDL_Window* window,byte* name);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateRendererWithProperties", ExactSpelling = true)]
-        public static extern SDL_Renderer* CreateRendererWithProperties(uint props);
+        public static extern SDL_Renderer* CreateRendererWithProperties(SDL_PropertiesID props);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateSoftwareRenderer", ExactSpelling = true)]
         public static extern SDL_Renderer* CreateSoftwareRenderer(SDL_Surface* surface);
@@ -72,7 +72,7 @@ namespace Coplt.Sdl3
         public static extern byte* GetRendererName(SDL_Renderer* renderer);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetRendererProperties", ExactSpelling = true)]
-        public static extern uint GetRendererProperties(SDL_Renderer* renderer);
+        public static extern SDL_PropertiesID GetRendererProperties(SDL_Renderer* renderer);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetRenderOutputSize", ExactSpelling = true)]
         public static extern bool8 GetRenderOutputSize(SDL_Renderer* renderer, int* w, int* h);
@@ -87,10 +87,10 @@ namespace Coplt.Sdl3
         public static extern SDL_Texture* CreateTextureFromSurface(SDL_Renderer* renderer, SDL_Surface* surface);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_CreateTextureWithProperties", ExactSpelling = true)]
-        public static extern SDL_Texture* CreateTextureWithProperties(SDL_Renderer* renderer,uint props);
+        public static extern SDL_Texture* CreateTextureWithProperties(SDL_Renderer* renderer, SDL_PropertiesID props);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetTextureProperties", ExactSpelling = true)]
-        public static extern uint GetTextureProperties(SDL_Texture* texture);
+        public static extern SDL_PropertiesID GetTextureProperties(SDL_Texture* texture);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetRendererFromTexture", ExactSpelling = true)]
         public static extern SDL_Renderer* GetRendererFromTexture(SDL_Texture* texture);
@@ -123,10 +123,10 @@ namespace Coplt.Sdl3
         public static extern bool8 GetTextureAlphaModFloat(SDL_Texture* texture, float* alpha);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetTextureBlendMode", ExactSpelling = true)]
-        public static extern bool8 SetTextureBlendMode(SDL_Texture* texture,uint blendMode);
+        public static extern bool8 SetTextureBlendMode(SDL_Texture* texture, SDL_BlendMode blendMode);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetTextureBlendMode", ExactSpelling = true)]
-        public static extern bool8 GetTextureBlendMode(SDL_Texture* texture,uint* blendMode);
+        public static extern bool8 GetTextureBlendMode(SDL_Texture* texture, SDL_BlendMode* blendMode);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetTextureScaleMode", ExactSpelling = true)]
         public static extern bool8 SetTextureScaleMode(SDL_Texture* texture, SDL_ScaleMode scaleMode);
@@ -222,10 +222,10 @@ namespace Coplt.Sdl3
         public static extern bool8 GetRenderColorScale(SDL_Renderer* renderer, float* scale);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetRenderDrawBlendMode", ExactSpelling = true)]
-        public static extern bool8 SetRenderDrawBlendMode(SDL_Renderer* renderer,uint blendMode);
+        public static extern bool8 SetRenderDrawBlendMode(SDL_Renderer* renderer, SDL_BlendMode blendMode);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetRenderDrawBlendMode", ExactSpelling = true)]
-        public static extern bool8 GetRenderDrawBlendMode(SDL_Renderer* renderer,uint* blendMode);
+        public static extern bool8 GetRenderDrawBlendMode(SDL_Renderer* renderer, SDL_BlendMode* blendMode);
 
         [DllImport("SDL3", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_RenderClear", ExactSpelling = true)]
         public static extern bool8 RenderClear(SDL_Renderer* renderer);
